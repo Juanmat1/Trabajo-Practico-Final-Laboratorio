@@ -1,4 +1,4 @@
-package com.tp.tp_final_lab3;
+package com.tp.tp_final_lab3.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

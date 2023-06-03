@@ -1,0 +1,13 @@
+[ {
+  "nombre" : "juan",
+  "apellido" : "tretta",
+  "dni" : "41149231",
+  "usuario" : "juanma",
+  "contrasenia" : "123"
+}, {
+  "nombre" : "fede",
+  "apellido" : "marcos",
+  "dni" : "41149231",
+  "usuario" : "fede",
+  "contrasenia" : "123"
+} ]
