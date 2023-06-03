@@ -46,7 +46,7 @@ public class Usuarios extends Persona implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuarios usuarios = (Usuarios) o;
-        return Objects.equals(usuario, usuarios.usuario) && Objects.equals(contrasenia, usuarios.contrasenia);
+        return Objects.equals(usuario, usuarios.usuario);
     }
 
     @Override

@@ -30,11 +30,6 @@ public class loginController implements Initializable {
 
     }
 
-    @FXML
-    private Button createButton;
-
-    @FXML
-    private Button helpButton;
 
     @FXML
     private Button loginButton;

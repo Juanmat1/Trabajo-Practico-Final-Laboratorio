@@ -1,15 +1,12 @@
 package com.tp.tp_final_lab3;
 
-
-import com.tp.tp_final_lab3.Models.Usuarios;
-import com.tp.tp_final_lab3.Repository.Jackson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 public class main extends Application {
 
