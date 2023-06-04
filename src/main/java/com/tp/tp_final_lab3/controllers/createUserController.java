@@ -1,8 +1,7 @@
 package com.tp.tp_final_lab3.controllers;
 
-import com.tp.tp_final_lab3.Models.Usuarios;
+import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +21,7 @@ public class createUserController implements Initializable {
 
     }
 
-    ArrayList<Usuarios> users;
+    ArrayList<Usuario> users;
 
 
 
@@ -51,7 +50,7 @@ public class createUserController implements Initializable {
 
         users = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json");
 
-        Usuarios user = new Usuarios(textNombre.getText(),textApellido.getText(),textDNI.getText(),textUser.getText(),textPassword.getText());
+        Usuario user = new Usuario(textNombre.getText(),textApellido.getText(),textDNI.getText(),textUser.getText(),textPassword.getText());
 
         if(textPassword.getText().isEmpty() || textValidatePass.getText().isEmpty() || textUser.getText().isEmpty()
                 || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty())

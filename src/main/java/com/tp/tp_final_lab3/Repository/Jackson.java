@@ -2,8 +2,7 @@ package com.tp.tp_final_lab3.Repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
-import com.tp.tp_final_lab3.Models.Persona;
-import com.tp.tp_final_lab3.Models.Usuarios;
+import com.tp.tp_final_lab3.Models.Usuario;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +35,7 @@ public class Jackson {
         ArrayList<T> objetos = null;
 
         try {
-            CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Usuarios.class);
+            CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Usuario.class);
             objetos = mapper.readValue(file, collectionType);
 
         } catch (IOException e){

@@ -1,6 +1,6 @@
 package com.tp.tp_final_lab3.controllers;
 
-import com.tp.tp_final_lab3.Models.Usuarios;
+import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class loginController implements Initializable {
 
 
-    ArrayList<Usuarios> users;
+    ArrayList<Usuario> users;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,7 +66,7 @@ public class loginController implements Initializable {
 
 
                 users = Jackson.deserializarArrayList(pathJson);
-                Usuarios user = new Usuarios(textUser.getText(), textPassword.getText());
+                Usuario user = new Usuario(textUser.getText(), textPassword.getText());
 
                 if (users.contains(user)) {
                     try {
