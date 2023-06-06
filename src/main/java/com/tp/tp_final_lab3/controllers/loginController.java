@@ -2,6 +2,7 @@ package com.tp.tp_final_lab3.controllers;
 
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,6 +41,8 @@ public class loginController implements Initializable {
     @FXML
     private TextField textUser;
 
+
+
     @FXML
     public void loginAction(ActionEvent actionEvent) {
 
@@ -67,8 +70,10 @@ public class loginController implements Initializable {
 
                 users = Jackson.deserializarArrayList(pathJson);
                 Usuario user = new Usuario(textUser.getText(), textPassword.getText());
-
                 if (users.contains(user)) {
+
+                    SingletonUsuarioClass.getInstancia().SetInfo(user);
+
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/CRUD_Importador.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();

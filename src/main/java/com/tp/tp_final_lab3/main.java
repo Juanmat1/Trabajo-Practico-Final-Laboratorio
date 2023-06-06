@@ -1,7 +1,5 @@
 package com.tp.tp_final_lab3;
 
-import com.tp.tp_final_lab3.Models.Dolarsito;
-import com.tp.tp_final_lab3.Repository.Jackson;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
