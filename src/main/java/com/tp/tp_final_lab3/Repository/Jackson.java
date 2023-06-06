@@ -1,7 +1,6 @@
 package com.tp.tp_final_lab3.Repository;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.tp.tp_final_lab3.Models.Dolarsito;
@@ -9,10 +8,10 @@ import com.tp.tp_final_lab3.Models.Usuario;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
+
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Map;
+
 
 public class Jackson {
 

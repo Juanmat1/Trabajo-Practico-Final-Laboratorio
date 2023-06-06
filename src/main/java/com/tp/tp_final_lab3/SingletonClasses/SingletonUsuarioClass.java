@@ -25,8 +25,5 @@ public class SingletonUsuarioClass {
     {
         return userData;
     }
-    public void FlushData()
-    {
-        userData = null;
-    }
+
 }

@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 
 public class main extends Application {
 
@@ -22,7 +20,6 @@ public class main extends Application {
         String imageUrl = getClass().getResource("/Images/UTNLogo.png").toExternalForm();
         Image image = new Image(imageUrl);
         stage.getIcons().add(image);
-
         stage.setTitle("TP Final 3");
 
         stage.setScene(scene);

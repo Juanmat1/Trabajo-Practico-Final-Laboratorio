@@ -15,7 +15,6 @@ public class Dolarsito {
     public void setPageProps(PageProps pageProps) {
         this.pageProps = pageProps;
     }
-
     public static class PageProps {
         private String currency;
         private long timestamp;
