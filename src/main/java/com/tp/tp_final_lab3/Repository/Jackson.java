@@ -3,8 +3,8 @@ package com.tp.tp_final_lab3.Repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
-import com.tp.tp_final_lab3.Models.Dolarsito;
-import com.tp.tp_final_lab3.Models.Usuario;
+import com.tp.tp_final_lab3.Models.*;
+import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,25 +51,23 @@ public class Jackson {
         return objetos ;
     }
 
-    public static Dolarsito obtenerDolar()
+    public static ExchangeRates obtenerDivisas()
     {
-        Dolarsito dolarsito = null;
+        ExchangeRates exchangeRates = null;
 
         try{
 
             ObjectMapper mapper = new ObjectMapper();
 
-            dolarsito = mapper.readValue(new URL("https://www.dolarito.ar/_next/data/XjlxzmsKE2OvL4QjuFLRH/dolar-hoy.json"), Dolarsito.class);
+            exchangeRates = mapper.readValue(new URL("https://api.bluelytics.com.ar/v2/latest"), ExchangeRates.class);
 
         }catch (Exception e)
         {
             e.printStackTrace();
         }
 
-        return dolarsito;
+        return exchangeRates;
     }
-
-
     }
 
 

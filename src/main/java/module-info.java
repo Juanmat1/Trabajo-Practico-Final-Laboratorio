@@ -12,4 +12,5 @@ module com.tp.tp_final_lab3 {
     opens com.tp.tp_final_lab3.controllers to javafx.fxml;
     exports com.tp.tp_final_lab3.SingletonClasses;
     opens com.tp.tp_final_lab3.SingletonClasses to javafx.fxml;
+    exports com.tp.tp_final_lab3.Models.ApiCotizaciones;
 }

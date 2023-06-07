@@ -1,6 +1,7 @@
 package com.tp.tp_final_lab3.controllers;
 
-import com.tp.tp_final_lab3.Models.Dolarsito;
+
+import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
@@ -23,8 +24,9 @@ public class crudImportadorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Dolarsito dolar = Jackson.obtenerDolar();
-        textDolar.setText("Dolar: " + dolar.getPageProps().getRealTimeQuotations().getQuotations().getMep().getBuy());
+
+        ExchangeRates exchangeRates = Jackson.obtenerDivisas();
+        textDolar.setText("Dolar: " + exchangeRates.getBlue().getBuyingValue());
 
         Usuario user = SingletonUsuarioClass.getInstancia().getInfo();
         textUser.setText("Usuario: " + user.getUsuario());
