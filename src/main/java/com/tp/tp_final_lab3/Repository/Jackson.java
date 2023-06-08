@@ -21,7 +21,6 @@ public class Jackson {
         ObjectMapper mapper = new ObjectMapper();
 
         try{
-
             mapper.writerWithDefaultPrettyPrinter().writeValue(file,objeto);
 
         }catch (Exception e)
@@ -31,7 +30,7 @@ public class Jackson {
         }
     }
 
-    public static <T> ArrayList<T> deserializarArrayList(String pathJson){
+    public static <T> ArrayList<T> deserializarArrayListUser(String pathJson){
 
         File file = new File(pathJson);
 
@@ -50,6 +49,27 @@ public class Jackson {
 
         return objetos ;
     }
+
+    public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson){
+
+        File file = new File(pathJson);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        ArrayList<T> objetos = null;
+
+        try {
+            CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Pedido.class);
+            objetos = mapper.readValue(file, collectionType);
+
+        } catch (IOException e){
+
+            e.printStackTrace();
+        }
+
+        return objetos ;
+    }
+
 
     public static ExchangeRates obtenerDivisas()
     {

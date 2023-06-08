@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudImportadorController">
    <children>
-      <TableView layoutX="285.0" layoutY="39.0" prefHeight="336.0" prefWidth="505.0">
+      <TableView fx:id="tablePedidos" layoutX="285.0" layoutY="39.0" prefHeight="336.0" prefWidth="505.0">
         <columns>
           <TableColumn prefWidth="48.0" text="ID" />
           <TableColumn prefWidth="65.0" text="Nombre" />
@@ -26,11 +26,11 @@
       </TableView>
       <AnchorPane layoutX="5.0" layoutY="306.0" prefHeight="69.0" prefWidth="268.0">
          <children>
-            <Button layoutX="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
-            <Button layoutX="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
-            <Button layoutX="118.0" layoutY="45.0" mnemonicParsing="false" text="Limpiar" />
-            <Button layoutX="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
-            <Button layoutY="68.0" mnemonicParsing="false" text="Cerrar sesion">
+            <Button fx:id="buttonAdd" layoutX="36.0" mnemonicParsing="false" onAction="#agregarPedido" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
+            <Button fx:id="buttonUpdate" layoutX="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
+            <Button fx:id="buttonClear" layoutX="118.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiarTextBox" text="Limpiar" />
+            <Button fx:id="buttonDelete" layoutX="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
+            <Button fx:id="buttonlogout" layoutY="68.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion">
                <font>
                   <Font size="10.0" />
                </font>
@@ -39,13 +39,13 @@
       </AnchorPane>
       <AnchorPane layoutX="58.0" layoutY="31.0" prefHeight="275.0" prefWidth="200.0">
          <children>
-            <TextField layoutX="26.0" layoutY="14.0" promptText="Nombre" />
-            <TextField layoutX="26.0" layoutY="81.0" promptText="idProveedor" />
-            <TextField layoutX="26.0" layoutY="114.0" promptText="Precio de compra" />
-            <TextField layoutX="26.0" layoutY="177.0" promptText="Impuestos" />
-            <DatePicker layoutX="26.0" layoutY="146.0" prefHeight="25.0" prefWidth="149.0" promptText="Fecha de Compra" />
-            <TextArea layoutX="26.0" layoutY="209.0" prefHeight="52.0" prefWidth="149.0" promptText="Descripcion" />
-            <ChoiceBox layoutX="26.0" layoutY="49.0" prefWidth="150.0" />
+            <TextField fx:id="textName" layoutX="26.0" layoutY="14.0" promptText="Nombre" />
+            <TextField fx:id="idProveedor" layoutX="26.0" layoutY="81.0" promptText="idProveedor" />
+            <TextField fx:id="textPrecio" layoutX="26.0" layoutY="114.0" promptText="Precio de compra" />
+            <TextField fx:id="textImpuestos" layoutX="26.0" layoutY="177.0" promptText="Impuestos" />
+            <DatePicker fx:id="textFechac" layoutX="26.0" layoutY="146.0" prefHeight="25.0" prefWidth="149.0" promptText="Fecha de Compra" />
+            <TextArea fx:id="textDescrip" layoutX="26.0" layoutY="209.0" prefHeight="52.0" prefWidth="149.0" promptText="Descripcion" />
+            <ChoiceBox fx:id="categoriaSelec" layoutX="26.0" layoutY="49.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
       <Text fx:id="textUser" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario : getuser">
@@ -53,11 +53,12 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="512.0" layoutY="11.0" prefHeight="20.0" prefWidth="196.0">
+      <AnchorPane layoutX="361.0" layoutY="9.0" prefHeight="23.0" prefWidth="425.0">
          <children>
-            <Text fx:id="textDolar" layoutX="148.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar : " wrappingWidth="78.8046875" />
-            <Text layoutX="79.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="37.8046875" />
-            <Text layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Real:" />
+            <Text fx:id="dolarBlue" layoutX="121.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar : " wrappingWidth="91.8046875" />
+            <Text fx:id="euroBlue" layoutX="333.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="91.8046875" />
+            <Text fx:id="dolarOficial" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar" wrappingWidth="102.8046875" />
+            <Text fx:id="euroOficial" layoutX="230.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
          </children>
       </AnchorPane>
    </children>

@@ -17,13 +17,9 @@ public class main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-
         String imageUrl = Objects.requireNonNull(getClass().getResource("/Images/UTNLogo.png")).toExternalForm();
 
             Image image = new Image(imageUrl);
-
-
-
 
 
         stage.getIcons().add(image);
@@ -32,10 +28,9 @@ public class main extends Application {
         stage.setResizable(false);
 
         stage.show();
-
     }
 
-    public static void main(String[] args) {
+    public static void launch(String[] args) {
         launch();
     }
 }
