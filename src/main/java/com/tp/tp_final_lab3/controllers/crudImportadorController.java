@@ -2,6 +2,7 @@ package com.tp.tp_final_lab3.controllers;
 
 
 import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
+import com.tp.tp_final_lab3.Models.Categorias;
 import com.tp.tp_final_lab3.Models.Pedido;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
@@ -44,7 +45,7 @@ public class crudImportadorController implements Initializable {
     private Button buttonlogout;
 
     @FXML
-    private ChoiceBox<?> categoriaSelec;
+    private ChoiceBox<Categorias> categoriaSelec;
 
     @FXML
     private Text dolarBlue;
@@ -105,7 +106,6 @@ public class crudImportadorController implements Initializable {
     private Text textUser;
 
 
-
     //endregion
 
     @Override
@@ -116,6 +116,8 @@ public class crudImportadorController implements Initializable {
         dolarOficial.setText("Dolar Oficial: " + exchangeRates.getOficial().getBuyingValue());
         euroBlue.setText("Euro Blue: " + exchangeRates.getBlueEuro().getBuyingValue());
         euroOficial.setText("Euro Oficial: " + exchangeRates.getOficialEuro().getBuyingValue());
+
+        categoriaSelec.getItems().addAll(Categorias.values());
 
         Usuario user = SingletonUsuarioClass.getInstancia().getInfo();
         textUser.setText("Usuario: " + user.getUsuario());
@@ -129,12 +131,7 @@ public class crudImportadorController implements Initializable {
 
         tablePedidos.setItems(observableList);
 
-
-
-
     }
-
-
     public void agregarPedido()
     {
         //agregarValidacion;
@@ -176,7 +173,8 @@ public class crudImportadorController implements Initializable {
     }
     public void cerrarSesion()
     {
-        Jackson.serializar(observableList,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");//se traba con cache
+
+        Jackson.serializar(observableList,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");//se trabaja con cache
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));

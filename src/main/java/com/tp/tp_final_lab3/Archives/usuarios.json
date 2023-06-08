@@ -16,4 +16,10 @@
   "dni" : "13131",
   "usuario" : "pedro",
   "contrasenia" : "123"
+}, {
+  "nombre" : "Ana",
+  "apellido" : "Alvo",
+  "dni" : "1312311",
+  "usuario" : "anaalvo",
+  "contrasenia" : "123"
 } ]

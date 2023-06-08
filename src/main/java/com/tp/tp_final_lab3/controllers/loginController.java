@@ -70,6 +70,8 @@ public class loginController implements Initializable {
 
                 users = Jackson.deserializarArrayListUser(pathJson);
                 Usuario user = new Usuario(textUser.getText(), textPassword.getText());
+
+
                 if (users.contains(user)) {
 
                     SingletonUsuarioClass.getInstancia().SetInfo(user);

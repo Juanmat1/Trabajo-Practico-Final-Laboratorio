@@ -1,4 +1,13 @@
 [ {
+  "nombre" : "Segundo",
+  "categoria" : null,
+  "idProveedor" : 10,
+  "precioCompra" : 10,
+  "fechaCompra" : "2023-06-26",
+  "impuestos" : 1000.0,
+  "descripcion" : "Segundoo",
+  "username" : "juanma"
+}, {
   "nombre" : "22",
   "categoria" : null,
   "idProveedor" : 1,

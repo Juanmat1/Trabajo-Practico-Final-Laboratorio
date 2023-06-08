@@ -45,8 +45,8 @@ public class Usuario extends Persona implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return Objects.equals(this.usuario, usuario.usuario);
+        Usuario usuario1 = (Usuario) o;
+        return Objects.equals(usuario, usuario1.usuario) && Objects.equals(contrasenia, usuario1.contrasenia);
     }
 
     @Override
