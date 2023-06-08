@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.util.Objects;
 
@@ -21,7 +23,7 @@ public class main extends Application {
 
             Image image = new Image(imageUrl);
 
-
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.getIcons().add(image);
         stage.setTitle("TP Final 3");
         stage.setScene(scene);

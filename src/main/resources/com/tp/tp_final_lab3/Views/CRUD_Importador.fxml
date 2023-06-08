@@ -15,13 +15,13 @@
    <children>
       <TableView fx:id="tablePedidos" layoutX="285.0" layoutY="39.0" prefHeight="336.0" prefWidth="505.0">
         <columns>
-          <TableColumn prefWidth="48.0" text="ID" />
-          <TableColumn prefWidth="65.0" text="Nombre" />
-            <TableColumn prefWidth="90.0" text="Categoria" />
-            <TableColumn prefWidth="77.0" text="idProveedor" />
-            <TableColumn prefWidth="70.0" text="Precio C" />
-            <TableColumn prefWidth="69.0" text="Fecha C" />
-            <TableColumn prefWidth="85.0" text="Impuestos" />
+          <TableColumn fx:id="tableID" prefWidth="48.0" text="ID" />
+          <TableColumn fx:id="tableName" prefWidth="65.0" text="Nombre" />
+            <TableColumn fx:id="tableCat" prefWidth="90.0" text="Categoria" />
+            <TableColumn fx:id="tableIdProv" prefWidth="77.0" text="idProveedor" />
+            <TableColumn fx:id="tablePrecioC" prefWidth="70.0" text="Precio C" />
+            <TableColumn fx:id="tableFechaC" prefWidth="69.0" text="Fecha C" />
+            <TableColumn fx:id="tableImp" prefWidth="85.0" text="Impuestos" />
         </columns>
       </TableView>
       <AnchorPane layoutX="5.0" layoutY="306.0" prefHeight="69.0" prefWidth="268.0">
@@ -29,7 +29,7 @@
             <Button fx:id="buttonAdd" layoutX="36.0" mnemonicParsing="false" onAction="#agregarPedido" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
             <Button fx:id="buttonUpdate" layoutX="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
             <Button fx:id="buttonClear" layoutX="118.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiarTextBox" text="Limpiar" />
-            <Button fx:id="buttonDelete" layoutX="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
+            <Button fx:id="buttonDelete" layoutX="188.0" mnemonicParsing="false" onAction="#borrarPedido" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
             <Button fx:id="buttonlogout" layoutY="68.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion">
                <font>
                   <Font size="10.0" />

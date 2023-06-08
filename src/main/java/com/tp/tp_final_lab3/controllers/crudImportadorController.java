@@ -6,12 +6,14 @@ import com.tp.tp_final_lab3.Models.Pedido;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -22,7 +24,8 @@ import java.util.ResourceBundle;
 
 public class crudImportadorController implements Initializable {
 
-    ArrayList<Pedido> pedidos = Jackson.deserializarArrayListPedido("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");
+    ObservableList<Pedido> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayListPedido("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json"));
+
 
 //region FXML
     @FXML
@@ -59,7 +62,29 @@ public class crudImportadorController implements Initializable {
     private TextField idProveedor;
 
     @FXML
+    private TableColumn<Pedido, String> tableCat;
+
+    @FXML
+    private TableColumn<Pedido, String> tableFechaC;
+
+    @FXML
+    private TableColumn<Pedido, Integer> tableID;
+
+    @FXML
+    private TableColumn<Pedido, Integer> tableIdProv;
+
+    @FXML
+    private TableColumn<Pedido, Integer> tableImp;
+
+    @FXML
+    private TableColumn<Pedido, String> tableName;
+
+    @FXML
     private TableView<Pedido> tablePedidos;
+
+    @FXML
+    private TableColumn<Pedido, Integer> tablePrecioC;
+
 
     @FXML
     private TextArea textDescrip;
@@ -78,6 +103,9 @@ public class crudImportadorController implements Initializable {
 
     @FXML
     private Text textUser;
+
+
+
     //endregion
 
     @Override
@@ -91,12 +119,25 @@ public class crudImportadorController implements Initializable {
 
         Usuario user = SingletonUsuarioClass.getInstancia().getInfo();
         textUser.setText("Usuario: " + user.getUsuario());
+
+        tableName.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tableCat.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        tableIdProv.setCellValueFactory(new PropertyValueFactory<>("idProveedor"));
+        tablePrecioC.setCellValueFactory(new PropertyValueFactory<>("precioCompra"));
+        tableFechaC.setCellValueFactory(new PropertyValueFactory<>("fechaCompra"));
+        tableImp.setCellValueFactory(new PropertyValueFactory<>("impuestos"));
+
+        tablePedidos.setItems(observableList);
+
+
+
+
     }
+
 
     public void agregarPedido()
     {
         //agregarValidacion;
-
         Pedido pedido = new Pedido();
 
         pedido.setNombre(textName.getText());
@@ -108,11 +149,12 @@ public class crudImportadorController implements Initializable {
         pedido.setDescripcion(textDescrip.getText());
         pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
 
-        pedidos.add(pedido);
+        observableList.add(pedido);
+
 
         limpiarTextBox();
 
-        Jackson.serializar(pedidos,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");
+        //al cerrar sesion se aplican los cambios al json, por eso quite el boton para cerrar
 
     }
 
@@ -129,17 +171,18 @@ public class crudImportadorController implements Initializable {
 
     public void borrarPedido()
     {
-        //pedidos.remove(tablePedidos.getSelectionModel().getSelectedItem()); creo
-
-        Jackson.serializar(pedidos,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");
+        observableList.remove(tablePedidos.getSelectionModel().getSelectedItem());
 
     }
     public void cerrarSesion()
     {
+        Jackson.serializar(observableList,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");//se traba con cache
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
             Stage stage = (Stage) buttonlogout.getScene().getWindow();
             Scene scene = new Scene(loader.load());
+
             stage.setScene(scene);
         } catch (IOException io) {
             io.printStackTrace();
@@ -147,11 +190,6 @@ public class crudImportadorController implements Initializable {
 
     }
 
-    public void loadTable()
-    {
-
-
-    }
 
 
 

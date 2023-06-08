@@ -7,13 +7,4 @@
   "impuestos" : 1.0,
   "descripcion" : "11",
   "username" : null
-}, {
-  "nombre" : "1212",
-  "categoria" : null,
-  "idProveedor" : 2121,
-  "precioCompra" : 2121,
-  "fechaCompra" : "2023-06-16",
-  "impuestos" : 2.0,
-  "descripcion" : "hola",
-  "username" : "juanma"
 } ]
