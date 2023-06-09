@@ -10,6 +10,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.Objects;
 //comentario Juanma
+///comentario Diego
 
 public class main extends Application {
 
