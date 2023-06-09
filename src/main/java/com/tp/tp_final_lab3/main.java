@@ -9,6 +9,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Objects;
+//comentario Juanma
 
 public class main extends Application {
 
