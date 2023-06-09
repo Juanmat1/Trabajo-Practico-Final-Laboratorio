@@ -37,5 +37,10 @@
             <Font size="10.0" />
          </font>
       </Button>
+      <Button fx:id="buttonClose" layoutX="259.0" layoutY="4.0" mnemonicParsing="false" onAction="#closeAction" text="Salir">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

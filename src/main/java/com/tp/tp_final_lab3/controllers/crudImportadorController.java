@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class crudImportadorController implements Initializable {
@@ -29,17 +28,7 @@ public class crudImportadorController implements Initializable {
 
 
 //region FXML
-    @FXML
-    private Button buttonAdd;
 
-    @FXML
-    private Button buttonClear;
-
-    @FXML
-    private Button buttonDelete;
-
-    @FXML
-    private Button buttonUpdate;
 
     @FXML
     private Button buttonlogout;
@@ -134,20 +123,29 @@ public class crudImportadorController implements Initializable {
     }
     public void agregarPedido()
     {
-        //agregarValidacion;
         Pedido pedido = new Pedido();
+        boolean status = false;
 
-        pedido.setNombre(textName.getText());
-        //pedido.setCategoria(categoriaSelec.getSelectionModel().getSelectedItem().toString());
-        pedido.setIdProveedor(Integer.parseInt(textPrecio.getText()));
-        pedido.setPrecioCompra(Integer.parseInt(textPrecio.getText()));
-        pedido.setFechaCompra(textFechac.getValue().toString());
-        pedido.setImpuestos(Integer.parseInt(textImpuestos.getText()));
-        pedido.setDescripcion(textDescrip.getText());
-        pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+        if(checkCampos())
+        {
+            try{
+                setPedido(pedido);
+                status = true;
+            }catch (Exception e)
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error en los campos,reviselos");
+                alert.setContentText("Algunos de los campos es " +
+                        "incorrecto revise de no poner letras en los campos con numeros");
+                alert.showAndWait();
+                e.printStackTrace();
+            }
+        }
 
-        observableList.add(pedido);
-
+        if(status)
+        {
+            observableList.add(pedido);
+        }
 
         limpiarTextBox();
 
@@ -169,13 +167,10 @@ public class crudImportadorController implements Initializable {
     public void borrarPedido()
     {
         observableList.remove(tablePedidos.getSelectionModel().getSelectedItem());
-
     }
     public void cerrarSesion()
     {
-
         Jackson.serializar(observableList,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");//se trabaja con cache
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
             Stage stage = (Stage) buttonlogout.getScene().getWindow();
@@ -185,12 +180,37 @@ public class crudImportadorController implements Initializable {
         } catch (IOException io) {
             io.printStackTrace();
         }
-
     }
 
+public void setPedido(Pedido pedido)
+{
+    pedido.setNombre(textName.getText());
+    pedido.setCategoria(categoriaSelec.getSelectionModel().getSelectedItem().toString());
+    pedido.setIdProveedor(Integer.parseInt(textPrecio.getText()));
+    pedido.setPrecioCompra(Integer.parseInt(textPrecio.getText()));
+    pedido.setFechaCompra(textFechac.getValue().toString());
+    pedido.setImpuestos(Integer.parseInt(textImpuestos.getText()));
+    pedido.setDescripcion(textDescrip.getText());
+    pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+}
+public boolean checkCampos()
+{
+    boolean status = false;
 
-
-
+    if(textName.getText().isEmpty() || categoriaSelec.getSelectionModel().isEmpty() ||
+            idProveedor.getText().isEmpty() || textPrecio.getText().isEmpty() || textFechac.getValue().toString().isEmpty()
+            || textImpuestos.getText().isEmpty() || textDescrip.getText().isEmpty())
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error en los campos,reviselos");
+        alert.setContentText("Algunos de los campos esta vacio");
+        alert.showAndWait();
+    }
+    else {
+        status = true;
+    }
+   return status;
+}
 
 
 }

@@ -27,21 +27,16 @@ public class loginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
     }
-
 
     @FXML
     private Button loginButton;
-
     @FXML
     private PasswordField textPassword;
-
     @FXML
     private TextField textUser;
-
-
+    @FXML
+    private Button buttonClose;
 
     @FXML
     public void loginAction(ActionEvent actionEvent) {
@@ -117,6 +112,13 @@ public class loginController implements Initializable {
     @FXML
     public void helpAction() {
     }
+    @FXML
+    public void closeAction(){
+
+        Stage stage = (Stage) buttonClose.getScene().getWindow();
+
+        stage.close();
 
 
+    }
 }

@@ -50,7 +50,8 @@ public class Jackson {
         return objetos ;
     }
 
-    public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson){
+    public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson)///poner clase
+    {
 
         File file = new File(pathJson);
 
