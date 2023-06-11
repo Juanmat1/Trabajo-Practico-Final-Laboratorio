@@ -4,9 +4,15 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Usuario extends Persona implements Serializable {
-
+    public enum Estado{
+        Activo,
+        Inactivo
+    }
     private String usuario;
     private String contrasenia;
+    public int id;
+    private Estado estado;
+    public static int ultimoId;
 
     public Usuario(String usuario, String contrasenia) {
         this.usuario = usuario;
@@ -16,10 +22,12 @@ public class Usuario extends Persona implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String dni, String usuario, String contrasenia) {
+    public Usuario(String nombre, String apellido, String dni, String usuario, String contrasenia,Estado estado) {
         super(nombre, apellido, dni);
         this.usuario = usuario;
         this.contrasenia = contrasenia;
+        this.id = ultimoId + 1;
+        this.estado = estado;
     }
 
     public String getUsuario() {
@@ -36,6 +44,30 @@ public class Usuario extends Persona implements Serializable {
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public static int getUltimoId() {
+        return ultimoId;
+    }
+
+    public static void setUltimoId(int ultimoId) {
+        Usuario.ultimoId = ultimoId;
     }
 
     ///agregar fecha de creacion
