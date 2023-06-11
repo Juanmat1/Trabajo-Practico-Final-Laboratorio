@@ -1,6 +1,7 @@
 package com.tp.tp_final_lab3.Models;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Usuario extends Persona implements Serializable {
@@ -10,8 +11,9 @@ public class Usuario extends Persona implements Serializable {
     }
     private String usuario;
     private String contrasenia;
-    public int id;
+    private int id;
     private Estado estado;
+    private LocalDate fechaCreacion;
     public static int ultimoId;
 
     public Usuario(String usuario, String contrasenia) {
@@ -28,6 +30,7 @@ public class Usuario extends Persona implements Serializable {
         this.contrasenia = contrasenia;
         this.id = ultimoId + 1;
         this.estado = estado;
+        this.fechaCreacion = LocalDate.now();
     }
 
     public String getUsuario() {
@@ -70,8 +73,13 @@ public class Usuario extends Persona implements Serializable {
         Usuario.ultimoId = ultimoId;
     }
 
-    ///agregar fecha de creacion
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
 
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -88,9 +96,12 @@ public class Usuario extends Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuarios{" +
+        return "Usuario{" +
                 "usuario='" + usuario + '\'' +
                 ", contrasenia='" + contrasenia + '\'' +
+                ", id=" + id +
+                ", estado=" + estado +
+                ", fechaCreacion=" + fechaCreacion +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", dni='" + dni + '\'' +

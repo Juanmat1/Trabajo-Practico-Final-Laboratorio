@@ -2,6 +2,7 @@ module com.tp.tp_final_lab3 {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.fasterxml.jackson.databind;
+    requires com.fasterxml.jackson.datatype.jsr310;
 
 
     opens com.tp.tp_final_lab3 to javafx.fxml;

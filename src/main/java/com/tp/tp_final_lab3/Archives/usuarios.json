@@ -5,7 +5,8 @@
   "usuario" : "juanma",
   "contrasenia" : "123",
   "id" : 1,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "fechaCreacion": "2023-06-11"
 }, {
   "nombre" : "fede",
   "apellido" : "marcos",
@@ -13,7 +14,8 @@
   "usuario" : "fede",
   "contrasenia" : "123",
   "id" : 2,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "fechaCreacion": "2023-06-11"
 }, {
   "nombre" : "pedrito",
   "apellido" : "aa",
@@ -21,7 +23,8 @@
   "usuario" : "pedro",
   "contrasenia" : "123",
   "id" : 3,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "fechaCreacion": "2023-06-11"
 }, {
   "nombre" : "Ana",
   "apellido" : "Alvo",
@@ -29,7 +32,8 @@
   "usuario" : "anaalvo",
   "contrasenia" : "123",
   "id" : 4,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "fechaCreacion": "2023-06-11"
 }, {
   "nombre" : "Diego",
   "apellido" : "Inostroza",
@@ -37,5 +41,6 @@
   "usuario" : "diegoinost",
   "contrasenia" : "123",
   "id" : 5,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "fechaCreacion": "2023-06-11"
 } ]

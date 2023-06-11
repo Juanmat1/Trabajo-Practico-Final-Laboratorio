@@ -4,27 +4,29 @@ import com.tp.tp_final_lab3.Models.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.time.LocalDate;
+
 public class crudUsuariosController {
     @FXML
     private TableView<?> tableView;
 
     @FXML
-    private TableColumn<Usuario, ?> idColumn;
+    private TableColumn<Usuario, Integer> idColumn;
 
     @FXML
-    private TableColumn<Usuario, ?> nombreColumn;
+    private TableColumn<Usuario, String> nombreColumn;
 
     @FXML
-    private TableColumn<Usuario, ?> apellidoColumn;
+    private TableColumn<Usuario, String> apellidoColumn;
 
     @FXML
-    private TableColumn<Usuario, ?> contraseniaColumn;
+    private TableColumn<Usuario, String> contraseniaColumn;
 
     @FXML
-    private TableColumn<Usuario, ?> fechaCreacionColumn;
+    private TableColumn<Usuario, LocalDate> fechaCreacionColumn;
 
     @FXML
-    private TableColumn<Usuario, ?> estadoColumn;
+    private TableColumn<Usuario, Usuario.Estado> estadoColumn;
 
     @FXML
     private Button agregarButton;
