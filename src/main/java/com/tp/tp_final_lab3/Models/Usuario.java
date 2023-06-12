@@ -2,6 +2,7 @@ package com.tp.tp_final_lab3.Models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Usuario extends Persona implements Serializable {
@@ -32,7 +33,9 @@ public class Usuario extends Persona implements Serializable {
         this.estado = estado;
         this.fechaCreacion = LocalDate.now();
     }
-
+    public static int getUltimoUsersID(ArrayList<Usuario> usuarios){
+        return usuarios.get(usuarios.size()-1).getId();
+    }
     public String getUsuario() {
         return usuario;
     }

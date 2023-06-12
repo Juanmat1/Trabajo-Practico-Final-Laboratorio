@@ -44,7 +44,6 @@ public class Jackson {
         try {
             CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Usuario.class);
             objetos = mapper.readValue(file, collectionType);
-            Usuario.ultimoId = getUltimoUsersID((ArrayList<Usuario>)objetos); //pierde genericidad
 
         } catch (IOException e){
 
@@ -52,9 +51,6 @@ public class Jackson {
         }
 
         return objetos ;
-    }
-    public static int getUltimoUsersID(ArrayList<Usuario> usuarios){
-        return usuarios.get(usuarios.size()-1).getId();
     }
 
     public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson)///poner clase

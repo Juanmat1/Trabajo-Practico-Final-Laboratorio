@@ -49,7 +49,7 @@ public class createUserController implements Initializable {
     public void crearCuenta(){
 
         users = Jackson.deserializarArrayListUser("src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json");
-
+        Usuario.ultimoId = Usuario.getUltimoUsersID(users);
         Usuario user = new Usuario(textNombre.getText(),textApellido.getText(),textDNI.getText(),textUser.getText(),textPassword.getText(), Usuario.Estado.Activo);
 
         if(textPassword.getText().isEmpty() || textValidatePass.getText().isEmpty() || textUser.getText().isEmpty()
