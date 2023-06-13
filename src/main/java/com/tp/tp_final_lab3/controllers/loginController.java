@@ -3,6 +3,7 @@ package com.tp.tp_final_lab3.controllers;
 import com.tp.tp_final_lab3.Models.Admin;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.SingletonClasses.SingletonAdminClass;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,7 +60,7 @@ public class loginController implements Initializable {
 
             if (admins.contains(admin)) {
                 try {
-                    //singleton
+                    SingletonAdminClass.getInstancia().SetInfo(admin);
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Seleccion.fxml"));
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     Scene scene = new Scene(loader.load());
