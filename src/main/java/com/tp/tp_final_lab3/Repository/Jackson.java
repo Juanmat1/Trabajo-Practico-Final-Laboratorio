@@ -32,7 +32,7 @@ public class Jackson {
         }
     }
 
-    public static <T> ArrayList<T> deserializarArrayListUser(String pathJson){
+    public static <T> ArrayList<T> deserializarArrayList(String pathJson,Class clase){
 
         File file = new File(pathJson);
 
@@ -42,7 +42,7 @@ public class Jackson {
         ArrayList<T> objetos = null;
 
         try {
-            CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Usuario.class);
+            CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, clase);//Usuario.class);
             objetos = mapper.readValue(file, collectionType);
 
         } catch (IOException e){
@@ -53,7 +53,7 @@ public class Jackson {
         return objetos ;
     }
 
-    public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson)///poner clase
+    /*public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson)///poner clase
     {
 
         File file = new File(pathJson);
@@ -75,7 +75,7 @@ public class Jackson {
         }
 
         return objetos ;
-    }
+    }*/
 
 
     public static ExchangeRates obtenerDivisas()

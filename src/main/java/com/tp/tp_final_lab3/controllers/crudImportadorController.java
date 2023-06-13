@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class crudImportadorController implements Initializable {
 
-    ObservableList<Pedido> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayListPedido("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json"));
+    ObservableList<Pedido> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json", Pedido.class));
 
 
 //region FXML
