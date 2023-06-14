@@ -70,7 +70,6 @@ public class loginController implements Initializable {
                 }
             } else {
 
-
                 users = Jackson.deserializarArrayList(pathJsonUsers, Usuario.class);
                 Usuario user = new Usuario(textUser.getText(), textPassword.getText());
 
