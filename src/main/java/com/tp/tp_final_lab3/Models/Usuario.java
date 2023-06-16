@@ -15,7 +15,7 @@ public class Usuario extends Persona implements Serializable {
     private int id;
     private Estado estado;
     private LocalDate fechaCreacion;
-    public static int ultimoId;
+    private static int ultimoId;
 
     public Usuario(String usuario, String contrasenia) {
         this.usuario = usuario;

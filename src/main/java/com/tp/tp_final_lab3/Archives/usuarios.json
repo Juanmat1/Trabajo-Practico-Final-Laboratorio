@@ -6,7 +6,7 @@
   "contrasenia" : "123",
   "id" : 1,
   "estado" : "Activo",
-  "fechaCreacion": "2023-06-11"
+  "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
   "nombre" : "fede",
   "apellido" : "marcos",
@@ -15,7 +15,7 @@
   "contrasenia" : "123",
   "id" : 2,
   "estado" : "Activo",
-  "fechaCreacion": "2023-06-11"
+  "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
   "nombre" : "pedrito",
   "apellido" : "aa",
@@ -24,7 +24,7 @@
   "contrasenia" : "123",
   "id" : 3,
   "estado" : "Activo",
-  "fechaCreacion": "2023-06-11"
+  "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
   "nombre" : "Ana",
   "apellido" : "Alvo",
@@ -33,7 +33,7 @@
   "contrasenia" : "123",
   "id" : 4,
   "estado" : "Activo",
-  "fechaCreacion": "2023-06-11"
+  "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
   "nombre" : "Diego",
   "apellido" : "Inostroza",
@@ -42,5 +42,5 @@
   "contrasenia" : "123",
   "id" : 5,
   "estado" : "Activo",
-  "fechaCreacion": "2023-06-11"
+  "fechaCreacion" : [ 2023, 6, 11 ]
 } ]
