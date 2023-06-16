@@ -44,11 +44,11 @@
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
-  "nombre" : "prueba",
+  "nombre" : "pruebaa",
   "apellido" : "prueba",
-  "dni" : "333",
-  "usuario" : "prueba",
-  "contrasenia" : "prueba",
+  "dni" : "prueba",
+  "usuario" : "pruebaa",
+  "contrasenia" : "pruebaa",
   "id" : 1,
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 16 ]

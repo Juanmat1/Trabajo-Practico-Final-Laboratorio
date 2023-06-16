@@ -147,13 +147,12 @@ public class crudUsuariosController implements Initializable{
             return Usuario.Estado.Inactivo;
         }
     }
-    public void limpiarTextBox(){
-        usuarioTextField.clear();
-        nombreTextField.clear();
-        apellidoTextField.clear();
-        contraseniaTextField.clear();
-        dniTextField.clear();
-        estadoCheckBox.setSelected(false);
+    public boolean obtenerBooleanEstado(Usuario usuario){
+        if(usuario.getEstado().equals(Usuario.Estado.Activo)){
+            return true;
+        }else{
+            return false;
+        }
     }
     public void agregar() {
 
@@ -173,11 +172,51 @@ public class crudUsuariosController implements Initializable{
                 e.printStackTrace();
             }
         }
-        limpiarTextBox();
+        limpiar();
     }
-    public void actualizar(){}
-    public void borrar(){}
-    public void limpiar(){}
+    public void actualizar(){
+        Usuario usuario = tableUsuario.getSelectionModel().getSelectedItem();
+        nombreTextField.setText(usuario.getNombre());
+        apellidoTextField.setText(usuario.getApellido());
+        dniTextField.setText(usuario.getDni());
+        usuarioTextField.setText(usuario.getUsuario());
+        contraseniaTextField.setText(usuario.getContrasenia());
+        estadoCheckBox.setSelected(obtenerBooleanEstado(usuario));
+
+        actualizarButton.setText("Guardar");
+
+        actualizarButton.setOnAction(event -> {
+            modificarDatos(usuario);
+        });
+    }
+    public void modificarDatos(Usuario usuario){
+
+        if(checkCampos()) {
+            usuario.setNombre(nombreTextField.getText());
+            usuario.setApellido(apellidoTextField.getText());
+            usuario.setDni(apellidoTextField.getText());
+            usuario.setUsuario(usuarioTextField.getText());
+            usuario.setContrasenia(usuarioTextField.getText());
+            usuario.setEstado(obtenerEstado());
+            observableList.set(observableList.indexOf(usuario),usuario);
+
+            limpiar();
+            actualizarButton.setText("Actualizar");
+            actualizarButton.setOnAction(event -> actualizar());
+        }
+    }
+    public void borrar(){
+
+        observableList.remove(tableUsuario.getSelectionModel().getSelectedItem());
+    }
+    public void limpiar(){
+        usuarioTextField.clear();
+        nombreTextField.clear();
+        apellidoTextField.clear();
+        contraseniaTextField.clear();
+        dniTextField.clear();
+        estadoCheckBox.setSelected(false);
+    }
     public void cerrarSesion()
     {
         Jackson.serializar(observableList,pathJson);//se trabaja con cache
