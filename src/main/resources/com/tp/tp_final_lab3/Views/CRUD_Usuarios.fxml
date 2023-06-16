@@ -24,10 +24,10 @@
       </TableView>
       <AnchorPane layoutX="14.0" layoutY="278.0" prefHeight="70.0" prefWidth="231.0">
          <children>
-            <Button fx:id="agregarButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
-            <Button fx:id="actualizarButton" layoutX="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
-            <Button fx:id="limpiarButton" layoutX="89.0" layoutY="44.0" mnemonicParsing="false" text="Limpiar" />
-            <Button fx:id="borrarButton" layoutX="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
+            <Button fx:id="agregarButton" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
+            <Button fx:id="actualizarButton" layoutX="81.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
+            <Button fx:id="limpiarButton" layoutX="89.0" layoutY="44.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+            <Button fx:id="borrarButton" layoutX="168.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="25.0" layoutY="30.0" prefHeight="242.0" prefWidth="205.0">
@@ -35,7 +35,7 @@
             <TextField fx:id="usuarioTextField" layoutX="26.0" layoutY="14.0" promptText="Usuario" />
             <TextField fx:id="nombreTextField" layoutX="26.0" layoutY="46.0" promptText="Nombre" />
             <TextField fx:id="contraseniaTextField" layoutX="26.0" layoutY="109.0" promptText="Contrasenia" />
-            <TextField fx:id="origenTextField" layoutX="26.0" layoutY="143.0" promptText="Origen" />
+            <TextField fx:id="dniTextField" layoutX="26.0" layoutY="143.0" promptText="Dni" />
             <CheckBox fx:id="estadoCheckBox" layoutX="8.0" layoutY="187.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="196.0" text="Estado(click para habilitar user)" textAlignment="RIGHT" wrapText="true" />
             <TextField fx:id="apellidoTextField" layoutX="26.0" layoutY="77.0" promptText="Apellido" />
          </children>

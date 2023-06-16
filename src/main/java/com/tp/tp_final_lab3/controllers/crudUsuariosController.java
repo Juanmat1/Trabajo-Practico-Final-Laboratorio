@@ -70,7 +70,7 @@ public class crudUsuariosController implements Initializable{
     private TextField contraseniaTextField;
 
     @FXML
-    private TextField origenTextField;
+    private TextField dniTextField;
 
     @FXML
     private CheckBox estadoCheckBox;
@@ -121,6 +121,63 @@ public class crudUsuariosController implements Initializable{
             }
         });
     }
+    public boolean checkCampos()
+    {
+        boolean status = false;
+
+        if(usuarioTextField.getText().isEmpty() || nombreTextField.getText().isEmpty() ||
+                apellidoColumn.getText().isEmpty() || contraseniaTextField.getText().isEmpty() ||
+                dniTextField.getText().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en los campos,reviselos");
+            alert.setContentText("Algunos de los campos esta vacio");
+            alert.showAndWait();
+        }
+        else {
+            status = true;
+        }
+        return status;
+    }
+    //String nombre, String apellido, String dni, String usuario, String contrasenia,Estado estado
+    public Usuario.Estado obtenerEstado(){
+        if(estadoCheckBox.isSelected()){
+            return Usuario.Estado.Activo;
+        }else{
+            return Usuario.Estado.Inactivo;
+        }
+    }
+    public void limpiarTextBox(){
+        usuarioTextField.clear();
+        nombreTextField.clear();
+        apellidoTextField.clear();
+        contraseniaTextField.clear();
+        dniTextField.clear();
+        estadoCheckBox.setSelected(false);
+    }
+    public void agregar() {
+
+        if (checkCampos()) {
+            try {
+                Usuario.getUltimoUsersID();
+                Usuario usuario = new Usuario(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
+                        usuarioTextField.getText(),contraseniaTextField.getText(),obtenerEstado());
+                observableList.add(usuario);
+
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error en los campos,reviselos");
+                alert.setContentText("Algunos de los campos es " +
+                        "incorrecto revise de no poner letras en los campos con numeros");
+                alert.showAndWait();
+                e.printStackTrace();
+            }
+        }
+        limpiarTextBox();
+    }
+    public void actualizar(){}
+    public void borrar(){}
+    public void limpiar(){}
     public void cerrarSesion()
     {
         Jackson.serializar(observableList,pathJson);//se trabaja con cache
