@@ -124,8 +124,11 @@ public class crudUsuariosController implements Initializable{
                     alert.setTitle("Error");
                     alert.setContentText("No se puede agregar un usuario ya existente");
                     alert.showAndWait();
+                    actualizarButton.setText("Actualizar");
+                    actualizarButton.setOnAction(event -> actualizar());
                 }else {
                     observableList.add(usuario);
+                    System.out.println("entro");
                 }
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -140,18 +143,25 @@ public class crudUsuariosController implements Initializable{
     }
     public void actualizar(){
         Usuario usuario = tableUsuario.getSelectionModel().getSelectedItem();
-        nombreTextField.setText(usuario.getNombre());
-        apellidoTextField.setText(usuario.getApellido());
-        dniTextField.setText(usuario.getDni());
-        usuarioTextField.setText(usuario.getUsuario());
-        contraseniaTextField.setText(usuario.getContrasenia());
-        estadoCheckBox.setSelected(obtenerBooleanEstado(usuario));
+        if(usuario != null) {
+            nombreTextField.setText(usuario.getNombre());
+            apellidoTextField.setText(usuario.getApellido());
+            dniTextField.setText(usuario.getDni());
+            usuarioTextField.setText(usuario.getUsuario());
+            contraseniaTextField.setText(usuario.getContrasenia());
+            estadoCheckBox.setSelected(obtenerBooleanEstado(usuario));
 
-        actualizarButton.setText("Guardar");
+            actualizarButton.setText("Guardar");
 
-        actualizarButton.setOnAction(event -> {
-            modificarDatos(usuario);
-        });
+            actualizarButton.setOnAction(event -> {
+                modificarDatos(usuario);
+            });
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error para actualizar");
+            alert.setContentText("Ningun usuario seleccionado");
+            alert.showAndWait();
+        }
     }
     public void modificarDatos(Usuario usuario){
 
@@ -159,16 +169,15 @@ public class crudUsuariosController implements Initializable{
                 apellidoTextField,contraseniaTextField, dniTextField)) {
             usuario.setNombre(nombreTextField.getText());
             usuario.setApellido(apellidoTextField.getText());
-            usuario.setDni(apellidoTextField.getText());
+            usuario.setDni(dniTextField.getText());
             usuario.setUsuario(usuarioTextField.getText());
             usuario.setContrasenia(usuarioTextField.getText());
             usuario.setEstado(obtenerEstado());
             observableList.set(observableList.indexOf(usuario),usuario);
-
-            limpiar();
-            actualizarButton.setText("Actualizar");
-            actualizarButton.setOnAction(event -> actualizar());
         }
+        limpiar();
+        actualizarButton.setText("Actualizar");
+        actualizarButton.setOnAction(event -> actualizar());
     }
     public void borrar(){
         observableList.remove(tableUsuario.getSelectionModel().getSelectedItem());
