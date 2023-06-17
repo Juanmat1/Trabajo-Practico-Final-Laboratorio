@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class crudUsuariosController implements Initializable{
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
-    private ArrayList<Usuario> usuarios;
     private ObservableList<Usuario> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Usuario.class));
     @FXML
     private TableView<Usuario> tableUsuario;
@@ -79,7 +78,7 @@ public class crudUsuariosController implements Initializable{
     private TextField apellidoTextField;
 
     @FXML
-    private Button cerrarSesionButton;
+    private Button volverButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -139,7 +138,6 @@ public class crudUsuariosController implements Initializable{
         }
         return status;
     }
-    //String nombre, String apellido, String dni, String usuario, String contrasenia,Estado estado
     public Usuario.Estado obtenerEstado(){
         if(estadoCheckBox.isSelected()){
             return Usuario.Estado.Activo;
@@ -158,7 +156,6 @@ public class crudUsuariosController implements Initializable{
 
         if (checkCampos()) {
             try {
-                Usuario.getUltimoUsersID();
                 Usuario usuario = new Usuario(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
                         usuarioTextField.getText(),contraseniaTextField.getText(),obtenerEstado());
                 observableList.add(usuario);
@@ -217,12 +214,11 @@ public class crudUsuariosController implements Initializable{
         dniTextField.clear();
         estadoCheckBox.setSelected(false);
     }
-    public void cerrarSesion()
-    {
+    public void volver(){
         Jackson.serializar(observableList,pathJson);//se trabaja con cache
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Seleccion.fxml"));
-            Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
+            Stage stage = (Stage) volverButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
 
             stage.setScene(scene);
