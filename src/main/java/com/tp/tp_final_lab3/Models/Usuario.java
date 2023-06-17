@@ -36,7 +36,7 @@ public class Usuario extends Persona implements Serializable {
         this.estado = estado;
         this.fechaCreacion = LocalDate.now();
     }
-    public static int getUltimoUsersID(){
+    private static int getUltimoUsersID(){
         ArrayList<Usuario> usuarios = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json", Usuario.class);
         return usuarios.get(usuarios.size()-1).getId();
     }

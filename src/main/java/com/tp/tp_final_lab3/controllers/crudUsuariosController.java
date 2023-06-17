@@ -92,33 +92,15 @@ public class crudUsuariosController implements Initializable{
         fechaCreacionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
-        ControllersMethods.setTableCellAlignment(idColumn);
-        ControllersMethods.setTableCellAlignment(nombreColumn);
-        ControllersMethods.setTableCellAlignment(apellidoColumn);
-        ControllersMethods.setTableCellAlignment(dniColumn);
-        ControllersMethods.setTableCellAlignment(usuarioColumn);
-        ControllersMethods.setTableCellAlignment(fechaCreacionColumn);
-        ControllersMethods.setTableCellAlignment(estadoColumn);
+        ControllersMethods.alinearTabla(idColumn);
+        ControllersMethods.alinearTabla(nombreColumn);
+        ControllersMethods.alinearTabla(apellidoColumn);
+        ControllersMethods.alinearTabla(dniColumn);
+        ControllersMethods.alinearTabla(usuarioColumn);
+        ControllersMethods.alinearTabla(fechaCreacionColumn);
+        ControllersMethods.alinearTabla(estadoColumn);
 
         tableUsuario.setItems(observableList);
-    }
-    public boolean checkCampos()
-    {
-        boolean status = false;
-
-        if(usuarioTextField.getText().isEmpty() || nombreTextField.getText().isEmpty() ||
-                apellidoColumn.getText().isEmpty() || contraseniaTextField.getText().isEmpty() ||
-                dniTextField.getText().isEmpty())
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error en los campos,reviselos");
-            alert.setContentText("Algunos de los campos esta vacio");
-            alert.showAndWait();
-        }
-        else {
-            status = true;
-        }
-        return status;
     }
     public Usuario.Estado obtenerEstado(){
         if(estadoCheckBox.isSelected()){
@@ -135,7 +117,8 @@ public class crudUsuariosController implements Initializable{
         }
     }
     public void agregar() {
-        if (checkCampos()) {
+        if (ControllersMethods.checkCampos(usuarioTextField,nombreTextField,
+                apellidoTextField,contraseniaTextField, dniTextField)) {
             try {
                 Usuario usuario = new Usuario(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
                         usuarioTextField.getText(),contraseniaTextField.getText(),obtenerEstado());
@@ -175,7 +158,8 @@ public class crudUsuariosController implements Initializable{
     }
     public void modificarDatos(Usuario usuario){
 
-        if(checkCampos()) {
+        if(ControllersMethods.checkCampos(usuarioTextField,nombreTextField,
+                apellidoTextField,contraseniaTextField, dniTextField)) {
             usuario.setNombre(nombreTextField.getText());
             usuario.setApellido(apellidoTextField.getText());
             usuario.setDni(apellidoTextField.getText());
@@ -190,15 +174,11 @@ public class crudUsuariosController implements Initializable{
         }
     }
     public void borrar(){
-
         observableList.remove(tableUsuario.getSelectionModel().getSelectedItem());
     }
     public void limpiar(){
-        usuarioTextField.clear();
-        nombreTextField.clear();
-        apellidoTextField.clear();
-        contraseniaTextField.clear();
-        dniTextField.clear();
+        ControllersMethods.limpiar(usuarioTextField, nombreTextField, apellidoTextField,
+                contraseniaTextField, dniTextField);
         estadoCheckBox.setSelected(false);
     }
     public void volver(){

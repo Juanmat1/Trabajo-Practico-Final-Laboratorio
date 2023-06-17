@@ -12,12 +12,15 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="userButton" layoutX="119.0" layoutY="146.0" mnemonicParsing="false" onAction="#userAction" text="Usuarios" />
-      <Button fx:id="buyButton" layoutX="118.0" layoutY="239.0" mnemonicParsing="false" onAction="#buyAction" text="Compras" />
+      <Button fx:id="userButton" layoutX="111.0" layoutY="119.0" mnemonicParsing="false" onAction="#userAction" prefHeight="26.0" prefWidth="86.0" text="Usuarios" />
+      <Button fx:id="buyButton" layoutX="111.0" layoutY="158.0" mnemonicParsing="false" onAction="#buyAction" prefHeight="26.0" prefWidth="86.0" text="Compras" />
       <Button layoutX="14.0" layoutY="365.0" mnemonicParsing="false" text="Cerrar sesion">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
+      <Button fx:id="proveedoresButton" layoutX="111.0" layoutY="275.0" mnemonicParsing="false" onAction="#userAction" text="Proveedores" />
+      <Button fx:id="productosButton" layoutX="111.0" layoutY="238.0" mnemonicParsing="false" onAction="#userAction" prefHeight="26.0" prefWidth="86.0" text="Productos" />
+      <Button fx:id="clientesButton" layoutX="111.0" layoutY="200.0" mnemonicParsing="false" onAction="#userAction" prefHeight="26.0" prefWidth="86.0" text="Clientes" />
    </children>
 </AnchorPane>
