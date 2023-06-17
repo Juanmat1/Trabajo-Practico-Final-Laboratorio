@@ -1,4 +1,4 @@
-package com.tp.tp_final_lab3.Servicios;
+package com.tp.tp_final_lab3.Services;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableCell;
