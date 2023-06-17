@@ -43,13 +43,4 @@
   "id" : 5,
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 11 ]
-}, {
-  "nombre" : "pruebaa",
-  "apellido" : "prueba",
-  "dni" : "prueba",
-  "usuario" : "pruebaa",
-  "contrasenia" : "pruebaa",
-  "id" : 1,
-  "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 16 ]
 } ]

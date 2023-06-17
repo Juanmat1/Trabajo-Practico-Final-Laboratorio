@@ -2,6 +2,7 @@ package com.tp.tp_final_lab3.controllers;
 
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.Servicios.ControllersMethods;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -91,34 +92,15 @@ public class crudUsuariosController implements Initializable{
         fechaCreacionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
-        setTableCellAlignment(idColumn);
-        setTableCellAlignment(nombreColumn);
-        setTableCellAlignment(apellidoColumn);
-        setTableCellAlignment(dniColumn);
-        setTableCellAlignment(usuarioColumn);
-        setTableCellAlignment(fechaCreacionColumn);
-        setTableCellAlignment(estadoColumn);
+        ControllersMethods.setTableCellAlignment(idColumn);
+        ControllersMethods.setTableCellAlignment(nombreColumn);
+        ControllersMethods.setTableCellAlignment(apellidoColumn);
+        ControllersMethods.setTableCellAlignment(dniColumn);
+        ControllersMethods.setTableCellAlignment(usuarioColumn);
+        ControllersMethods.setTableCellAlignment(fechaCreacionColumn);
+        ControllersMethods.setTableCellAlignment(estadoColumn);
 
         tableUsuario.setItems(observableList);
-    }
-    private <S,T> void setTableCellAlignment(TableColumn<S, T> column) { //centra los datos de la tableView
-        column.setCellFactory(new Callback<>() {
-            @Override
-            public TableCell<S, T> call(TableColumn<S, T> param) {
-                return new TableCell<>() {
-                    @Override
-                    protected void updateItem(T item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (item != null && !empty) {
-                            setText(item.toString());
-                            setAlignment(javafx.geometry.Pos.CENTER);
-                        } else {
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        });
     }
     public boolean checkCampos()
     {
@@ -153,13 +135,18 @@ public class crudUsuariosController implements Initializable{
         }
     }
     public void agregar() {
-
         if (checkCampos()) {
             try {
                 Usuario usuario = new Usuario(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
                         usuarioTextField.getText(),contraseniaTextField.getText(),obtenerEstado());
-                observableList.add(usuario);
-
+                if (observableList.contains(usuario)){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setContentText("No se puede agregar un usuario ya existente");
+                    alert.showAndWait();
+                }else {
+                    observableList.add(usuario);
+                }
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error en los campos,reviselos");

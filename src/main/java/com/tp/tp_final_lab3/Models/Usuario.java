@@ -31,7 +31,7 @@ public class Usuario extends Persona implements Serializable {
         super(nombre, apellido, dni);
         this.usuario = usuario;
         this.contrasenia = contrasenia;
-        getUltimoUsersID();
+        Usuario.ultimoId = getUltimoUsersID();
         this.id = ultimoId + 1;
         this.estado = estado;
         this.fechaCreacion = LocalDate.now();
