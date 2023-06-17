@@ -9,19 +9,17 @@ import javafx.util.Callback;
 public class ControllersMethods {
     public static boolean checkCampos(TextField... textFields)
     {
-        boolean status = false;
-
         if(!verificar(textFields))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error en los campos,reviselos");
             alert.setContentText("Algunos de los campos esta vacio");
             alert.showAndWait();
+            return false;
         }
         else {
-            status = true;
+            return true;
         }
-        return status;
     }
     public static boolean verificar(TextField...textFields){
         for(TextField textField : textFields){
