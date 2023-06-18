@@ -122,19 +122,17 @@ public class crudImportadorController implements Initializable, ICrud {
         tablePedidos.setItems(observableList);
 
     }
+
     @Override
-    public void agregar()
-    {
+    public void agregar() {
         Pedido pedido = new Pedido();
         boolean status = false;
 
-        if(checkCampos())
-        {
-            try{
+        if (checkCampos()) {
+            try {
                 setPedido(pedido);
                 status = true;
-            }catch (Exception e)
-            {
+            } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error en los campos,reviselos");
                 alert.setContentText("Algunos de los campos es " +
@@ -144,8 +142,7 @@ public class crudImportadorController implements Initializable, ICrud {
             }
         }
 
-        if(status)
-        {
+        if (status) {
             observableList.add(pedido);
         }
 
@@ -154,22 +151,22 @@ public class crudImportadorController implements Initializable, ICrud {
         //al cerrar sesion se aplican los cambios al json, por eso quite el boton para cerrar
 
     }
+
     @Override
-    public void limpiar()
-    {
-        ControllersMethods.limpiarTxtField(textName,idProveedor,textImpuestos,textPrecio);
+    public void limpiar() {
+        ControllersMethods.limpiarTxtField(textName, idProveedor, textImpuestos, textPrecio);
         categoriaSelec.getSelectionModel().clearSelection();
         textFechac.getEditor().clear();
         textDescrip.clear();
     }
+
     @Override
-    public void borrar()
-    {
+    public void borrar() {
         observableList.remove(tablePedidos.getSelectionModel().getSelectedItem());
     }
-    public void cerrarSesion()
-    {
-        Jackson.serializar(observableList,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");//se trabaja con cache
+
+    public void cerrarSesion() {
+        Jackson.serializar(observableList, "src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");//se trabaja con cache
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
             Stage stage = (Stage) buttonlogout.getScene().getWindow();
@@ -181,46 +178,48 @@ public class crudImportadorController implements Initializable, ICrud {
         }
     }
 
-public void setPedido(Pedido pedido)
-{
-    pedido.setNombre(textName.getText());
-    pedido.setCategoria(categoriaSelec.getSelectionModel().getSelectedItem().toString());
-    pedido.setIdProveedor(Integer.parseInt(textPrecio.getText()));
-    pedido.setPrecioCompra(Integer.parseInt(textPrecio.getText()));
-    pedido.setFechaCompra(textFechac.getValue().toString());
-    pedido.setImpuestos(Integer.parseInt(textImpuestos.getText()));
-    pedido.setDescripcion(textDescrip.getText());
-    pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
-}
-/*public boolean checkCampos()
-{
-    boolean status = false;
+    public void setPedido(Pedido pedido) {
+        pedido.setNombre(textName.getText());
+        pedido.setCategoria(categoriaSelec.getSelectionModel().getSelectedItem().toString());
+        pedido.setIdProveedor(Integer.parseInt(textPrecio.getText()));
+        pedido.setPrecioCompra(Integer.parseInt(textPrecio.getText()));
+        pedido.setFechaCompra(textFechac.getValue().toString());
+        pedido.setImpuestos(Integer.parseInt(textImpuestos.getText()));
+        pedido.setDescripcion(textDescrip.getText());
+        pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+    }
 
-    if(textName.getText().isEmpty() || categoriaSelec.getSelectionModel().isEmpty() ||
-            idProveedor.getText().isEmpty() || textPrecio.getText().isEmpty() || textFechac.getValue().toString().isEmpty()
-            || textImpuestos.getText().isEmpty() || textDescrip.getText().isEmpty())
+    /*public boolean checkCampos()
     {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error en los campos,reviselos");
-        alert.setContentText("Algunos de los campos esta vacio");
-        alert.showAndWait();
-    }
-    else {
-        status = true;
-    }
-   return status;
-}*/
+        boolean status = false;
+
+        if(textName.getText().isEmpty() || categoriaSelec.getSelectionModel().isEmpty() ||
+                idProveedor.getText().isEmpty() || textPrecio.getText().isEmpty() || textFechac.getValue().toString().isEmpty()
+                || textImpuestos.getText().isEmpty() || textDescrip.getText().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error en los campos,reviselos");
+            alert.setContentText("Algunos de los campos esta vacio");
+            alert.showAndWait();
+        }
+        else {
+            status = true;
+        }
+       return status;
+    }*/
     @Override
-public boolean checkCampos(){
-    if(ControllersMethods.checkTxtField(textName,idProveedor,textImpuestos) ||
-            categoriaSelec.getSelectionModel().isEmpty() || textFechac.getValue().toString().isEmpty() ||
-            textDescrip.getText().isEmpty()){
+    public boolean checkCampos() {
+        if (ControllersMethods.checkTxtField(textName, idProveedor, textImpuestos) ||
+                categoriaSelec.getSelectionModel().isEmpty() || textFechac.getValue().toString().isEmpty() ||
+                textDescrip.getText().isEmpty()) {
 
-        ControllersMethods.alertaCampos();
+            ControllersMethods.alertaCampos();
 
-        return false;
-    }else{
-        return true;
+            return false;
+        } else {
+            return true;
+        }
     }
-}
+    @Override
+    public void actualizar(){}
 }

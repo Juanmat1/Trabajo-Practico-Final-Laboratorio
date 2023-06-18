@@ -99,20 +99,6 @@ public class crudUsuariosController implements Initializable, ICrud {
 
         tableUsuario.setItems(observableList);
     }
-    public Usuario.Estado obtenerEstado(){
-        if(estadoCheckBox.isSelected()){
-            return Usuario.Estado.Activo;
-        }else{
-            return Usuario.Estado.Inactivo;
-        }
-    }
-    public boolean obtenerBooleanEstado(Usuario usuario){
-        if(usuario.getEstado().equals(Usuario.Estado.Activo)){
-            return true;
-        }else{
-            return false;
-        }
-    }
     @Override
     public void agregar() {
         if (checkCampos()) {
@@ -150,6 +136,14 @@ public class crudUsuariosController implements Initializable, ICrud {
             return true;
         }
     }
+    public Usuario.Estado obtenerEstado(){
+        if(estadoCheckBox.isSelected()){
+            return Usuario.Estado.Activo;
+        }else{
+            return Usuario.Estado.Inactivo;
+        }
+    }
+    @Override
     public void actualizar(){
         Usuario usuario = tableUsuario.getSelectionModel().getSelectedItem();
         if(usuario != null) {
@@ -170,6 +164,13 @@ public class crudUsuariosController implements Initializable, ICrud {
             alert.setTitle("Error para actualizar");
             alert.setContentText("Ningun usuario seleccionado");
             alert.showAndWait();
+        }
+    }
+    public boolean obtenerBooleanEstado(Usuario usuario){
+        if(usuario.getEstado().equals(Usuario.Estado.Activo)){
+            return true;
+        }else{
+            return false;
         }
     }
     public void modificar(Usuario usuario){

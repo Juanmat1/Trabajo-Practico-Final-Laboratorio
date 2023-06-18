@@ -26,10 +26,10 @@
       </TableView>
       <AnchorPane layoutX="5.0" layoutY="306.0" prefHeight="69.0" prefWidth="268.0">
          <children>
-            <Button fx:id="buttonAdd" layoutX="36.0" mnemonicParsing="false" onAction="#agregarPedido" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
-            <Button fx:id="buttonUpdate" layoutX="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
-            <Button fx:id="buttonClear" layoutX="118.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiarTextBox" text="Limpiar" />
-            <Button fx:id="buttonDelete" layoutX="188.0" mnemonicParsing="false" onAction="#borrarPedido" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
+            <Button fx:id="buttonAdd" layoutX="36.0" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
+            <Button fx:id="buttonUpdate" layoutX="110.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
+            <Button fx:id="buttonClear" layoutX="118.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+            <Button fx:id="buttonDelete" layoutX="188.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
             <Button fx:id="buttonlogout" layoutY="68.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion">
                <font>
                   <Font size="10.0" />
