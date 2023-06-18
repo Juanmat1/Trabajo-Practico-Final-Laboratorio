@@ -18,7 +18,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class crudUsuariosController implements Initializable{
+public class crudUsuariosController implements Initializable, IAdminCrud<Usuario>{
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
     private ObservableList<Usuario> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Usuario.class));
@@ -113,6 +113,7 @@ public class crudUsuariosController implements Initializable{
             return false;
         }
     }
+    @Override
     public void agregar() {
         if (ControllersMethods.checkCampos(usuarioTextField,nombreTextField,
                 apellidoTextField,contraseniaTextField, dniTextField)) {
@@ -128,7 +129,6 @@ public class crudUsuariosController implements Initializable{
                     actualizarButton.setOnAction(event -> actualizar());
                 }else {
                     observableList.add(usuario);
-                    System.out.println("entro");
                 }
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -141,6 +141,7 @@ public class crudUsuariosController implements Initializable{
         }
         limpiar();
     }
+    @Override
     public void actualizar(){
         Usuario usuario = tableUsuario.getSelectionModel().getSelectedItem();
         if(usuario != null) {
@@ -154,7 +155,7 @@ public class crudUsuariosController implements Initializable{
             actualizarButton.setText("Guardar");
 
             actualizarButton.setOnAction(event -> {
-                modificarDatos(usuario);
+                modificar(usuario);
             });
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -163,7 +164,8 @@ public class crudUsuariosController implements Initializable{
             alert.showAndWait();
         }
     }
-    public void modificarDatos(Usuario usuario){
+    @Override
+    public void modificar(Usuario usuario){
 
         if(ControllersMethods.checkCampos(usuarioTextField,nombreTextField,
                 apellidoTextField,contraseniaTextField, dniTextField)) {
@@ -179,9 +181,11 @@ public class crudUsuariosController implements Initializable{
         actualizarButton.setText("Actualizar");
         actualizarButton.setOnAction(event -> actualizar());
     }
+    @Override
     public void borrar(){
         observableList.remove(tableUsuario.getSelectionModel().getSelectedItem());
     }
+    @Override
     public void limpiar(){
         ControllersMethods.limpiar(usuarioTextField, nombreTextField, apellidoTextField,
                 contraseniaTextField, dniTextField);
