@@ -1,9 +1,8 @@
 package com.tp.tp_final_lab3.controllers;
 
-public interface IAdminCrud <T>{
+public interface ICrud{
     void agregar();
-    void actualizar();
-    void modificar(T objeto);
+    boolean checkCampos();
     void borrar();
     void limpiar();
 }

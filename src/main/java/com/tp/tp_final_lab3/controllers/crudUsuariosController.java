@@ -18,7 +18,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class crudUsuariosController implements Initializable, IAdminCrud<Usuario>{
+public class crudUsuariosController implements Initializable, ICrud {
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
     private ObservableList<Usuario> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Usuario.class));
@@ -115,8 +115,7 @@ public class crudUsuariosController implements Initializable, IAdminCrud<Usuario
     }
     @Override
     public void agregar() {
-        if (ControllersMethods.checkCampos(usuarioTextField,nombreTextField,
-                apellidoTextField,contraseniaTextField, dniTextField)) {
+        if (checkCampos()) {
             try {
                 Usuario usuario = new Usuario(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
                         usuarioTextField.getText(),contraseniaTextField.getText(),obtenerEstado());
@@ -142,6 +141,15 @@ public class crudUsuariosController implements Initializable, IAdminCrud<Usuario
         limpiar();
     }
     @Override
+    public boolean checkCampos(){
+        if(ControllersMethods.checkTxtField(usuarioTextField,nombreTextField,
+                apellidoTextField,contraseniaTextField, dniTextField)){
+            ControllersMethods.alertaCampos();
+            return false;
+        }else{
+            return true;
+        }
+    }
     public void actualizar(){
         Usuario usuario = tableUsuario.getSelectionModel().getSelectedItem();
         if(usuario != null) {
@@ -164,10 +172,9 @@ public class crudUsuariosController implements Initializable, IAdminCrud<Usuario
             alert.showAndWait();
         }
     }
-    @Override
     public void modificar(Usuario usuario){
 
-        if(ControllersMethods.checkCampos(usuarioTextField,nombreTextField,
+        if(ControllersMethods.checkTxtField(usuarioTextField,nombreTextField,
                 apellidoTextField,contraseniaTextField, dniTextField)) {
             usuario.setNombre(nombreTextField.getText());
             usuario.setApellido(apellidoTextField.getText());
@@ -187,7 +194,7 @@ public class crudUsuariosController implements Initializable, IAdminCrud<Usuario
     }
     @Override
     public void limpiar(){
-        ControllersMethods.limpiar(usuarioTextField, nombreTextField, apellidoTextField,
+        ControllersMethods.limpiarTxtField(usuarioTextField, nombreTextField, apellidoTextField,
                 contraseniaTextField, dniTextField);
         estadoCheckBox.setSelected(false);
     }

@@ -6,6 +6,7 @@ import com.tp.tp_final_lab3.Models.Categorias;
 import com.tp.tp_final_lab3.Models.Pedido;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.Services.ControllersMethods;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class crudImportadorController implements Initializable {
+public class crudImportadorController implements Initializable, ICrud {
 
     private ObservableList<Pedido> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json", Pedido.class));
 
@@ -121,7 +122,8 @@ public class crudImportadorController implements Initializable {
         tablePedidos.setItems(observableList);
 
     }
-    public void agregarPedido()
+    @Override
+    public void agregar()
     {
         Pedido pedido = new Pedido();
         boolean status = false;
@@ -147,24 +149,21 @@ public class crudImportadorController implements Initializable {
             observableList.add(pedido);
         }
 
-        limpiarTextBox();
+        limpiar();
 
         //al cerrar sesion se aplican los cambios al json, por eso quite el boton para cerrar
 
     }
-
-    public void limpiarTextBox()
+    @Override
+    public void limpiar()
     {
-        textName.clear();
+        ControllersMethods.limpiarTxtField(textName,idProveedor,textImpuestos,textPrecio);
         categoriaSelec.getSelectionModel().clearSelection();
-        idProveedor.clear();
-        textPrecio.clear();
         textFechac.getEditor().clear();
-        textImpuestos.clear();
         textDescrip.clear();
     }
-
-    public void borrarPedido()
+    @Override
+    public void borrar()
     {
         observableList.remove(tablePedidos.getSelectionModel().getSelectedItem());
     }
@@ -193,7 +192,7 @@ public void setPedido(Pedido pedido)
     pedido.setDescripcion(textDescrip.getText());
     pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
 }
-public boolean checkCampos()
+/*public boolean checkCampos()
 {
     boolean status = false;
 
@@ -210,7 +209,18 @@ public boolean checkCampos()
         status = true;
     }
    return status;
+}*/
+    @Override
+public boolean checkCampos(){
+    if(ControllersMethods.checkTxtField(textName,idProveedor,textImpuestos) ||
+            categoriaSelec.getSelectionModel().isEmpty() || textFechac.getValue().toString().isEmpty() ||
+            textDescrip.getText().isEmpty()){
+
+        ControllersMethods.alertaCampos();
+
+        return false;
+    }else{
+        return true;
+    }
 }
-
-
 }
