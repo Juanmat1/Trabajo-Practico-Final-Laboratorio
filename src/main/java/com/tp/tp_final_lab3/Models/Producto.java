@@ -102,17 +102,12 @@ public class Producto {
 
         Producto producto = (Producto) o;
 
-        if (!Objects.equals(nombre, producto.nombre)) return false;
-        if (!Objects.equals(categoria, producto.categoria)) return false;
-        return Objects.equals(proveedor, producto.proveedor);
+        return id == producto.id;
     }
 
     @Override
     public int hashCode() {
-        int result = nombre != null ? nombre.hashCode() : 0;
-        result = 31 * result + (categoria != null ? categoria.hashCode() : 0);
-        result = 31 * result + (proveedor != null ? proveedor.hashCode() : 0);
-        return result;
+        return id;
     }
 
     @Override

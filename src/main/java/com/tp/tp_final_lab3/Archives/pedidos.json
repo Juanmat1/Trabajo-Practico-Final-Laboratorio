@@ -1,19 +1,21 @@
 [ {
+  "idOrdenDcompra" : 0,
+  "idProveedor" : 10,
+  "cantidad" : 0,
   "nombre" : "Segundo",
   "categoria" : null,
-  "idProveedor" : 10,
   "precioCompra" : 10,
   "fechaCompra" : "2023-06-26",
-  "impuestos" : 1000.0,
   "descripcion" : "Segundoo",
   "username" : "juanma"
 }, {
+  "idOrdenDcompra" : 0,
+  "idProveedor" : 1,
+  "cantidad" : 0,
   "nombre" : "22",
   "categoria" : null,
-  "idProveedor" : 1,
   "precioCompra" : 1,
   "fechaCompra" : "2023-06-25",
-  "impuestos" : 1.0,
   "descripcion" : "11",
-  "username" : null
+  "username" : "juanma"
 } ]

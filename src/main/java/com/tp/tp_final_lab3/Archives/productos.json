@@ -71,8 +71,8 @@
 }, {
   "id" : 11,
   "nombre" : "Producto 11",
-  "categoria" : "SALUD",
-  "proveedor" : "Proveedor K",
+  "categoria" : "DEPORTES",
+  "proveedor" : "Proveedor A",
   "stock" : 7,
   "estado" : "Activo"
 }, {
@@ -102,7 +102,7 @@
   "categoria" : "DECORACION",
   "proveedor" : "Proveedor O",
   "stock" : 11,
-  "estado" : "Activo"
+  "estado" : "Inactivo"
 }, {
   "id" : 16,
   "nombre" : "Producto 16",
