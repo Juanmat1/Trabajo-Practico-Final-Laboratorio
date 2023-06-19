@@ -30,7 +30,7 @@
             <Button fx:id="buttonUpdate" layoutX="110.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
             <Button fx:id="buttonClear" layoutX="118.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
             <Button fx:id="buttonDelete" layoutX="188.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
-            <Button fx:id="buttonlogout" layoutY="68.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion">
+            <Button fx:id="volverButton" layoutY="68.0" mnemonicParsing="false" onAction="#volver" text="Volver">
                <font>
                   <Font size="10.0" />
                </font>

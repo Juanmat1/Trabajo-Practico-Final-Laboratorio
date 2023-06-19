@@ -18,7 +18,7 @@ public class usuarioSelectionController {
     @FXML
     private Button ventasButton;
     @FXML
-    private Button salirButton;
+    private Button cerrarSesionButton;
 
     public void importadora(){
         try {
@@ -40,10 +40,10 @@ public class usuarioSelectionController {
             io.printStackTrace();
         }
     }
-    public void salir(){
+    public void cerrarSesion(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_Importadora.fxml"));
-            Stage stage = (Stage) salirButton.getScene().getWindow();
+            Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
         }catch (IOException io) {

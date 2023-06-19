@@ -10,7 +10,6 @@ public class ControllersMethods {
     public static boolean checkTxtField(TextField...textFields){
         for(TextField textField : textFields){
             if(textField.getText().isEmpty()){
-                System.out.println(textField.getText());
                 return true;
             }
         }

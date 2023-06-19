@@ -18,7 +18,7 @@ public class usuarioVentaController {
     @FXML
     private Button crearButton;
     @FXML
-    private Button salirButton;
+    private Button volverButton;
 
     public void verificar(){
         try {
@@ -40,10 +40,10 @@ public class usuarioVentaController {
             io.printStackTrace();
         }
     }
-    public void salir(){
+    public void volver(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_Importadora.fxml"));
-            Stage stage = (Stage) salirButton.getScene().getWindow();
+            Stage stage = (Stage) volverButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
         }catch (IOException io) {

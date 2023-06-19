@@ -32,7 +32,7 @@ public class crudImportadorController implements Initializable, ICrud {
 
 
     @FXML
-    private Button buttonlogout;
+    private Button volverButton;
 
     @FXML
     private ChoiceBox<Categorias> categoriaSelec;
@@ -165,11 +165,11 @@ public class crudImportadorController implements Initializable, ICrud {
         observableList.remove(tablePedidos.getSelectionModel().getSelectedItem());
     }
 
-    public void cerrarSesion() {
+    public void volver() {
         Jackson.serializar(observableList, "src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");//se trabaja con cache
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
-            Stage stage = (Stage) buttonlogout.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Seleccion.fxml"));
+            Stage stage = (Stage) volverButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
 
             stage.setScene(scene);

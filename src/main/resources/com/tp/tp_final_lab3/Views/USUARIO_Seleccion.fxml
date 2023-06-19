@@ -14,6 +14,6 @@
       </Text>
       <Button fx:id="importadoraButton" layoutX="104.0" layoutY="165.0" mnemonicParsing="false" onAction="#importadora" text="Importadora" />
       <Button fx:id="ventasButton" layoutX="104.0" layoutY="200.0" mnemonicParsing="false" onAction="#ventas" prefHeight="26.0" prefWidth="84.0" text="Ventas" />
-      <Button fx:id="salirButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#salir" text="Salir" />
+      <Button fx:id="cerrarSesionButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
    </children>
 </AnchorPane>
