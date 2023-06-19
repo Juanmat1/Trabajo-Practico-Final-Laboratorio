@@ -17,13 +17,14 @@
         <TextField fx:id="textNombre" layoutX="76.0" layoutY="77.0" promptText="Nombre" />
         <TextField fx:id="textRazonSocial" layoutX="76.0" layoutY="109.0" promptText="Razón Social" />
         <TextField fx:id="textCUIT" layoutX="76.0" layoutY="141.0" promptText="CUIT" />
-        <ChoiceBox fx:id="categoryChoiceBox" layoutX="76.0" layoutY="175.0" onMouseClicked="#mostrarOpciones" onAction="#mostrarOpciones" prefWidth="150.0" />
         <Button fx:id="createButton" layoutX="108.0" layoutY="319.0" mnemonicParsing="false" onAction="#crearCuenta" text="Crear Cuenta" />
         <Button fx:id="loginButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#irLogin" text="Login">
             <font>
                 <Font size="10.0" />
             </font>
         </Button>
+        <ChoiceBox fx:id="categoryChoice" accessibleText="Categorias" layoutX="76.0" layoutY="175.0"
+                   onAction="#mostrarOpciones" onMouseClicked="#cargarCategorias" prefWidth="150.0"/>
 
     </children>
 </AnchorPane>
