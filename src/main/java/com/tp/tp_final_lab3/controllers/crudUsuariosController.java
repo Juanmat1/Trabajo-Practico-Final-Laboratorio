@@ -110,8 +110,6 @@ public class crudUsuariosController implements Initializable, ICrud {
                     alert.setTitle("Error");
                     alert.setContentText("No se puede agregar un usuario ya existente");
                     alert.showAndWait();
-                    actualizarButton.setText("Actualizar");
-                    actualizarButton.setOnAction(event -> actualizar());
                 }else {
                     observableList.add(usuario);
                 }
@@ -124,6 +122,8 @@ public class crudUsuariosController implements Initializable, ICrud {
                 e.printStackTrace();
             }
         }
+        actualizarButton.setText("Actualizar");
+        actualizarButton.setOnAction(event -> actualizar());
         limpiar();
     }
     @Override

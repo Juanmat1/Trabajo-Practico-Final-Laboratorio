@@ -10,10 +10,11 @@ public class ControllersMethods {
     public static boolean checkTxtField(TextField...textFields){
         for(TextField textField : textFields){
             if(textField.getText().isEmpty()){
-                return false;
+                System.out.println(textField.getText());
+                return true;
             }
         }
-        return true;
+        return false;
     }
     public static void alertaCampos(){
         Alert alert = new Alert(Alert.AlertType.ERROR);
