@@ -60,7 +60,7 @@ public class createProvController {
     public void cargarCategorias() {
 
         setCategorias();
-
+        categoryChoice.setPromptText("Categorías");
         // Agregar el ChangeListener al ComboBox
         categoryChoice.getSelectionModel().selectedItemProperty().addListener(opcionSeleccionadaListener);
 
