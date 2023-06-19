@@ -74,7 +74,7 @@ public class createProvController {
     @FXML
     public void crearCuenta() throws ClassNotFoundException {
 
-        provs = Jackson.deserializarArrayListUser("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json");
+        provs = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
         int lastId = obtenerIdMasGrande(provs);
 
 
