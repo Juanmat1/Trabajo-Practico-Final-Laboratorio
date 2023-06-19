@@ -1,0 +1,25 @@
+[ {
+  "nombre" : "Diego",
+  "apellido" : "Inostroza",
+  "dni" : "11111111",
+  "usuario" : "diegoi",
+  "contrasenia" : "123"
+}, {
+  "nombre" : "Jose",
+  "apellido" : "Bergues",
+  "dni" : "22222222",
+  "usuario" : "joseb",
+  "contrasenia" : "123"
+}, {
+  "nombre" : "Juan",
+  "apellido" : "Tretta",
+  "dni" : "33333333",
+  "usuario" : "juanmt",
+  "contrasenia" : "123"
+}, {
+  "nombre" : "Josefina",
+  "apellido" : "Fructuoso",
+  "dni" : "44444444",
+  "usuario" : "josef",
+  "contrasenia" : "123"
+} ]

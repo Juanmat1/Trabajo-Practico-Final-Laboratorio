@@ -1,7 +1,9 @@
 package com.tp.tp_final_lab3.controllers;
 
+import com.tp.tp_final_lab3.Models.Admin;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.SingletonClasses.SingletonAdminClass;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +26,7 @@ public class loginController implements Initializable {
 
 
     ArrayList<Usuario> users;
+    ArrayList<Admin> admins;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,7 +45,8 @@ public class loginController implements Initializable {
     public void loginAction(ActionEvent actionEvent) {
 
 
-        String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
+        String pathJsonUsers = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
+        String pathJsonAdmins = "src/main/java/com/tp/tp_final_lab3/Archives/administradores.json";
 
         if (textUser.getText().isEmpty() || textPassword.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -51,8 +55,12 @@ public class loginController implements Initializable {
             alert.showAndWait();
         } else {
 
-            if (textPassword.getText().equals("admin") && textUser.getText().equals("admin")) {
+            admins = Jackson.deserializarArrayList(pathJsonAdmins, Admin.class);
+            Admin admin = new Admin(textUser.getText(), textPassword.getText());
+
+            if (admins.contains(admin)) {
                 try {
+                    SingletonAdminClass.getInstancia().SetInfo(admin);
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Seleccion.fxml"));
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     Scene scene = new Scene(loader.load());
@@ -62,8 +70,7 @@ public class loginController implements Initializable {
                 }
             } else {
 
-
-                users = Jackson.deserializarArrayListUser(pathJson);
+                users = Jackson.deserializarArrayList(pathJsonUsers, Usuario.class);
                 Usuario user = new Usuario(textUser.getText(), textPassword.getText());
 
 

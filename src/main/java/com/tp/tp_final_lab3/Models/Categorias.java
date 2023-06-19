@@ -5,7 +5,22 @@ public enum Categorias {
     TECNOLOGIA,
     HOGAR,
     ELECTRODOMESTICOS,
-    INDUMENTARIA;
+    INDUMENTARIA,
+    DEPORTES,
+    JUGUETERIA,
+    FERRETERIA,
+    ELECTRICIDAD,
+    ILUMINACION,
+    BELLEZA,
+    SALUD,
+    MASCOTAS,
+    LIBRERIA,
+    MUEBLES,
+    DECORACION,
+    AUTOMOTRIZ,
+    JOYERIA,
+
+    CAMPING;
 
     Categorias() {
     }

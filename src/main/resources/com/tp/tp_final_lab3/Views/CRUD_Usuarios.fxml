@@ -9,34 +9,35 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudUsuariosController">
    <children>
-      <TableView layoutX="314.0" layoutY="39.0" prefHeight="336.0" prefWidth="461.0">
+      <TableView fx:id="tableUsuario" layoutX="261.0" layoutY="39.0" prefHeight="336.0" prefWidth="514.0">
         <columns>
-          <TableColumn prefWidth="48.0" text="ID" />
-          <TableColumn prefWidth="76.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Apellido" />
-            <TableColumn prefWidth="89.0" text="Contrasenia" />
-            <TableColumn prefWidth="114.0" text="Fecha de Creacion" />
-            <TableColumn prefWidth="57.0" text="Estado" />
+          <TableColumn fx:id="idColumn" prefWidth="34.0" text="ID" />
+          <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="apellidoColumn" prefWidth="84.0" text="Apellido" />
+            <TableColumn fx:id="dniColumn" prefWidth="78.0" text="Dni" />
+            <TableColumn fx:id="usuarioColumn" prefWidth="73.0" text="Usuario" />
+            <TableColumn fx:id="fechaCreacionColumn" prefWidth="111.0" text="Fecha de creacion" />
+            <TableColumn fx:id="estadoColumn" prefWidth="57.0" text="Estado" />
         </columns>
       </TableView>
-      <AnchorPane layoutX="41.0" layoutY="278.0">
+      <AnchorPane layoutX="14.0" layoutY="278.0" prefHeight="70.0" prefWidth="231.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
-            <Button layoutX="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
-            <Button layoutX="89.0" layoutY="44.0" mnemonicParsing="false" text="Limpiar" />
-            <Button layoutX="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
+            <Button fx:id="agregarButton" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
+            <Button fx:id="actualizarButton" layoutX="81.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
+            <Button fx:id="limpiarButton" layoutX="89.0" layoutY="44.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+            <Button fx:id="borrarButton" layoutX="168.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="58.0" layoutY="31.0" prefHeight="242.0" prefWidth="200.0">
+      <AnchorPane layoutX="25.0" layoutY="30.0" prefHeight="242.0" prefWidth="205.0">
          <children>
-            <TextField layoutX="26.0" layoutY="14.0" promptText="Usuario" />
-            <TextField layoutX="26.0" layoutY="46.0" promptText="Nombre" />
-            <TextField layoutX="26.0" layoutY="109.0" promptText="Contrasenia" />
-            <TextField layoutX="26.0" layoutY="143.0" promptText="Origen" />
-            <CheckBox layoutX="2.0" layoutY="211.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="196.0" text="Estado(click para habilitar user)" textAlignment="RIGHT" wrapText="true" />
-            <TextField layoutX="26.0" layoutY="77.0" promptText="Apellido" />
+            <TextField fx:id="usuarioTextField" layoutX="26.0" layoutY="14.0" promptText="Usuario" />
+            <TextField fx:id="nombreTextField" layoutX="26.0" layoutY="46.0" promptText="Nombre" />
+            <TextField fx:id="contraseniaTextField" layoutX="26.0" layoutY="109.0" promptText="Contrasenia" />
+            <TextField fx:id="dniTextField" layoutX="26.0" layoutY="143.0" promptText="Dni" />
+            <CheckBox fx:id="estadoCheckBox" layoutX="8.0" layoutY="187.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="196.0" text="Estado(click para habilitar user)" textAlignment="RIGHT" wrapText="true" />
+            <TextField fx:id="apellidoTextField" layoutX="26.0" layoutY="77.0" promptText="Apellido" />
          </children>
       </AnchorPane>
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
@@ -44,7 +45,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Button layoutX="5.0" layoutY="376.0" mnemonicParsing="false" text="Cerrar sesion">
+      <Button fx:id="volverButton" layoutX="5.0" layoutY="376.0" mnemonicParsing="false" onAction="#volver" text="Volver">
          <font>
             <Font size="10.0" />
          </font>

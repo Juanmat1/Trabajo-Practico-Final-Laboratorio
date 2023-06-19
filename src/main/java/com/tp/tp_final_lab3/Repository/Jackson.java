@@ -3,6 +3,7 @@ package com.tp.tp_final_lab3.Repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
 
@@ -19,6 +20,7 @@ public class Jackson {
     {
         File file = new File(pathJson);
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
 
         try{
             mapper.writerWithDefaultPrettyPrinter().writeValue(file,objeto);
@@ -30,16 +32,17 @@ public class Jackson {
         }
     }
 
-    public static <T> ArrayList<T> deserializarArrayListUser(String pathJson){
+    public static <T> ArrayList<T> deserializarArrayList(String pathJson,Class clase){
 
         File file = new File(pathJson);
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
 
         ArrayList<T> objetos = null;
 
         try {
-            CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, Usuario.class);
+            CollectionType collectionType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, clase);//Usuario.class);
             objetos = mapper.readValue(file, collectionType);
 
         } catch (IOException e){
@@ -50,7 +53,7 @@ public class Jackson {
         return objetos ;
     }
 
-    public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson)///poner clase
+    /*public static <T> ArrayList<T> deserializarArrayListPedido(String pathJson)///poner clase
     {
 
         File file = new File(pathJson);
@@ -72,7 +75,7 @@ public class Jackson {
         }
 
         return objetos ;
-    }
+    }*/
 
 
     public static ExchangeRates obtenerDivisas()

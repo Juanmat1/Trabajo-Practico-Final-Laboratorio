@@ -3,23 +3,44 @@
   "apellido" : "tretta",
   "dni" : "41149231",
   "usuario" : "juanma",
-  "contrasenia" : "123"
+  "contrasenia" : "123",
+  "id" : 1,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
   "nombre" : "fede",
   "apellido" : "marcos",
   "dni" : "41149231",
   "usuario" : "fede",
-  "contrasenia" : "123"
+  "contrasenia" : "123",
+  "id" : 2,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
   "nombre" : "pedrito",
   "apellido" : "aa",
   "dni" : "13131",
   "usuario" : "pedro",
-  "contrasenia" : "123"
+  "contrasenia" : "123",
+  "id" : 3,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 11 ]
 }, {
   "nombre" : "Ana",
   "apellido" : "Alvo",
   "dni" : "1312311",
   "usuario" : "anaalvo",
-  "contrasenia" : "123"
+  "contrasenia" : "123",
+  "id" : 4,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 11 ]
+}, {
+  "nombre" : "Diego",
+  "apellido" : "Inostroza",
+  "dni" : "44335972",
+  "usuario" : "diegoinost",
+  "contrasenia" : "diegoinost",
+  "id" : 5,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 11 ]
 } ]

@@ -1,0 +1,134 @@
+[ {
+  "id" : 1,
+  "nombre" : "Producto 1",
+  "categoria" : "TECNOLOGIA",
+  "proveedor" : "Proveedor A",
+  "stock" : 10,
+  "estado" : "Activo"
+}, {
+  "id" : 2,
+  "nombre" : "Producto 2",
+  "categoria" : "HOGAR",
+  "proveedor" : "Proveedor R",
+  "stock" : 10,
+  "estado" : "Inactivo"
+}, {
+  "id" : 3,
+  "nombre" : "Producto 3",
+  "categoria" : "ELECTRODOMESTICOS",
+  "proveedor" : "Proveedor C",
+  "stock" : 8,
+  "estado" : "Activo"
+}, {
+  "id" : 4,
+  "nombre" : "Producto 4",
+  "categoria" : "INDUMENTARIA",
+  "proveedor" : "Proveedor D",
+  "stock" : 2,
+  "estado" : "Activo"
+}, {
+  "id" : 5,
+  "nombre" : "Producto 5",
+  "categoria" : "DEPORTES",
+  "proveedor" : "Proveedor E",
+  "stock" : 15,
+  "estado" : "Activo"
+}, {
+  "id" : 6,
+  "nombre" : "Producto 6",
+  "categoria" : "JUGUETERIA",
+  "proveedor" : "Proveedor F",
+  "stock" : 3,
+  "estado" : "Inactivo"
+}, {
+  "id" : 7,
+  "nombre" : "Producto 7",
+  "categoria" : "FERRETERIA",
+  "proveedor" : "Proveedor G",
+  "stock" : 20,
+  "estado" : "Activo"
+}, {
+  "id" : 8,
+  "nombre" : "Producto 8",
+  "categoria" : "ELECTRICIDAD",
+  "proveedor" : "Proveedor H",
+  "stock" : 6,
+  "estado" : "Activo"
+}, {
+  "id" : 9,
+  "nombre" : "Producto 9",
+  "categoria" : "ILUMINACION",
+  "proveedor" : "Proveedor I",
+  "stock" : 12,
+  "estado" : "Activo"
+}, {
+  "id" : 10,
+  "nombre" : "Producto 10",
+  "categoria" : "BELLEZA",
+  "proveedor" : "Proveedor J",
+  "stock" : 4,
+  "estado" : "Inactivo"
+}, {
+  "id" : 11,
+  "nombre" : "Producto 11",
+  "categoria" : "SALUD",
+  "proveedor" : "Proveedor K",
+  "stock" : 7,
+  "estado" : "Activo"
+}, {
+  "id" : 12,
+  "nombre" : "Producto 12",
+  "categoria" : "MASCOTAS",
+  "proveedor" : "Proveedor L",
+  "stock" : 9,
+  "estado" : "Activo"
+}, {
+  "id" : 13,
+  "nombre" : "Producto 13",
+  "categoria" : "LIBRERIA",
+  "proveedor" : "Proveedor M",
+  "stock" : 1,
+  "estado" : "Inactivo"
+}, {
+  "id" : 14,
+  "nombre" : "Producto 14",
+  "categoria" : "MUEBLES",
+  "proveedor" : "Proveedor N",
+  "stock" : 18,
+  "estado" : "Activo"
+}, {
+  "id" : 15,
+  "nombre" : "Producto 15",
+  "categoria" : "DECORACION",
+  "proveedor" : "Proveedor O",
+  "stock" : 11,
+  "estado" : "Activo"
+}, {
+  "id" : 16,
+  "nombre" : "Producto 16",
+  "categoria" : "AUTOMOTRIZ",
+  "proveedor" : "Proveedor P",
+  "stock" : 3,
+  "estado" : "Activo"
+}, {
+  "id" : 17,
+  "nombre" : "Producto 17",
+  "categoria" : "JOYERIA",
+  "proveedor" : "Proveedor Q",
+  "stock" : 6,
+  "estado" : "Inactivo"
+}, {
+  "id" : 18,
+  "nombre" : "Producto 18",
+  "categoria" : "CAMPING",
+  "proveedor" : "Proveedor R",
+  "stock" : 14,
+  "estado" : "Activo"
+}, {
+  "id" : 19,
+  "nombre" : "Samsung",
+  "categoria" : "TECNOLOGIA",
+  "proveedor" : "Proveedor R",
+  "stock" : 20,
+  "estado" : "Activo"
+} ]
