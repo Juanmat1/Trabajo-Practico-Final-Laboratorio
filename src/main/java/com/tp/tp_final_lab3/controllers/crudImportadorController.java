@@ -22,8 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class crudImportadorController implements Initializable {
 
@@ -33,8 +32,6 @@ public class crudImportadorController implements Initializable {
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/productos.json", Producto.class);
     private final ObservableList<Pedido> observablePedido = FXCollections.observableArrayList();
     private final ObservableList<Producto> observableProducto = FXCollections.observableArrayList();
-
-
 
 
 //region FXML
@@ -69,9 +66,6 @@ public class crudImportadorController implements Initializable {
 
     @FXML
     private TableColumn<Pedido, Integer> tableIdProv;
-
-    @FXML
-    private TableColumn<Pedido, Double> tableImp;
 
     @FXML
     private TableColumn<Pedido, String> tableName;
@@ -163,13 +157,20 @@ public class crudImportadorController implements Initializable {
 
     public void agregarPedido()
     {
-        Pedido pedido = new Pedido();
-        boolean status = false;
         if(checkCampos())
         {
             try{
-                setPedido(pedido);
-                status = true;
+                Pedido pedido = new Pedido(1,comboBoxCantidad.getSelectionModel().getSelectedItem(),
+                        comboBoxProduc.getSelectionModel().getSelectedItem(),comboBoxCat.getSelectionModel().getSelectedItem(),
+                        Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada",SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+
+                observablePedido.add(pedido);
+
+                modificarStock(pedido.getNombre(), pedido.getCategoria(), pedido.getCantidad());
+
+                tableStock.refresh();
+
+
             }catch (Exception e)
             {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -180,13 +181,7 @@ public class crudImportadorController implements Initializable {
                 e.printStackTrace();
             }
         }
-        if(status)
-        {
-            observablePedido.add(pedido);
 
-
-
-        }
         limpiarTextBox();
         //al cerrar sesion se aplican los cambios al json, por eso quite el boton para cerrar
     }
@@ -221,8 +216,6 @@ public class crudImportadorController implements Initializable {
         {
             textPrecio.setText(Double.toString(pedido.getPrecioCompra()));
             textFechac.setValue(LocalDate.parse(pedido.getFechaCompra()));
-            comboBoxCantidad.getSelectionModel().select(pedido.getCantidad()-1);
-
         }
 
     }
@@ -243,13 +236,19 @@ public class crudImportadorController implements Initializable {
     }
     public void setPedido(Pedido pedido)
     {
-        pedido.setNombre(comboBoxCat.getSelectionModel().getSelectedItem());
+        pedido = new Pedido(1,comboBoxCantidad.getSelectionModel().getSelectedItem(),
+                comboBoxProduc.getSelectionModel().getSelectedItem(),comboBoxCat.getSelectionModel().getSelectedItem(),
+                Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada",SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+
+
+
+        /*pedido.setNombre(comboBoxProduc.getSelectionModel().getSelectedItem());
         pedido.setCategoria(comboBoxCat.getSelectionModel().getSelectedItem());
         pedido.setCantidad(comboBoxCantidad.getSelectionModel().getSelectedItem());
-        pedido.setIdProveedor(Integer.parseInt(textPrecio.getText()));
+        ///pedido.setIdProveedor(Integer.parseInt(textPrecio.getText()));
         pedido.setPrecioCompra(Integer.parseInt(textPrecio.getText()));
         pedido.setFechaCompra(textFechac.getValue().toString());
-        pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+        pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());*/
 
 
     }
@@ -305,25 +304,37 @@ public class crudImportadorController implements Initializable {
 
     public void cargarArrayPedidos()
     {
-        for(Pedido aux : listaPedidos)
+        Iterator<Pedido> iterator = listaPedidos.iterator();
+
+        while(iterator.hasNext())
         {
-            if(aux.getUsername().equals(SingletonUsuarioClass.getInstancia().getInfo().getUsuario()))
+            Pedido pedido = iterator.next();
+
+            if(pedido.getUsername().equals(SingletonUsuarioClass.getInstancia().getInfo().getUsuario()))
             {
-                observablePedido.add(aux);
+                observablePedido.add(pedido);
+                iterator.remove();
             }
         }
         tablePedidos.setItems(observablePedido);
+
     }
-    public void cargarArrayProductos()
-    {
-        for(Producto producto : listaProductos)
+    public void cargarArrayProductos() {
+
+        Iterator<Producto> iterator = listaProductos.iterator();
+
+        while(iterator.hasNext())
         {
+            Producto producto = iterator.next();
+
             if(producto.getEstado().toString().equals("Activo"))
             {
                 observableProducto.add(producto);
+                iterator.remove();
             }
         }
         tableStock.setItems(observableProducto);
+
     }
 
     public void setCategorias()
@@ -342,19 +353,20 @@ public class crudImportadorController implements Initializable {
         ObservableList<String> productosString = FXCollections.observableArrayList();
         boolean status = false;
 
-
-        for(Producto producto : observableProducto)
+        if(!comboBoxCat.getSelectionModel().isEmpty())
         {
-            if(comboBoxCat.getSelectionModel().getSelectedItem().equals(producto.getCategoria()))
-            {
-                productosString.add(producto.getNombre());
-                if(!status)
-                {
-                    status = true;
+
+            for (Producto producto : observableProducto) {
+
+
+                if (comboBoxCat.getSelectionModel().getSelectedItem().equals(producto.getCategoria())) {
+                    productosString.add(producto.getNombre());
+                    if (!status) {
+                        status = true;
+                    }
                 }
             }
         }
-
         if(!status)
         {
             comboBoxProduc.setPromptText("0 Productos");
@@ -378,32 +390,28 @@ public class crudImportadorController implements Initializable {
 
     public void actualizarListaPedidos()
     {
-        for( Pedido pedido : listaPedidos)
-        {
-            if(pedido.getUsername().equals(SingletonUsuarioClass.getInstancia().getInfo().getUsuario()))
-            {
-                int index = listaPedidos.indexOf(pedido);
+       listaPedidos.addAll(observablePedido);
 
-                listaPedidos.set(index,observablePedido.get(observablePedido.indexOf(pedido)));
-            }
-        }
+        Collections.sort(listaPedidos);
     }
 
     public void actualizarListaProductos()
     {
-        for(Producto producto : listaProductos)
-        {
-            int index = listaProductos.indexOf(producto);
+        listaProductos.addAll(observableProducto);
 
-            listaProductos.set(index,observableProducto.get(observableProducto.indexOf(producto)));
-        }
+        Collections.sort(listaProductos);
     }
 
-
+    public void modificarStock(String nombre,String categoria,int cantidad)
+    {
+        for(Producto producto : observableProducto)
+        {
+            if(nombre.equals(producto.getNombre()) && categoria.equals(producto.getCategoria()))
+            {
+                producto.setStock(producto.getStock()+cantidad);
+                break;
+            }
+        }
+    }
     //endregion
-
-
-
-
-
 }

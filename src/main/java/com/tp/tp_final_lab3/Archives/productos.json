@@ -122,13 +122,13 @@
   "nombre" : "Producto 18",
   "categoria" : "CAMPING",
   "proveedor" : "Proveedor R",
-  "stock" : 14,
+  "stock" : 20,
   "estado" : "Activo"
 }, {
   "id" : 19,
   "nombre" : "Samsung",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor R",
-  "stock" : 20,
+  "stock" : 40,
   "estado" : "Activo"
 } ]

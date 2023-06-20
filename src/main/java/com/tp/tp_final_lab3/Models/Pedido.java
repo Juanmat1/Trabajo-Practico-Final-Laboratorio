@@ -1,6 +1,10 @@
 package com.tp.tp_final_lab3.Models;
 
-public class Pedido {
+import com.tp.tp_final_lab3.Repository.Jackson;
+
+import java.util.ArrayList;
+
+public class Pedido implements Comparable<Pedido> {
 
     private int idOrdenDcompra;
     private int idProveedor;
@@ -13,11 +17,12 @@ public class Pedido {
     private String username;
 
 
-    public Pedido(int idOrdenDcompra, int idProveedor, int cantidad,
+    public Pedido( int idProveedor, int cantidad,
                   String nombre, String categoria, int precioCompra, String fechaCompra,
                   String descripcion, String username)
     {
-        this.idOrdenDcompra = idOrdenDcompra;
+        int ultimoID = ultimoID();
+        this.idOrdenDcompra = ultimoID + 1;
         this.idProveedor = idProveedor;
         this.cantidad = cantidad;
         this.nombre = nombre;
@@ -30,7 +35,14 @@ public class Pedido {
 
     public Pedido() {
     }
-//region GyS
+
+    @Override
+    public int compareTo(Pedido o) {
+
+        return Integer.compare(this.idOrdenDcompra,o.idOrdenDcompra);
+    }
+
+    //region GyS
     public String getNombre() {
         return nombre;
     }
@@ -106,9 +118,6 @@ public class Pedido {
 
     //endregion
 
-
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,4 +132,18 @@ public class Pedido {
     public int hashCode() {
         return idOrdenDcompra;
     }
+
+
+
+    private int ultimoID()
+    {
+        int ultimoId;
+
+        ArrayList<Pedido> pedidos = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json",Pedido.class);
+
+        ultimoId = pedidos.get(pedidos.size()-1).idOrdenDcompra;
+
+        return ultimoId;
+    }
 }
+

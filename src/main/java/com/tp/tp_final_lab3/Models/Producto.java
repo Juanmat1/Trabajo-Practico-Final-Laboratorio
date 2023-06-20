@@ -5,7 +5,7 @@ import com.tp.tp_final_lab3.Repository.Jackson;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Producto {
+public class Producto implements Comparable<Producto> {
 
 
     public enum Estado{
@@ -31,6 +31,12 @@ public class Producto {
         this.estado = estado;
         int ultimoId = obtenerUltimoId();
         this.id=ultimoId+1;
+    }
+
+
+    @Override
+    public int compareTo(Producto o) {
+        return Integer.compare(this.id,o.id);
     }
 
     //region GYS
