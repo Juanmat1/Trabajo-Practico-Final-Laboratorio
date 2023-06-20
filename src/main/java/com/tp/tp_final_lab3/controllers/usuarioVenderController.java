@@ -6,6 +6,7 @@ import com.tp.tp_final_lab3.Models.Proveedor;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ConsultaVenta;
+import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,8 +30,6 @@ public class usuarioVenderController implements Initializable {
     private final String pathJsonProveedores = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
     private ObservableList<Producto> observableListProducto = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProductos,Producto.class));
     private Producto producto = new Producto();
-    @FXML
-    private TableColumn<Producto, Categorias> categoriaCollum;
 
     @FXML
     private ComboBox<Integer> comboBoxCant;
@@ -39,6 +39,8 @@ public class usuarioVenderController implements Initializable {
 
     @FXML
     private ComboBox<String> comboBoxProv;
+    @FXML
+    private TableColumn<Producto, Categorias> categoriaCollum;
 
     @FXML
     private TableColumn<Producto, String> nombreColumn;
@@ -60,10 +62,29 @@ public class usuarioVenderController implements Initializable {
     @FXML
     private Button volverButton;
 
+
+    /*nombreColumn;
+    categoriaCollum;
+
+    proveedorCollum;
+
+    stockCollum;*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCategorias();
         setProveedores();
+
+        nombreColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        categoriaCollum.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        proveedorCollum.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
+        stockCollum.setCellValueFactory(new PropertyValueFactory<>("stock"));
+
+        tableProductos.setItems(observableListProducto);
+
+        ControllersMethods.alinearTabla(nombreColumn);
+        ControllersMethods.alinearTabla(categoriaCollum);
+        ControllersMethods.alinearTabla(proveedorCollum);
+        ControllersMethods.alinearTabla(stockCollum);
     }
     public void selecCategoria(){
         ObservableList<String> productosProveedor = FXCollections.observableArrayList();
@@ -78,7 +99,7 @@ public class usuarioVenderController implements Initializable {
             }
             comboBoxProv.setItems(productosProveedor);
         }
-        ConsultaVenta.filtrarProducto(producto,tableProductos);
+        ConsultaVenta.filtrarProducto(producto,tableProductos,observableListProducto);
     }
     public void selecProveedor(){
         ObservableList<String> productosCategorias = FXCollections.observableArrayList();
@@ -93,7 +114,7 @@ public class usuarioVenderController implements Initializable {
             }
             comboBoxCategoria.setItems(productosCategorias);
         }
-        ConsultaVenta.filtrarProducto(producto,tableProductos);
+        ConsultaVenta.filtrarProducto(producto,tableProductos,observableListProducto);
     }
     public void buscarCantidad(){}
 

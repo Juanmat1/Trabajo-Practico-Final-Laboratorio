@@ -4,131 +4,150 @@
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor A",
   "stock" : 10,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "TECNOLOGIA"
 }, {
   "id" : 2,
   "nombre" : "Producto 2",
   "categoria" : "HOGAR",
   "proveedor" : "Proveedor R",
   "stock" : 10,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "categoriaString" : "HOGAR"
 }, {
   "id" : 3,
   "nombre" : "Producto 3",
   "categoria" : "ELECTRODOMESTICOS",
   "proveedor" : "Proveedor C",
   "stock" : 8,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "ELECTRODOMESTICOS"
 }, {
   "id" : 4,
   "nombre" : "Producto 4",
   "categoria" : "INDUMENTARIA",
   "proveedor" : "Proveedor D",
   "stock" : 2,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "INDUMENTARIA"
 }, {
   "id" : 5,
   "nombre" : "Producto 5",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor E",
   "stock" : 15,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "DEPORTES"
 }, {
   "id" : 6,
   "nombre" : "Producto 6",
   "categoria" : "JUGUETERIA",
   "proveedor" : "Proveedor F",
   "stock" : 3,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "categoriaString" : "JUGUETERIA"
 }, {
   "id" : 7,
   "nombre" : "Producto 7",
   "categoria" : "FERRETERIA",
   "proveedor" : "Proveedor G",
   "stock" : 20,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "FERRETERIA"
 }, {
   "id" : 8,
   "nombre" : "Producto 8",
   "categoria" : "ELECTRICIDAD",
   "proveedor" : "Proveedor H",
   "stock" : 6,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "ELECTRICIDAD"
 }, {
   "id" : 9,
   "nombre" : "Producto 9",
   "categoria" : "ILUMINACION",
   "proveedor" : "Proveedor I",
   "stock" : 12,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "ILUMINACION"
 }, {
   "id" : 10,
   "nombre" : "Producto 10",
   "categoria" : "BELLEZA",
   "proveedor" : "Proveedor J",
   "stock" : 4,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "categoriaString" : "BELLEZA"
 }, {
   "id" : 11,
   "nombre" : "Producto 11",
   "categoria" : "SALUD",
   "proveedor" : "Proveedor K",
   "stock" : 7,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "SALUD"
 }, {
   "id" : 12,
   "nombre" : "Producto 12",
   "categoria" : "MASCOTAS",
   "proveedor" : "Proveedor L",
   "stock" : 9,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "MASCOTAS"
 }, {
   "id" : 13,
   "nombre" : "Producto 13",
   "categoria" : "LIBRERIA",
   "proveedor" : "Proveedor M",
   "stock" : 1,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "categoriaString" : "LIBRERIA"
 }, {
   "id" : 14,
   "nombre" : "Producto 14",
   "categoria" : "MUEBLES",
   "proveedor" : "Proveedor N",
   "stock" : 18,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "MUEBLES"
 }, {
   "id" : 15,
   "nombre" : "Producto 15",
   "categoria" : "DECORACION",
   "proveedor" : "Proveedor O",
   "stock" : 11,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "DECORACION"
 }, {
   "id" : 16,
   "nombre" : "Producto 16",
   "categoria" : "AUTOMOTRIZ",
   "proveedor" : "Proveedor P",
   "stock" : 3,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "AUTOMOTRIZ"
 }, {
   "id" : 17,
   "nombre" : "Producto 17",
   "categoria" : "JOYERIA",
   "proveedor" : "Proveedor Q",
   "stock" : 6,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "categoriaString" : "JOYERIA"
 }, {
   "id" : 18,
   "nombre" : "Producto 18",
   "categoria" : "CAMPING",
   "proveedor" : "Proveedor R",
   "stock" : 14,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "CAMPING"
 }, {
   "id" : 19,
   "nombre" : "Samsung",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor R",
   "stock" : 20,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "categoriaString" : "TECNOLOGIA"
 } ]
