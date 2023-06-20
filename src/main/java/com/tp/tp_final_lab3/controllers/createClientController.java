@@ -43,7 +43,7 @@ public class createClientController implements Initializable {
     private TextField textApellido;
 
     @FXML
-    private Button loginButton;
+    private Button irAtrasButton;
 
     @FXML
     private Button createButton;
@@ -89,15 +89,19 @@ public class createClientController implements Initializable {
         }
 
 
-    }}
-/*HACER VISTA PARA IR AL MENU ANTERIOR, NO SE CUAL ES
-    ///public void irAtras()
+    }
+    public void irAtras()
     {
+        Jackson.serializar(observableList, pathJson);
         try {
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Venta.fxml"));
+            Stage stage = (Stage) irAtrasButton.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
         } catch (IOException io) {
-
+            io.printStackTrace();
         }
 
-    }/*/
+    }
+}
 
