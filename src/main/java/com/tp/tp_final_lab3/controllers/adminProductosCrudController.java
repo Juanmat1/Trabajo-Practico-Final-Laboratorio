@@ -118,6 +118,34 @@ public class adminProductosCrudController implements Initializable {
         }
         return status;
     }
+
+    public void setProveedores()
+    {
+
+
+        ObservableList<String> listaProveedor = FXCollections.observableArrayList();
+
+        for(Producto producto : observableList)
+        {
+            listaProveedor.add(producto.getProveedor());
+        }
+        proveedorComboBox.setItems(listaProveedor);
+
+    }
+
+    public void setCategorias()
+    {
+        ObservableList<String> listaCategoria = FXCollections.observableArrayList();
+
+        for(Categorias categoria : Categorias.values())
+        {
+            listaCategoria.add(categoria.toString());
+        }
+        categoriaComboBox.setItems(listaCategoria);
+    }
+
+
+
     //endregion
     public void agregar()
     {
@@ -206,30 +234,6 @@ public class adminProductosCrudController implements Initializable {
         }
     }
 
-    public void setProveedores()
-    {
-
-
-       ObservableList<String> listaProveedor = FXCollections.observableArrayList();
-
-       for(Producto producto : observableList)
-       {
-               listaProveedor.add(producto.getProveedor());
-       }
-       proveedorComboBox.setItems(listaProveedor);
-
-    }
-
-    public void setCategorias()
-    {
-        ObservableList<String> listaCategoria = FXCollections.observableArrayList();
-
-        for(Categorias categoria : Categorias.values())
-        {
-            listaCategoria.add(categoria.toString());
-        }
-        categoriaComboBox.setItems(listaCategoria);
-    }
 
 
 }
