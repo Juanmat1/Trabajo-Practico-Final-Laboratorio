@@ -2,10 +2,11 @@ package com.tp.tp_final_lab3.Models;
 
 import com.tp.tp_final_lab3.Repository.Jackson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Producto {
+public class Producto implements Serializable {
 
 
     public enum Estado{
@@ -52,9 +53,6 @@ public class Producto {
 
     public String getCategoria() {
         return categoria;
-    }
-    public String getCategoriaString() {
-        return categoria.toString();
     }
 
     public void setCategoria(String categoria) {
