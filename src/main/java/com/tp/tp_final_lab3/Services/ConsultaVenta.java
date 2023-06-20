@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 public class ConsultaVenta {
 
+    public static void filtrarComboBox(){
+
+    }
     public static void filtrarProducto(Producto producto, TableView tableProductos, ObservableList<Producto> productos) {
 
         String categoria = producto.getCategoria();

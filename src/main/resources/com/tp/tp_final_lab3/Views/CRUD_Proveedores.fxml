@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudProveedoresController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="686.0">
+         <children>
+            <TableView fx:id="tableUsuario" layoutX="293.0" layoutY="32.0" prefHeight="336.0" prefWidth="369.0">
+               <columns>
+                  <TableColumn fx:id="idColumn" prefWidth="42.0" text="ID" />
+                  <TableColumn fx:id="nombreColumn" prefWidth="82.0" text="Nombre" />
+                  <TableColumn fx:id="razonSocialColumn" prefWidth="85.0" text="Razon Social" />
+                  <TableColumn fx:id="cuitColumn" prefWidth="78.0" text="Cuit" />
+                  <TableColumn fx:id="estadoColumn" prefWidth="75.0" text="Estado" />
+               </columns>
+            </TableView>
+            <AnchorPane layoutX="41.0" layoutY="272.0" prefHeight="70.0" prefWidth="231.0">
+               <children>
+                  <Button fx:id="agregarButton" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
+                  <Button fx:id="actualizarButton" layoutX="81.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
+                  <Button fx:id="limpiarButton" layoutX="89.0" layoutY="44.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+                  <Button fx:id="borrarButton" layoutX="168.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="55.0" layoutY="27.0" prefHeight="245.0" prefWidth="205.0">
+               <children>
+                  <TextField fx:id="nombreTextField" layoutX="26.0" layoutY="71.0" promptText="Nombre" />
+                  <TextField fx:id="contraseniaTextField" layoutX="26.0" layoutY="144.0" promptText="Contrasenia" />
+                  <CheckBox fx:id="estadoCheckBox" layoutX="-8.0" layoutY="186.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="246.0" text="Estado(click para habilitar proveedor)" textAlignment="RIGHT" wrapText="true" />
+                  <TextField fx:id="apellidoTextField" layoutX="26.0" layoutY="108.0" promptText="Apellido" />
+               </children>
+            </AnchorPane>
+            <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="volverButton" layoutX="5.0" layoutY="376.0" mnemonicParsing="false" onAction="#volver" text="Volver">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -78,6 +78,7 @@ public class usuarioVenderController implements Initializable {
         ControllersMethods.alinearTabla(proveedorCollum);
         ControllersMethods.alinearTabla(stockCollum);
     }
+    @FXML
     public void selecCategoria(){
         ObservableList<String> productosProveedor = FXCollections.observableArrayList();
         producto.setCategoria(comboBoxCategoria.getSelectionModel().getSelectedItem());
@@ -93,6 +94,7 @@ public class usuarioVenderController implements Initializable {
         }
         ConsultaVenta.filtrarProducto(producto,tableProductos,observableListProducto);
     }
+    @FXML
     public void selecProveedor(){
         ObservableList<String> productosCategorias = FXCollections.observableArrayList();
         producto.setProveedor(comboBoxProv.getSelectionModel().getSelectedItem());
@@ -108,7 +110,7 @@ public class usuarioVenderController implements Initializable {
         }
         ConsultaVenta.filtrarProducto(producto,tableProductos,observableListProducto);
     }
-
+    @FXML
     public void setProveedores() {
         ObservableList<Proveedor> listaProveedores = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProveedores, Proveedor.class));
         ObservableList<String> proveedoresString = FXCollections.observableArrayList();
@@ -120,7 +122,7 @@ public class usuarioVenderController implements Initializable {
         comboBoxProv.setItems(proveedoresString);
 
     }
-
+    @FXML
     public void setCategorias() {
         ObservableList<String> categoriasString = FXCollections.observableArrayList();
 
@@ -134,6 +136,9 @@ public class usuarioVenderController implements Initializable {
     public void Elegir(){
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
         if(producto != null){
+            System.out.println(producto.getCategoria());
+            System.out.println(producto.getProveedor());
+            System.out.println(producto);
             comboBoxCategoria.setValue(producto.getCategoria().toString());
             comboBoxProv.setValue(producto.getProveedor());
 
