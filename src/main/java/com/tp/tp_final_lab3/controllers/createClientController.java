@@ -89,8 +89,8 @@ public class createClientController implements Initializable {
         }
 
 
-    }
-    public void irAtras()
+    }}
+    /*public void irAtras()
     {
         Jackson.serializar(observableList, pathJson);
         try {
@@ -103,5 +103,5 @@ public class createClientController implements Initializable {
         }
 
     }
-}
+}/*/
 
