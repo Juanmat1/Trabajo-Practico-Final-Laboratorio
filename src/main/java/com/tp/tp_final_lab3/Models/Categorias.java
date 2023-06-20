@@ -19,7 +19,6 @@ public enum Categorias {
     DECORACION,
     AUTOMOTRIZ,
     JOYERIA,
-
     CAMPING;
 
     Categorias() {

@@ -48,4 +48,24 @@
   "fechaCompra" : "2023-06-19",
   "descripcion" : "nada",
   "username" : "juanma"
+}, {
+  "idOrdenDcompra" : 2,
+  "idProveedor" : 4,
+  "cantidad" : 10,
+  "nombre" : "S23 Ultra 1TB",
+  "categoria" : "TECNOLOGIA",
+  "precioCompra" : 10000,
+  "fechaCompra" : "2023-06-20",
+  "descripcion" : "nada",
+  "username" : "juanma"
+}, {
+  "idOrdenDcompra" : 3,
+  "idProveedor" : 4,
+  "cantidad" : 30,
+  "nombre" : "S23 Ultra 1TB",
+  "categoria" : "TECNOLOGIA",
+  "precioCompra" : 1000,
+  "fechaCompra" : "2023-06-21",
+  "descripcion" : "nada",
+  "username" : "juanma"
 } ]

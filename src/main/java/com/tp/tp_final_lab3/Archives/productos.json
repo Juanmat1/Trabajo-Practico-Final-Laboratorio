@@ -128,7 +128,21 @@
   "id" : 19,
   "nombre" : "Samsung",
   "categoria" : "TECNOLOGIA",
-  "proveedor" : "Proveedor R",
-  "stock" : 40,
+  "proveedor" : "Proveedor E",
+  "stock" : 45,
+  "estado" : "Activo"
+}, {
+  "id" : 20,
+  "nombre" : "S23 Ultra 1TB",
+  "categoria" : "TECNOLOGIA",
+  "proveedor" : "SAMSUNG",
+  "stock" : 160,
+  "estado" : "Activo"
+}, {
+  "id" : 21,
+  "nombre" : "A A a A",
+  "categoria" : "TECNOLOGIA",
+  "proveedor" : "SAMSUNG",
+  "stock" : 10,
   "estado" : "Activo"
 } ]

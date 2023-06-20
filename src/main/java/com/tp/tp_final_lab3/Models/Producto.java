@@ -3,7 +3,6 @@ package com.tp.tp_final_lab3.Models;
 import com.tp.tp_final_lab3.Repository.Jackson;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Producto implements Comparable<Producto> {
 
@@ -89,7 +88,6 @@ public class Producto implements Comparable<Producto> {
     }
 
     //endregion
-
     private static int obtenerUltimoId()
     {
         int ultimoID;

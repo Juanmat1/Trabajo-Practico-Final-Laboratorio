@@ -1,12 +1,10 @@
 package com.tp.tp_final_lab3.controllers;
 
 
+import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
-import com.tp.tp_final_lab3.Models.Categorias;
-import com.tp.tp_final_lab3.Models.Pedido;
-import com.tp.tp_final_lab3.Models.Producto;
-import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.Services.ControllersMethods;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,16 +23,19 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class crudImportadorController implements Initializable {
-
+    //region LISTAS
     private final ArrayList<Pedido> listaPedidos =
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json", Pedido.class);
+    private final ArrayList<Proveedor> listaProveedores =
+            Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
     private final ArrayList<Producto> listaProductos =
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/productos.json", Producto.class);
     private final ObservableList<Pedido> observablePedido = FXCollections.observableArrayList();
     private final ObservableList<Producto> observableProducto = FXCollections.observableArrayList();
+        private final ObservableList<Proveedor> observableProveedor = FXCollections.observableArrayList(listaProveedores);
+    //endregion
 
-
-//region FXML
+    //region FXML
 
     //region TABLA STOCK
     @FXML
@@ -135,7 +136,6 @@ public class crudImportadorController implements Initializable {
 
 
     //endregion
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -149,18 +149,19 @@ public class crudImportadorController implements Initializable {
 
         setearColumnasStock();
 
-
+        alinearTablas();
 
         cargarArrayPedidos();
         cargarArrayProductos();
     }
 
+    //region METODOS PRINCIPALES
     public void agregarPedido()
     {
         if(checkCampos())
         {
             try{
-                Pedido pedido = new Pedido(1,comboBoxCantidad.getSelectionModel().getSelectedItem(),
+                Pedido pedido = new Pedido(obtenerIDProveedor(comboBoxProduc.getSelectionModel().getSelectedItem()),comboBoxCantidad.getSelectionModel().getSelectedItem(),
                         comboBoxProduc.getSelectionModel().getSelectedItem(),comboBoxCat.getSelectionModel().getSelectedItem(),
                         Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada",SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
 
@@ -212,17 +213,41 @@ public class crudImportadorController implements Initializable {
     {
         Pedido pedido = tablePedidos.getSelectionModel().getSelectedItem();
 
-        if(pedido != null)
-        {
-            textPrecio.setText(Double.toString(pedido.getPrecioCompra()));
-            textFechac.setValue(LocalDate.parse(pedido.getFechaCompra()));
-        }
+
+        textPrecio.setText(Integer.toString(pedido.getPrecioCompra()));
+        textFechac.setValue(LocalDate.parse(pedido.getFechaCompra()));
+        comboBoxCat.getSelectionModel().select(obtenerIndexCategoria(pedido.getCategoria()));
+        comboBoxCantidad.getSelectionModel().select(pedido.getCantidad()-1);
+        comboBoxProduc.getSelectionModel().select(obtenerIndexProductos(pedido.getNombre()));
+        buttonUpdate.setText("Guardar");
+
+        buttonUpdate.setOnAction(event ->{
+
+            modificarDatos( pedido);
+        });
 
     }
-    public void modificarDatos()
+    public void modificarDatos(Pedido pedido)
     {
+        if(checkCampos())
+        {
+            pedido.setNombre(comboBoxProduc.getSelectionModel().getSelectedItem());
+            pedido.setCategoria(comboBoxCat.getSelectionModel().getSelectedItem());
+            pedido.setCantidad(comboBoxCantidad.getSelectionModel().getSelectedItem());
+            pedido.setPrecioCompra(Integer.parseInt(textPrecio.getText()));
+            pedido.setFechaCompra(textFechac.getValue().toString());
 
+            observablePedido.set(observablePedido.indexOf(pedido),pedido);
+            limpiarTextBox();
+
+            buttonUpdate.setText("Actualizar");
+            buttonUpdate.setOnAction(event -> {
+                actualizar();
+            });
+        }
     }
+
+    //endregion
 
     //region METODOS AUXILIARES
 
@@ -233,24 +258,6 @@ public class crudImportadorController implements Initializable {
         comboBoxCat.getSelectionModel().clearSelection();
         textPrecio.clear();
         textFechac.getEditor().clear();
-    }
-    public void setPedido(Pedido pedido)
-    {
-        pedido = new Pedido(1,comboBoxCantidad.getSelectionModel().getSelectedItem(),
-                comboBoxProduc.getSelectionModel().getSelectedItem(),comboBoxCat.getSelectionModel().getSelectedItem(),
-                Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada",SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
-
-
-
-        /*pedido.setNombre(comboBoxProduc.getSelectionModel().getSelectedItem());
-        pedido.setCategoria(comboBoxCat.getSelectionModel().getSelectedItem());
-        pedido.setCantidad(comboBoxCantidad.getSelectionModel().getSelectedItem());
-        ///pedido.setIdProveedor(Integer.parseInt(textPrecio.getText()));
-        pedido.setPrecioCompra(Integer.parseInt(textPrecio.getText()));
-        pedido.setFechaCompra(textFechac.getValue().toString());
-        pedido.setUsername(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());*/
-
-
     }
     public boolean checkCampos()
     {
@@ -358,7 +365,6 @@ public class crudImportadorController implements Initializable {
 
             for (Producto producto : observableProducto) {
 
-
                 if (comboBoxCat.getSelectionModel().getSelectedItem().equals(producto.getCategoria())) {
                     productosString.add(producto.getNombre());
                     if (!status) {
@@ -413,5 +419,81 @@ public class crudImportadorController implements Initializable {
             }
         }
     }
+
+    public int obtenerIDProveedor(String productoName)
+    {
+        int idProv = 0;
+        String proveedorName = "";
+
+        for( Producto producto : observableProducto)
+        {
+            if(producto.getNombre().equals(productoName))
+            {
+                proveedorName = producto.getProveedor();
+                break;
+            }
+
+        }
+
+        for(Proveedor proveedor : listaProveedores)
+        {
+            if(proveedor.getRazonSocial().equals(proveedorName))
+            {
+                idProv = proveedor.getId();
+                break;
+            }
+        }
+        System.out.println(idProv);
+        return idProv;
+    }
+
+    public int obtenerIndexCategoria(String categoria)
+    {
+       int index = 0;
+
+       for(String string : comboBoxCat.getItems())
+       {
+
+           if(string.equals(categoria))
+           {
+               break;
+           }
+           index++;
+       }
+        return  index;
+    }
+
+    public int obtenerIndexProductos(String producto)
+    {
+        int index = 0;
+
+        for(String string : comboBoxProduc.getItems())
+        {
+            if(string.equals(producto))
+            {
+                break;
+            }
+            index++;
+        }
+
+        return index;
+    }
+
+    public void alinearTablas()
+    {
+        ControllersMethods.alinearTabla(columnStock);
+        ControllersMethods.alinearTabla(tableCat);
+        ControllersMethods.alinearTabla(tablePrecioC);
+        ControllersMethods.alinearTabla(tableID);
+        ControllersMethods.alinearTabla(tableIdProv);
+        ControllersMethods.alinearTabla(tableName);
+        ControllersMethods.alinearTabla(tableFechaC);
+        ControllersMethods.alinearTabla(tableGCat);
+        ControllersMethods.alinearTabla(tableGStock);
+        ControllersMethods.alinearTabla(tableGProduct);
+
+    }
+
+
     //endregion
 }

@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.adminProductosCrudController">
    <children>
-      <TableView fx:id="tableProveedores" layoutX="286.0" layoutY="32.0" prefHeight="336.0" prefWidth="478.0">
+      <TableView fx:id="tableProductos" layoutX="286.0" layoutY="32.0" prefHeight="336.0" prefWidth="478.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="34.0" text="ID" />
           <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
