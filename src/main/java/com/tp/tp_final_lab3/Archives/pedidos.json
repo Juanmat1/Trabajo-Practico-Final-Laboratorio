@@ -1,19 +1,71 @@
 [ {
+  "idOrdenDcompra" : 0,
+  "idProveedor" : 0,
+  "cantidad" : 10,
+  "nombre" : "Samsung",
+  "categoria" : "TECNOLOGIA",
+  "precioCompra" : 10000,
+  "fechaCompra" : "2023-06-26",
+  "descripcion" : null,
+  "username" : "fede"
+}, {
+  "idOrdenDcompra" : 0,
+  "idProveedor" : 1,
+  "cantidad" : 0,
+  "nombre" : "22",
+  "categoria" : null,
+  "precioCompra" : 1,
+  "fechaCompra" : "2023-06-25",
+  "descripcion" : "11",
+  "username" : "juanma"
+}, {
+  "idOrdenDcompra" : 0,
+  "idProveedor" : 0,
+  "cantidad" : 10,
+  "nombre" : "Samsung",
+  "categoria" : "TECNOLOGIA",
+  "precioCompra" : 1000,
+  "fechaCompra" : "2023-06-20",
+  "descripcion" : null,
+  "username" : "juanma"
+}, {
+  "idOrdenDcompra" : 0,
+  "idProveedor" : 10,
+  "cantidad" : 0,
   "nombre" : "Segundo",
   "categoria" : null,
-  "idProveedor" : 10,
   "precioCompra" : 10,
   "fechaCompra" : "2023-06-26",
-  "impuestos" : 1000.0,
   "descripcion" : "Segundoo",
   "username" : "juanma"
 }, {
-  "nombre" : "22",
-  "categoria" : null,
+  "idOrdenDcompra" : 1,
   "idProveedor" : 1,
-  "precioCompra" : 1,
-  "fechaCompra" : "2023-06-25",
-  "impuestos" : 1.0,
-  "descripcion" : "11",
-  "username" : null
+  "cantidad" : 6,
+  "nombre" : "Producto 18",
+  "categoria" : "CAMPING",
+  "precioCompra" : 10000,
+  "fechaCompra" : "2023-06-19",
+  "descripcion" : "nada",
+  "username" : "juanma"
+}, {
+  "idOrdenDcompra" : 2,
+  "idProveedor" : 4,
+  "cantidad" : 10,
+  "nombre" : "S23 Ultra 1TB",
+  "categoria" : "TECNOLOGIA",
+  "precioCompra" : 10000,
+  "fechaCompra" : "2023-06-20",
+  "descripcion" : "nada",
+  "username" : "juanma"
+}, {
+  "idOrdenDcompra" : 3,
+  "idProveedor" : 4,
+  "cantidad" : 30,
+  "nombre" : "S23 Ultra 1TB",
+  "categoria" : "TECNOLOGIA",
+  "precioCompra" : 1000,
+  "fechaCompra" : "2023-06-21",
+  "descripcion" : "nada",
+  "username" : "juanma"
 } ]

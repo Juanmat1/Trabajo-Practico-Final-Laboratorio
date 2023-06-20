@@ -2,11 +2,9 @@ package com.tp.tp_final_lab3.Models;
 
 import com.tp.tp_final_lab3.Repository.Jackson;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Objects;
 
-public class Producto implements Serializable {
+public class Producto implements Comparable<Producto> {
 
 
     public enum Estado{
@@ -32,6 +30,12 @@ public class Producto implements Serializable {
         this.estado = estado;
         int ultimoId = obtenerUltimoId();
         this.id=ultimoId+1;
+    }
+
+
+    @Override
+    public int compareTo(Producto o) {
+        return Integer.compare(this.id,o.id);
     }
 
     //region GYS
@@ -84,7 +88,6 @@ public class Producto implements Serializable {
     }
 
     //endregion
-
     private static int obtenerUltimoId()
     {
         int ultimoID;
@@ -103,17 +106,12 @@ public class Producto implements Serializable {
 
         Producto producto = (Producto) o;
 
-        if (!Objects.equals(nombre, producto.nombre)) return false;
-        if (!Objects.equals(categoria, producto.categoria)) return false;
-        return Objects.equals(proveedor, producto.proveedor);
+        return id == producto.id;
     }
 
     @Override
     public int hashCode() {
-        int result = nombre != null ? nombre.hashCode() : 0;
-        result = 31 * result + (categoria != null ? categoria.hashCode() : 0);
-        result = 31 * result + (proveedor != null ? proveedor.hashCode() : 0);
-        return result;
+        return id;
     }
 
     @Override

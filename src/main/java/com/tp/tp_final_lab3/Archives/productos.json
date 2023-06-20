@@ -31,7 +31,7 @@
   "nombre" : "Producto 5",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor E",
-  "stock" : 13,
+  "stock" : 15,
   "estado" : "Activo"
 }, {
   "id" : 6,
@@ -71,8 +71,8 @@
 }, {
   "id" : 11,
   "nombre" : "Producto 11",
-  "categoria" : "SALUD",
-  "proveedor" : "Proveedor K",
+  "categoria" : "DEPORTES",
+  "proveedor" : "Proveedor A",
   "stock" : 7,
   "estado" : "Activo"
 }, {
@@ -102,7 +102,7 @@
   "categoria" : "DECORACION",
   "proveedor" : "Proveedor O",
   "stock" : 11,
-  "estado" : "Activo"
+  "estado" : "Inactivo"
 }, {
   "id" : 16,
   "nombre" : "Producto 16",
@@ -122,13 +122,27 @@
   "nombre" : "Producto 18",
   "categoria" : "CAMPING",
   "proveedor" : "Proveedor R",
-  "stock" : 14,
+  "stock" : 20,
   "estado" : "Activo"
 }, {
   "id" : 19,
   "nombre" : "Samsung",
   "categoria" : "TECNOLOGIA",
-  "proveedor" : "Proveedor R",
+  "proveedor" : "Proveedor E",
+  "stock" : 45,
+  "estado" : "Activo"
+}, {
+  "id" : 20,
+  "nombre" : "S23 Ultra 1TB",
+  "categoria" : "TECNOLOGIA",
+  "proveedor" : "SAMSUNG",
+  "stock" : 160,
+  "estado" : "Activo"
+}, {
+  "id" : 21,
+  "nombre" : "A A a A",
+  "categoria" : "TECNOLOGIA",
+  "proveedor" : "SAMSUNG",
   "stock" : 10,
   "estado" : "Activo"
 } ]

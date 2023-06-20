@@ -1,7 +1,6 @@
 package com.tp.tp_final_lab3;
 
-import com.tp.tp_final_lab3.Models.Admin;
-import com.tp.tp_final_lab3.Repository.Jackson;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,8 +9,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Objects;
 //comentario Juanma
 ///comentario Diego
