@@ -22,7 +22,7 @@ public class usuarioVentaController {
 
     public void verificar(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/verificar")); //poner ruta de verificar
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_VerificarCliente.fxml"));
             Stage stage = (Stage) verificarButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);

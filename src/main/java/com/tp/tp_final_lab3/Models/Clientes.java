@@ -65,7 +65,7 @@ public class Clientes extends Persona implements Serializable {
 //endregion
 
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -76,7 +76,7 @@ public class Clientes extends Persona implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(idCliente, cuit, domicilio, telefono);
-    }
+    }*/
 
     @Override
     public String toString() {

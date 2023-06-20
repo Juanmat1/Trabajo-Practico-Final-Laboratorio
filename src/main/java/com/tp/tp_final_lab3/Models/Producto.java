@@ -53,6 +53,9 @@ public class Producto {
     public String getCategoria() {
         return categoria;
     }
+    public String getCategoriaString() {
+        return categoria.toString();
+    }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;

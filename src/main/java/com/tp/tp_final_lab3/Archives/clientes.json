@@ -1,0 +1,29 @@
+[
+  {
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "dni": "111",
+    "idCliente": 1,
+    "cuit": "12345678901",
+    "domicilio": "Calle 123",
+    "telefono": 123456789
+  },
+  {
+    "nombre": "María",
+    "apellido": "Gómez",
+    "dni": "87654321",
+    "idCliente": 2,
+    "cuit": "10987654321",
+    "domicilio": "Avenida 456",
+    "telefono": 987654321
+  },
+  {
+    "nombre": "Pedro",
+    "apellido": "López",
+    "dni": "56789012",
+    "idCliente": 3,
+    "cuit": "98765432109",
+    "domicilio": "Plaza 789",
+    "telefono": 567890123
+  }
+]
