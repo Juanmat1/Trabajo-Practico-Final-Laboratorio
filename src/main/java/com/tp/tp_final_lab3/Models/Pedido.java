@@ -1,29 +1,48 @@
 package com.tp.tp_final_lab3.Models;
 
-public class Pedido {
+import com.tp.tp_final_lab3.Repository.Jackson;
+
+import java.util.ArrayList;
+
+public class Pedido implements Comparable<Pedido> {
+
+    private int idOrdenDcompra;
+    private int idProveedor;
+    private int cantidad;
     private String nombre;
     private String categoria;
-    private int idProveedor;
     private int precioCompra;
     private String fechaCompra;
-    private double impuestos;
     private String descripcion;
     private String username;
 
-    public Pedido(String nombre, String categoria, int idProveedor, int precioCompra, String fechaCompra, double impuestos, String descripcion, String username) {
+
+    public Pedido( int idProveedor, int cantidad,
+                  String nombre, String categoria, int precioCompra, String fechaCompra,
+                  String descripcion, String username)
+    {
+        int ultimoID = ultimoID();
+        this.idOrdenDcompra = ultimoID + 1;
+        this.idProveedor = idProveedor;
+        this.cantidad = cantidad;
         this.nombre = nombre;
         this.categoria = categoria;
-        this.idProveedor = idProveedor;
         this.precioCompra = precioCompra;
         this.fechaCompra = fechaCompra;
-        this.impuestos = impuestos;
         this.descripcion = descripcion;
         this.username = username;
     }
 
     public Pedido() {
     }
-//region GyS
+
+    @Override
+    public int compareTo(Pedido o) {
+
+        return Integer.compare(this.idOrdenDcompra,o.idOrdenDcompra);
+    }
+
+    //region GyS
     public String getNombre() {
         return nombre;
     }
@@ -64,13 +83,6 @@ public class Pedido {
         this.fechaCompra = fechaCompra;
     }
 
-    public double getImpuestos() {
-        return impuestos;
-    }
-
-    public void setImpuestos(double impuestos) {
-        this.impuestos = impuestos;
-    }
 
     public String getDescripcion() {
         return descripcion;
@@ -88,5 +100,50 @@ public class Pedido {
         this.username = username;
     }
 
+    public int getIdOrdenDcompra() {
+        return idOrdenDcompra;
+    }
+
+    public void setIdOrdenDcompra(int idOrdenDcompra) {
+        this.idOrdenDcompra = idOrdenDcompra;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     //endregion
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Pedido pedido = (Pedido) o;
+
+        return idOrdenDcompra == pedido.idOrdenDcompra;
+    }
+
+    @Override
+    public int hashCode() {
+        return idOrdenDcompra;
+    }
+
+
+
+    private int ultimoID()
+    {
+        int ultimoId;
+
+        ArrayList<Pedido> pedidos = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json",Pedido.class);
+
+        ultimoId = pedidos.get(pedidos.size()-1).idOrdenDcompra;
+
+        return ultimoId;
+    }
 }
+
