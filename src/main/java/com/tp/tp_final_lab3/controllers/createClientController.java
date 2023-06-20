@@ -89,10 +89,9 @@ public class createClientController implements Initializable {
         }
 
 
-    }}
-    /*public void irAtras()
+    }
+    public void irAtras()
     {
-        Jackson.serializar(observableList, pathJson);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Venta.fxml"));
             Stage stage = (Stage) irAtrasButton.getScene().getWindow();
@@ -103,5 +102,5 @@ public class createClientController implements Initializable {
         }
 
     }
-}/*/
+}
 
