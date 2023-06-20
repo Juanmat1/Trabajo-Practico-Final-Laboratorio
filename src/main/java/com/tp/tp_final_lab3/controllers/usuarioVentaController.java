@@ -32,7 +32,7 @@ public class usuarioVentaController {
     }
     public void crear(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/crear")); //poner ruta de crear cliente
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/CLIENTE_Creacion.fxml"));
             Stage stage = (Stage) crearButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);

@@ -61,7 +61,7 @@ public class createClientController implements Initializable {
     public void crearCliente() {
 
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
-        Clientes clientes1 = new Clientes(textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(),textCategoria.getText(), EstadosPersona.Activo);
+        Clientes clientes1 = new Clientes();//textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(),textCategoria.getText(), EstadosPersona.Activo);
 
         if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
                 || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || textCategoria.getText().isEmpty())
@@ -88,11 +88,10 @@ public class createClientController implements Initializable {
             alert.showAndWait();
         }
 
-
     }
     public void irAtras()
     {
-        Jackson.serializar(observableList, pathJson);
+        //Jackson.serializar(observableList, pathJson);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Venta.fxml"));
             Stage stage = (Stage) irAtrasButton.getScene().getWindow();
@@ -104,4 +103,3 @@ public class createClientController implements Initializable {
 
     }
 }
-

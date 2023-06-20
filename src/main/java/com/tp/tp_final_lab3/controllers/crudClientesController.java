@@ -109,17 +109,17 @@ import java.util.ResourceBundle;
                 return EstadosPersona.Inactivo;
             }
         }
-        public boolean obtenerBooleanEstado(Clientes clientes){
+        /*public boolean obtenerBooleanEstado(Clientes clientes){
             if(clientes.getEstado().equals(EstadosPersona.Activo)){
                 return true;
             }else{
                 return false;
             }
-        }
+        }*/
         public void agregar() {
-            if (ControllersMethods.checkCampos(nombreTextField,apellidoTextField, dniTextField)) {
+            if (ControllersMethods.checkTxtField(nombreTextField,apellidoTextField, dniTextField)) {
                 try {
-                    Clientes clientes = new Clientes(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
+                    /*Clientes clientes = new Clientes(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
                             cuitTextField.getText(),domicilioTextField.getText(),telefonoTextField.getText(),categoriaTextField.getText(),obtenerEstado());
                     if (observableList.contains(clientes)){
                         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -131,7 +131,7 @@ import java.util.ResourceBundle;
                     }else {
                         observableList.add(clientes);
                         System.out.println("entro");
-                    }
+                    }*/
                 } catch (Exception e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error en los campos,reviselos");
@@ -142,6 +142,8 @@ import java.util.ResourceBundle;
                 }
             }
             limpiar();
+
+
         }
         public void actualizar(){
             Clientes clientes = tableCliente.getSelectionModel().getSelectedItem();
@@ -151,8 +153,8 @@ import java.util.ResourceBundle;
                 dniTextField.setText(clientes.getDni());
                 cuitTextField.setText(clientes.getCuit());
                 domicilioTextField.setText(clientes.getDomicilio());
-                telefonoTextField.setText(clientes.getTelefono());
-                estadoCheckBox.setSelected(obtenerBooleanEstado(clientes));
+                //telefonoTextField.setText(clientes.getTelefono());
+                //estadoCheckBox.setSelected(obtenerBooleanEstado(clientes));
 
                 actualizarButton.setText("Guardar");
 
@@ -168,7 +170,7 @@ import java.util.ResourceBundle;
         }
         public void modificarDatos(Clientes clientes){
 
-            if(ControllersMethods.checkCampos(nombreTextField, apellidoTextField,dniTextField)) {
+            /*if(ControllersMethods.checkCampos(nombreTextField, apellidoTextField,dniTextField)) {
                 clientes.setNombre(nombreTextField.getText());
                 clientes.setApellido(apellidoTextField.getText());
                 clientes.setDni(dniTextField.getText());
@@ -180,13 +182,13 @@ import java.util.ResourceBundle;
             }
             limpiar();
             actualizarButton.setText("Actualizar");
-            actualizarButton.setOnAction(event -> actualizar());
+            actualizarButton.setOnAction(event -> actualizar());*/
         }
         public void borrar(){
             observableList.remove(tableCliente.getSelectionModel().getSelectedItem());
         }
         public void limpiar(){
-            ControllersMethods.limpiar(nombreTextField, apellidoTextField, dniTextField);
+            //ControllersMethods.limpiar(nombreTextField, apellidoTextField, dniTextField);
             estadoCheckBox.setSelected(false);
         }
         public void volver(){
@@ -201,6 +203,7 @@ import java.util.ResourceBundle;
                 io.printStackTrace();
             }
         }
+
     }
 
 

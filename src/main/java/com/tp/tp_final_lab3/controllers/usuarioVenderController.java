@@ -95,24 +95,6 @@ public class usuarioVenderController implements Initializable {
         }
         ConsultaVenta.filtrarProducto(producto,tableProductos);
     }
-    /*public void selecCategoria(){
-        ObservableList<String> productosProveedor = FXCollections.observableArrayList();
-        producto.setCategoria(comboBoxCategoria.getValue());
-
-        if(!comboBoxCategoria.getSelectionModel().isEmpty()){
-            ConsultaVenta.filtrarComboBox(comboBoxProv,producto,observableListProducto);
-        }
-        ConsultaVenta.filtrarProducto(producto,tableProductos);
-    }
-    public void selecProveedor(){
-        ObservableList<String> productosCategorias = FXCollections.observableArrayList();
-        producto.setProveedor(comboBoxProv.getValue());
-
-        if(!comboBoxProv.getSelectionModel().isEmpty()){
-            ConsultaVenta.filtrarComboBox(comboBoxCategoria,producto,observableListProducto);
-        }
-        ConsultaVenta.filtrarProducto(producto,tableProductos);
-    }*/
     public void buscarCantidad(){}
 
     public void setProveedores() {

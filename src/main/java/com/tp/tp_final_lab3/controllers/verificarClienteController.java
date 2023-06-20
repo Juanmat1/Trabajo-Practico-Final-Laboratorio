@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -43,6 +44,12 @@ public class verificarClienteController {
                 }catch (IOException io) {
                     io.printStackTrace();
                 }
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error al verificar");
+                alert.setContentText("El cliente no existe, debe crear uno nuevo");
+                alert.showAndWait();
             }
         }
     }
