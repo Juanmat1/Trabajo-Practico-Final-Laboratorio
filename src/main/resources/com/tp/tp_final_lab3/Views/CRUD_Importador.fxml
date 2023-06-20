@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1071.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudImportadorController">
+<AnchorPane prefHeight="400.0" prefWidth="1071.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudImportadorController">
    <children>
       <TableView fx:id="tablePedidos" layoutX="250.0" layoutY="39.0" prefHeight="336.0" prefWidth="519.0">
         <columns>
@@ -25,10 +19,8 @@
       </TableView>
       <AnchorPane layoutX="20.0" layoutY="306.0" prefHeight="69.0" prefWidth="268.0">
          <children>
-            <Button fx:id="buttonAdd" layoutX="16.0" mnemonicParsing="false" onAction="#agregarPedido" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
-            <Button fx:id="buttonUpdate" layoutX="82.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
+            <Button fx:id="buttonAdd" layoutX="85.0" mnemonicParsing="false" onAction="#agregarPedido" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
             <Button fx:id="buttonClear" layoutX="90.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiarTextBox" text="Limpiar" />
-            <Button fx:id="buttonDelete" layoutX="154.0" mnemonicParsing="false" onAction="#borrarPedido" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
             <Button fx:id="buttonlogout" layoutY="68.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion">
                <font>
                   <Font size="10.0" />
@@ -58,7 +50,7 @@
             <Text fx:id="euroOficial" layoutX="230.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tableStock" layoutX="811.0" layoutY="39.0" prefHeight="336.0" prefWidth="241.0">
+      <TableView fx:id="tableStock" layoutX="794.0" layoutY="32.0" prefHeight="336.0" prefWidth="256.0">
         <columns>
           <TableColumn fx:id="tableGStock" prefWidth="44.0" text="Stock" />
           <TableColumn fx:id="tableGProduct" prefWidth="99.0" text="Producto" />

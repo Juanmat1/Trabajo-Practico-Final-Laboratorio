@@ -24,8 +24,4 @@ public enum Categorias {
     Categorias() {
     }
 
-    @Override
-    public String toString() {
-        return "Categorias{}";
-    }
 }

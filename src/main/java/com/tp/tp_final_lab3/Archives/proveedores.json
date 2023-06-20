@@ -3,28 +3,28 @@
     "id": 1,
     "nombre": "Juan Lopez",
     "razonSocial": "ADIDAS",
-    "CUIT": "30218239439",
+    "cuit": "30218239439",
     "categoria": "DEPORTES"
   },
   {
     "id": 2,
     "nombre": "Ana Tubio",
     "razonSocial": "OSRAM",
-    "CUIT": "302182394563",
+    "cuit": "302182394563",
     "categoria": "ELECTRICIDAD"
   },
   {
     "id": 3,
     "nombre": "Lara Smith",
     "razonSocial": "NIKE",
-    "CUIT": "30218549439",
+    "cuit": "30218549439",
     "categoria": "DEPORTES"
   },
   {
     "id": 4,
     "nombre": "Juana Sanchez",
     "razonSocial": "SAMSUNG",
-    "CUIT": "77777777777",
-    "categoria": "ELECTRONICA"
+    "cuit": "77777777777",
+    "categoria": "TECNOLOGIA"
   }
 ]
