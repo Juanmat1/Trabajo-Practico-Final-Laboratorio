@@ -78,7 +78,7 @@ public class createProvController {
         int lastId = obtenerIdMasGrande(provs);
 
 
-        Proveedor prov = new Proveedor(lastId + 1, textNombre.getText(), textRazonSocial.getText(), textCUIT.getText(), Categorias.valueOf(opcionElegida));
+        Proveedor prov = new Proveedor(lastId + 1, textNombre.getText(), textRazonSocial.getText(), textCUIT.getText());//, Categorias.valueOf(opcionElegida));
 
         if (textNombre.getText().isEmpty() || textRazonSocial.getText().isEmpty() || textCUIT.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

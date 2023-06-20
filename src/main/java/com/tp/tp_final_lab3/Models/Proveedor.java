@@ -1,21 +1,33 @@
 package com.tp.tp_final_lab3.Models;
 
 public class Proveedor {
+    public enum Estado{
+        Activo,Inactivo
+    }
     private int id;
     private String nombre;
     private String razonSocial;
     private String cuit;
     private Categorias categoria;
+    private Estado estado;
 
     public Proveedor() {
     }
 
-    public Proveedor(int id, String nombre, String razonSocial, String cuit, Categorias categoria) {
+    public Proveedor(String nombre, String razonSocial, String cuit, Estado estado) {
+        //id autoincremental
         this.id = id;
         this.nombre = nombre;
         this.razonSocial = razonSocial;
         this.cuit = cuit;
-        this.categoria = categoria;
+
+    }
+
+    public Proveedor(int id, String nombre, String razonSocial, String cuit) {
+        this.id = id;
+        this.nombre = nombre;
+        this.razonSocial = razonSocial;
+        this.cuit = cuit;
     }
 
     public int getId() {
@@ -56,6 +68,14 @@ public class Proveedor {
 
     public void setCategoria(Categorias categoria) {
         this.categoria = categoria;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     @Override

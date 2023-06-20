@@ -9,17 +9,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudProveedoresController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="686.0">
          <children>
-            <TableView fx:id="tableUsuario" layoutX="293.0" layoutY="32.0" prefHeight="336.0" prefWidth="369.0">
+            <TableView fx:id="tableProveedor" layoutX="293.0" layoutY="32.0" prefHeight="336.0" prefWidth="369.0">
                <columns>
                   <TableColumn fx:id="idColumn" prefWidth="42.0" text="ID" />
                   <TableColumn fx:id="nombreColumn" prefWidth="82.0" text="Nombre" />
                   <TableColumn fx:id="razonSocialColumn" prefWidth="85.0" text="Razon Social" />
-                  <TableColumn fx:id="cuitColumn" prefWidth="78.0" text="Cuit" />
+                  <TableColumn fx:id="cuitColumn" prefWidth="78.0" text="CUIT" />
                   <TableColumn fx:id="estadoColumn" prefWidth="75.0" text="Estado" />
                </columns>
             </TableView>
@@ -34,9 +33,9 @@
             <AnchorPane layoutX="55.0" layoutY="27.0" prefHeight="245.0" prefWidth="205.0">
                <children>
                   <TextField fx:id="nombreTextField" layoutX="26.0" layoutY="71.0" promptText="Nombre" />
-                  <TextField fx:id="contraseniaTextField" layoutX="26.0" layoutY="144.0" promptText="Contrasenia" />
+                  <TextField fx:id="cuitTextField" layoutX="26.0" layoutY="144.0" promptText="CUIT" />
                   <CheckBox fx:id="estadoCheckBox" layoutX="-8.0" layoutY="186.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="246.0" text="Estado(click para habilitar proveedor)" textAlignment="RIGHT" wrapText="true" />
-                  <TextField fx:id="apellidoTextField" layoutX="26.0" layoutY="108.0" promptText="Apellido" />
+                  <TextField fx:id="razonSocialTextField" layoutX="26.0" layoutY="108.0" promptText="Razon Social" />
                </children>
             </AnchorPane>
             <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
