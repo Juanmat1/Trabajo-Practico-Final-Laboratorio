@@ -19,10 +19,13 @@ public enum Categorias {
     DECORACION,
     AUTOMOTRIZ,
     JOYERIA,
-
     CAMPING;
 
     Categorias() {
     }
 
+    @Override
+    public String toString() {
+        return "Categorias{}";
+    }
 }
