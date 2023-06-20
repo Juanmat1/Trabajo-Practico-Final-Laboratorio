@@ -57,5 +57,16 @@ public class Proveedor {
     public void setCategoria(Categorias categoria) {
         this.categoria = categoria;
     }
+
+    @Override
+    public String toString() {
+        return "Proveedor{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", razonSocial='" + razonSocial + '\'' +
+                ", cuit='" + cuit + '\'' +
+                ", categoria=" + categoria +
+                '}';
+    }
 }
 

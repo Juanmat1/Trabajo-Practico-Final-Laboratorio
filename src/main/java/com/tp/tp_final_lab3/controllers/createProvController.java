@@ -20,20 +20,25 @@ import java.util.ArrayList;
 
 public class createProvController {
 
+    ArrayList<Proveedor> provs;
+    private String opcionElegida;
+
     private ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
         @Override
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            opcionElegida.setText(newValue);
+            if (newValue != null) {
+                opcionElegida = newValue;
+            }
         }
     };
 
-    ArrayList<Proveedor> provs;
+
 
     @FXML
     private TextField textNombre;
 
     @FXML
-    private TextField textrazonSocial;
+    private TextField textRazonSocial;
 
     @FXML
     private TextField textCUIT;
@@ -43,9 +48,6 @@ public class createProvController {
 
     @FXML
     private ComboBox<String> categoryChoice;
-
-    @FXML
-    private Label opcionElegida;
 
     @FXML
     private Button loginButton;
@@ -60,10 +62,8 @@ public class createProvController {
     public void cargarCategorias() {
 
         setCategorias();
-        categoryChoice.setPromptText("Categorías");
-        // Agregar el ChangeListener al ComboBox
-        categoryChoice.getSelectionModel().selectedItemProperty().addListener(opcionSeleccionadaListener);
 
+        categoryChoice.getSelectionModel().selectedItemProperty().addListener(opcionSeleccionadaListener);
     }
 
     @FXML
@@ -74,13 +74,13 @@ public class createProvController {
     @FXML
     public void crearCuenta() throws ClassNotFoundException {
 
-        provs = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
+        provs = Jackson.deserializarArrayList("C:\\Users\\Avalith\\Desktop\\tp lab III\\TP_FINAL_LAB3\\src\\main\\java\\com\\tp\\tp_final_lab3\\Archives\\proveedores.json", Proveedor.class);
         int lastId = obtenerIdMasGrande(provs);
 
 
-        Proveedor prov = new Proveedor(lastId, textNombre.getText(), textrazonSocial.getText(), textCUIT.getText(), Categorias.valueOf(categoryChoice.getValue()));
+        Proveedor prov = new Proveedor(lastId + 1, textNombre.getText(), textRazonSocial.getText(), textCUIT.getText(), Categorias.valueOf(opcionElegida));
 
-        if (textNombre.getText().isEmpty() || textrazonSocial.getText().isEmpty() || textCUIT.getText().isEmpty()) {
+        if (textNombre.getText().isEmpty() || textRazonSocial.getText().isEmpty() || textCUIT.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error en Nombre");
             alert.setHeaderText("Complete todos los campos");
@@ -93,7 +93,7 @@ public class createProvController {
         } else {
             provs.add(prov);
 
-            Jackson.serializar(provs, "src/main/java/com/tp/tp_final_lab3/Archives/provs.json");
+            Jackson.serializar(provs, "C:\\Users\\Avalith\\Desktop\\tp lab III\\TP_FINAL_LAB3\\src\\main\\java\\com\\tp\\tp_final_lab3\\Archives\\proveedores.json");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cuenta Creada");
             alert.setHeaderText("Proveedor creado con éxito");
@@ -117,7 +117,7 @@ public class createProvController {
 
     public void setCategorias() {
         ObservableList<String> listaCategoria = FXCollections.observableArrayList();
-
+        categoryChoice.setPromptText("Categorías");
         for (Categorias categoria : Categorias.values()) {
             listaCategoria.add(categoria.toString());
         }
