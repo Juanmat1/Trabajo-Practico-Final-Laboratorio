@@ -18,6 +18,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+
+
 public class crudUsuariosController implements Initializable{
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
