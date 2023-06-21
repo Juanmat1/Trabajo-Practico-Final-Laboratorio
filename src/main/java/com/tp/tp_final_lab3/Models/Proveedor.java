@@ -8,7 +8,6 @@ public class Proveedor {
     private String nombre;
     private String razonSocial;
     private String cuit;
-    private Categorias categoria;
     private Estado estado;
 
     public Proveedor() {
@@ -61,14 +60,6 @@ public class Proveedor {
         this.cuit = cuit;
     }
 
-    public Categorias getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categorias categoria) {
-        this.categoria = categoria;
-    }
-
     public Estado getEstado() {
         return estado;
     }
@@ -84,7 +75,6 @@ public class Proveedor {
                 ", nombre='" + nombre + '\'' +
                 ", razonSocial='" + razonSocial + '\'' +
                 ", cuit='" + cuit + '\'' +
-                ", categoria=" + categoria + '\'' +
                 ", estado=" + estado +
                 '}';
     }

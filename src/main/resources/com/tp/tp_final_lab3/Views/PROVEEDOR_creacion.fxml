@@ -20,7 +20,6 @@
                 <Font size="10.0" />
             </font>
         </Button>
-        <ComboBox fx:id="categoryChoice" accessibleText="Categorias" layoutX="76.0" layoutY="175.0" onAction="#mostrarOpciones" onMouseClicked="#cargarCategorias" prefWidth="150.0" />
 
     </children>
 </AnchorPane>
