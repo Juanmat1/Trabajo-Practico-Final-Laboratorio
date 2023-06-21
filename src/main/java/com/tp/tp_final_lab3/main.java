@@ -4,11 +4,11 @@ package com.tp.tp_final_lab3;
 import com.tp.tp_final_lab3.Models.Delta;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
+
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.stage.Screen;
+
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -44,9 +44,6 @@ public class main extends Application {
 
         stage.show();
     }
-
-
-
 
     public static void launch(String[] args) {
         launch();

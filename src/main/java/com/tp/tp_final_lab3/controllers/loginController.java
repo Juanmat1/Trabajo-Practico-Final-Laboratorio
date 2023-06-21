@@ -113,7 +113,6 @@ public class loginController implements Initializable {
 
 
     }
-
     @FXML
     public void createAccount() {
 
@@ -132,9 +131,6 @@ public class loginController implements Initializable {
 
     }
 
-    @FXML
-    public void helpAction() {
-    }
     @FXML
     public void closeAction(){
 

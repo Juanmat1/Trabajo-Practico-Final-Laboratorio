@@ -24,6 +24,8 @@ public class crudUsuariosController implements Initializable{
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
     private ObservableList<Usuario> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Usuario.class));
+
+
     @FXML
     private TableView<Usuario> tableUsuario;
 
