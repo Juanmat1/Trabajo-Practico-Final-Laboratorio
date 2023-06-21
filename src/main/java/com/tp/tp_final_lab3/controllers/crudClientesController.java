@@ -1,11 +1,13 @@
 package com.tp.tp_final_lab3.controllers;
 
+import com.tp.tp_final_lab3.Models.CategoriaFiscal;
 import com.tp.tp_final_lab3.Models.Clientes;
 import com.tp.tp_final_lab3.Models.EstadosPersona;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -43,7 +46,7 @@ import java.util.ResourceBundle;
         @FXML
         private TableColumn<Clientes, LocalDate> fechaCreacionColumn;
         @FXML
-        private TableColumn<Clientes, EstadosPersona> estadoColumn;
+        private TableColumn<Clientes, Clientes.Estado> estadoColumn;
         @FXML
         private TableColumn<Clientes, String> categoriaColumn;
         @FXML
@@ -68,14 +71,17 @@ import java.util.ResourceBundle;
         private TextField apellidoTextField;
         @FXML
         private TextField domicilioTextField;
-        private TextField categoriaTextField;
+        //@FXML
+        //private TextField categoriaTextField;
+        @FXML
+        private ComboBox<String> comboBoxCategoria;
         @FXML
         private CheckBox estadoCheckBox;
 
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
-
+            setCategorias();
             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
             nombreColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
             apellidoColumn.setCellValueFactory(new PropertyValueFactory<>("apellido"));
@@ -100,25 +106,18 @@ import java.util.ResourceBundle;
 
             tableCliente.setItems(observableList);
         }
-        public EstadosPersona obtenerEstado(){
+        public Clientes.Estado obtenerEstado(){
             if(estadoCheckBox.isSelected()){
-                return EstadosPersona.Activo;
+                return Clientes.Estado.Activo;
             }else{
-                return EstadosPersona.Inactivo;
+                return Clientes.Estado.Inactivo;
             }
         }
-        /*public boolean obtenerBooleanEstado(Clientes clientes){
-            if(clientes.getEstado().equals(EstadosPersona.Activo)){
-                return true;
-            }else{
-                return false;
-            }
-        }*/
         public void agregar() {
             if (ControllersMethods.checkTxtField(nombreTextField,apellidoTextField, dniTextField)) {
                 try {
-                    /*Clientes clientes = new Clientes(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
-                            cuitTextField.getText(),domicilioTextField.getText(),telefonoTextField.getText(),categoriaTextField.getText(),obtenerEstado());
+                    int lastId = obtenerIdMasGrande(observableList);
+                    Clientes clientes = new Clientes(lastId + 1,textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), obtenerEstado());
                     if (observableList.contains(clientes)){
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");
@@ -129,7 +128,7 @@ import java.util.ResourceBundle;
                     }else {
                         observableList.add(clientes);
                         System.out.println("entro");
-                    }*/
+                    }
                 } catch (Exception e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error en los campos,reviselos");
@@ -201,7 +200,31 @@ import java.util.ResourceBundle;
                 io.printStackTrace();
             }
         }
+        @FXML
+        public void setCategorias() {
+            ObservableList<String> categoriasString = FXCollections.observableArrayList();
 
+            for(CategoriaFiscal categoria : CategoriaFiscal.values())
+            {
+                categoriasString.add(categoria.getDescripcion());
+            }
+            comboBoxCategoria.setItems(categoriasString);
+        }
+        @FXML
+        private void mostrarOpciones(ActionEvent event) {
+
+            comboBoxCategoria.show();
+        }
+
+        public static int obtenerIdMasGrande(ArrayList<Clientes> cliente) {
+            int maxId = 0;
+            for (Clientes clientes2 : cliente) {
+                if (clientes2.getIdCliente() > maxId) {
+                    maxId = clientes2.getIdCliente();
+                }
+            }
+            return maxId;
+        }
     }
 
 
