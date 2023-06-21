@@ -1,42 +1,44 @@
 package com.tp.tp_final_lab3.Models;
 
+import com.tp.tp_final_lab3.Repository.Jackson;
+
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Clientes extends Persona implements Serializable {
 
     private int idCliente;
     private String cuit;
     private String domicilio;
-    private int telefono;
+    private String telefono;
     private CategoriaFiscal categoriaFiscal;
     private EstadosPersona estadosPersona;
+    private LocalDate fechaCreacion;
+    private static int ultimoId;
 
     public Clientes() {
     }
 
 
-    public Clientes(int idCliente, String cuit, String domicilio, int telefono, CategoriaFiscal categoriaFiscal) {
-        this.idCliente = idCliente;
+    public Clientes(String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, CategoriaFiscal categoriaFiscal, EstadosPersona estadosPersona) {
+        super(nombre, apellido, dni);
+        Clientes.ultimoId = getUltimoClienteID();
+        this.idCliente = ultimoId + 1;
         this.cuit = cuit;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.categoriaFiscal = categoriaFiscal;
+        this.estadosPersona = estadosPersona;
+        this.fechaCreacion = LocalDate.now();
     }
 
-    public Clientes(String text, String textApellidoText, String textDNIText, String textCUITText, String textDomicilioText, String textTelefonoText, CategoriaFiscal selectedItem, EstadosPersona activo) {
+//region getters y setters
+
+    private static int getUltimoClienteID(){
+        ArrayList<Clientes> clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Usuario.class);
+        return clientes.get(clientes.size()-1).getIdCliente();
     }
-
-    public Clientes(String nombre, String apellido, String dni, int idCliente, String cuit, String domicilio, int telefono) {
-        super(nombre, apellido, dni);
-        this.idCliente = idCliente;
-        this.cuit = cuit;
-        this.domicilio = domicilio;
-        this.telefono = telefono;
-    }
-
-    //region getters y setters
-
-
     public int getIdCliente() {
         return idCliente;
     }
@@ -61,28 +63,38 @@ public class Clientes extends Persona implements Serializable {
         this.domicilio = domicilio;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-//endregion
 
-
-    /*@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Clientes clientes = (Clientes) o;
-        return idCliente == clientes.idCliente && telefono == clientes.telefono && cuit.equals(clientes.cuit) && domicilio.equals(clientes.domicilio);
+    public CategoriaFiscal getCategoriaFiscal() {
+        return categoriaFiscal;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idCliente, cuit, domicilio, telefono);
-    }*/
+    public void setCategoriaFiscal(CategoriaFiscal categoriaFiscal) {
+        this.categoriaFiscal = categoriaFiscal;
+    }
+
+    public EstadosPersona getEstadosPersona() {
+        return estadosPersona;
+    }
+
+    public void setEstadosPersona(EstadosPersona estadosPersona) {
+        this.estadosPersona = estadosPersona;
+    }
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+    //endregion
+
 
     @Override
     public String toString() {
@@ -90,7 +102,10 @@ public class Clientes extends Persona implements Serializable {
                 "idCliente=" + idCliente +
                 ", cuit='" + cuit + '\'' +
                 ", domicilio='" + domicilio + '\'' +
-                ", telefono=" + telefono +
+                ", telefono='" + telefono + '\'' +
+                ", categoriaFiscal=" + categoriaFiscal +
+                ", estadosPersona=" + estadosPersona +
+                ", fechaCreacion=" + fechaCreacion +
                 '}';
     }
 }

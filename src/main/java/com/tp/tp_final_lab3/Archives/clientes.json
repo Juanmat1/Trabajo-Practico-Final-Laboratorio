@@ -22,12 +22,4 @@
   "cuit" : "98765432109",
   "domicilio" : "Plaza 789",
   "telefono" : 567890123
-}, {
-  "nombre" : null,
-  "apellido" : null,
-  "dni" : null,
-  "idCliente" : 0,
-  "cuit" : null,
-  "domicilio" : null,
-  "telefono" : 0
 } ]

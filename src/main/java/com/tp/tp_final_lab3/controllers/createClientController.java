@@ -87,7 +87,7 @@ public class createClientController implements Initializable {
 
     }
     @FXML
-    public void setCategorias() {
+    public void setComboBoxCategoria() {
         ObservableList<String> categoriasString = FXCollections.observableArrayList();
 
         for(CategoriaFiscal categoria : Categorias.values())
@@ -98,7 +98,6 @@ public class createClientController implements Initializable {
     }
     public void irAtras()
     {
-        //Jackson.serializar(observableList, pathJson);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Venta.fxml"));
             Stage stage = (Stage) irAtrasButton.getScene().getWindow();
