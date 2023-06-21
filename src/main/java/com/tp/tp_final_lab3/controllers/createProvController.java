@@ -50,7 +50,7 @@ public class createProvController {
     private ComboBox<String> categoryChoice;
 
     @FXML
-    private Button loginButton;
+    private Button volverButton;
 
     @FXML
     private void mostrarOpciones(ActionEvent event) {
@@ -74,11 +74,11 @@ public class createProvController {
     @FXML
     public void crearCuenta() throws ClassNotFoundException {
 
-        provs = Jackson.deserializarArrayList("C:\\Users\\Avalith\\Desktop\\tp lab III\\TP_FINAL_LAB3\\src\\main\\java\\com\\tp\\tp_final_lab3\\Archives\\proveedores.json", Proveedor.class);
+        provs = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
         int lastId = obtenerIdMasGrande(provs);
 
 
-        Proveedor prov = new Proveedor(lastId + 1, textNombre.getText(), textRazonSocial.getText(), textCUIT.getText(), Categorias.valueOf(opcionElegida));
+        Proveedor prov = new Proveedor(lastId + 1, textNombre.getText(), textRazonSocial.getText(), textCUIT.getText());//, Categorias.valueOf(opcionElegida));
 
         if (textNombre.getText().isEmpty() || textRazonSocial.getText().isEmpty() || textCUIT.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -93,7 +93,7 @@ public class createProvController {
         } else {
             provs.add(prov);
 
-            Jackson.serializar(provs, "C:\\Users\\Avalith\\Desktop\\tp lab III\\TP_FINAL_LAB3\\src\\main\\java\\com\\tp\\tp_final_lab3\\Archives\\proveedores.json");
+            Jackson.serializar(provs, "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cuenta Creada");
             alert.setHeaderText("Proveedor creado con éxito");
@@ -103,10 +103,10 @@ public class createProvController {
 
 
     @FXML
-    public void irLogin() {
+    public void volver() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
-            Stage stage = (Stage) loginButton.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_SeleccionProveedores.fxml"));
+            Stage stage = (Stage) volverButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
         } catch (IOException io) {

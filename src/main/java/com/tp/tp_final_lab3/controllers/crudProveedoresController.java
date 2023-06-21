@@ -1,83 +1,69 @@
 package com.tp.tp_final_lab3.controllers;
 
-import com.tp.tp_final_lab3.Models.Delta;
+import com.tp.tp_final_lab3.Models.Categorias;
+import com.tp.tp_final_lab3.Models.Proveedor;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class crudUsuariosController implements Initializable, ICrud {
+public class crudProveedoresController implements Initializable,ICrud{
 
-    private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
-    private ObservableList<Usuario> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Usuario.class));
-
-
+    private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
+    private ObservableList<Proveedor> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Proveedor.class));
     @FXML
-    private TableView<Usuario> tableUsuario;
-
-    @FXML
-    private TableColumn<Usuario, Integer> idColumn;
-
-    @FXML
-    private TableColumn<Usuario, String> nombreColumn;
-
-    @FXML
-    private TableColumn<Usuario, String> apellidoColumn;
-
-    @FXML
-    private TableColumn<Usuario, String> dniColumn;
-    @FXML
-    private TableColumn<Usuario, String> usuarioColumn;
-
-    @FXML
-    private TableColumn<Usuario, LocalDate> fechaCreacionColumn;
-
-    @FXML
-    private TableColumn<Usuario, Usuario.Estado> estadoColumn;
+    private Button actualizarButton;
 
     @FXML
     private Button agregarButton;
 
     @FXML
-    private Button actualizarButton;
-
+    private TextField nombreTextField;
     @FXML
-    private Button limpiarButton;
+    private TextField razonSocialTextField;
+    @FXML
+    private TextField cuitTextField;
 
     @FXML
     private Button borrarButton;
 
     @FXML
-    private TextField usuarioTextField;
-
-    @FXML
-    private TextField nombreTextField;
-
-    @FXML
-    private TextField contraseniaTextField;
-
-    @FXML
-    private TextField dniTextField;
+    private TableColumn<Proveedor, String> cuitColumn;
 
     @FXML
     private CheckBox estadoCheckBox;
 
     @FXML
-    private TextField apellidoTextField;
+    private TableColumn<Proveedor, Proveedor.Estado> estadoColumn;
+
+    @FXML
+    private TableColumn<Proveedor, Integer> idColumn;
+
+    @FXML
+    private Button limpiarButton;
+
+    @FXML
+    private TableColumn<Proveedor, String> nombreColumn;
+
+    @FXML
+    private TableColumn<Proveedor, String> razonSocialColumn;
+
+    @FXML
+    private TableView<Proveedor> tableProveedor;
 
     @FXML
     private Button volverButton;
@@ -87,35 +73,32 @@ public class crudUsuariosController implements Initializable, ICrud {
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nombreColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        apellidoColumn.setCellValueFactory(new PropertyValueFactory<>("apellido"));
-        dniColumn.setCellValueFactory(new PropertyValueFactory<>("dni"));
-        usuarioColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
-        fechaCreacionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
+        razonSocialColumn.setCellValueFactory(new PropertyValueFactory<>("razonSocial"));
+        cuitColumn.setCellValueFactory(new PropertyValueFactory<>("cuit"));
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         ControllersMethods.alinearTabla(idColumn);
         ControllersMethods.alinearTabla(nombreColumn);
-        ControllersMethods.alinearTabla(apellidoColumn);
-        ControllersMethods.alinearTabla(dniColumn);
-        ControllersMethods.alinearTabla(usuarioColumn);
-        ControllersMethods.alinearTabla(fechaCreacionColumn);
+        ControllersMethods.alinearTabla(nombreColumn);
+        ControllersMethods.alinearTabla(cuitColumn);
         ControllersMethods.alinearTabla(estadoColumn);
 
-        tableUsuario.setItems(observableList);
+        tableProveedor.setItems(observableList);
     }
     @Override
     public void agregar() {
-        if (checkCampos()) {
+        if(checkCampos()){
             try {
-                Usuario usuario = new Usuario(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
-                        usuarioTextField.getText(),contraseniaTextField.getText(),obtenerEstado());
-                if (observableList.contains(usuario)){
+                ArrayList<Proveedor>provs = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
+                int lastId = createProvController.obtenerIdMasGrande(provs);
+                Proveedor proveedor = new Proveedor(lastId+1,nombreTextField.getText(),razonSocialTextField.getText(),cuitTextField.getText(),obtenerEstado());
+                if (observableList.contains(proveedor)){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setContentText("No se puede agregar un usuario ya existente");
                     alert.showAndWait();
                 }else {
-                    observableList.add(usuario);
+                    observableList.add(proveedor);
                 }
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -130,38 +113,35 @@ public class crudUsuariosController implements Initializable, ICrud {
         actualizarButton.setOnAction(event -> actualizar());
         limpiar();
     }
+    public Proveedor.Estado obtenerEstado(){
+        if(estadoCheckBox.isSelected()){
+            return Proveedor.Estado.Activo;
+        }else{
+            return Proveedor.Estado.Inactivo;
+        }
+    }
     @Override
     public boolean checkCampos(){
-        if(ControllersMethods.checkTxtField(usuarioTextField,nombreTextField,
-                apellidoTextField,contraseniaTextField, dniTextField)){
+        if (ControllersMethods.checkTxtField(nombreTextField,razonSocialTextField,cuitTextField)){
             ControllersMethods.alertaCampos();
             return false;
         }else{
             return true;
         }
     }
-    public Usuario.Estado obtenerEstado(){
-        if(estadoCheckBox.isSelected()){
-            return Usuario.Estado.Activo;
-        }else{
-            return Usuario.Estado.Inactivo;
-        }
-    }
     @Override
-    public void actualizar(){
-        Usuario usuario = tableUsuario.getSelectionModel().getSelectedItem();
-        if(usuario != null) {
-            nombreTextField.setText(usuario.getNombre());
-            apellidoTextField.setText(usuario.getApellido());
-            dniTextField.setText(usuario.getDni());
-            usuarioTextField.setText(usuario.getUsuario());
-            contraseniaTextField.setText(usuario.getContrasenia());
-            estadoCheckBox.setSelected(obtenerBooleanEstado(usuario));
+    public void actualizar() {
+        Proveedor proveedor = tableProveedor.getSelectionModel().getSelectedItem();
+        if(proveedor != null) {
+            nombreTextField.setText(proveedor.getNombre());
+            razonSocialTextField.setText(proveedor.getRazonSocial());
+            cuitTextField.setText(proveedor.getCuit());
+            estadoCheckBox.setSelected(obtenerBooleanEstado(proveedor));
 
             actualizarButton.setText("Guardar");
 
             actualizarButton.setOnAction(event -> {
-                modificar(usuario);
+                modificar(proveedor);
             });
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -170,14 +150,29 @@ public class crudUsuariosController implements Initializable, ICrud {
             alert.showAndWait();
         }
     }
-    public boolean obtenerBooleanEstado(Usuario usuario){
-        if(usuario.getEstado().equals(Usuario.Estado.Activo)){
+    public boolean obtenerBooleanEstado(Proveedor proveedor){
+        if(proveedor.getEstado().equals(Proveedor.Estado.Activo)){
             return true;
         }else{
             return false;
         }
     }
-    public void modificar(Usuario usuario){
+    public void modificar(Proveedor proveedor){
+        System.out.println(proveedor);
+
+        if(checkCampos()) {
+            System.out.println(proveedor);
+            proveedor.setNombre(nombreTextField.getText());
+            proveedor.setRazonSocial(razonSocialTextField.getText());
+            proveedor.setCuit(cuitTextField.getText());
+            proveedor.setEstado(obtenerEstado());
+            observableList.set(observableList.indexOf(proveedor),proveedor);
+        }
+        limpiar();
+        actualizarButton.setText("Actualizar");
+        actualizarButton.setOnAction(event -> actualizar());
+    }
+    /*public void modificar(Usuario usuario){
 
         if(checkCampos()) {
             usuario.setNombre(nombreTextField.getText());
@@ -191,27 +186,25 @@ public class crudUsuariosController implements Initializable, ICrud {
         limpiar();
         actualizarButton.setText("Actualizar");
         actualizarButton.setOnAction(event -> actualizar());
-    }
+    }*/
+
     @Override
-    public void borrar(){
-        observableList.remove(tableUsuario.getSelectionModel().getSelectedItem());
+    public void borrar() {
+        observableList.remove(tableProveedor.getSelectionModel().getSelectedItem());
     }
+
     @Override
-    public void limpiar(){
-        ControllersMethods.limpiarTxtField(usuarioTextField, nombreTextField, apellidoTextField,
-                contraseniaTextField, dniTextField);
+    public void limpiar() {
+        ControllersMethods.limpiarTxtField(nombreTextField,razonSocialTextField,cuitTextField);
         estadoCheckBox.setSelected(false);
     }
-    public void volver(){
+
+    public void volver() {
         Jackson.serializar(observableList,pathJson);//se trabaja con cache
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Seleccion.fxml"));
             Stage stage = (Stage) volverButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
-
-            scene.setFill(Color.TRANSPARENT);
-            Delta.dragScene(stage,scene);
-
 
             stage.setScene(scene);
         } catch (IOException io) {

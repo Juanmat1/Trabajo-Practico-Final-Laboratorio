@@ -1,6 +1,7 @@
 package com.tp.tp_final_lab3.Models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public abstract class Persona  implements Serializable {
 
@@ -15,6 +16,19 @@ public abstract class Persona  implements Serializable {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Persona persona = (Persona) o;
+        return Objects.equals(dni, persona.dni);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
     }
 
     public String getNombre() {

@@ -7,29 +7,21 @@ import javafx.scene.control.TextField;
 import javafx.util.Callback;
 
 public class ControllersMethods {
-    public static boolean checkCampos(TextField... textFields)
-    {
-        if(!verificar(textFields))
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error en los campos,reviselos");
-            alert.setContentText("Algunos de los campos esta vacio");
-            alert.showAndWait();
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-    public static boolean verificar(TextField...textFields){
+    public static boolean checkTxtField(TextField...textFields){
         for(TextField textField : textFields){
             if(textField.getText().isEmpty()){
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
-    public static void limpiar(TextField...textFields){
+    public static void alertaCampos(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error en los campos,reviselos");
+        alert.setContentText("Algunos de los campos esta vacio");
+        alert.showAndWait();
+    }
+    public static void limpiarTxtField(TextField...textFields){
         for(TextField textField : textFields){
             textField.clear();
         }

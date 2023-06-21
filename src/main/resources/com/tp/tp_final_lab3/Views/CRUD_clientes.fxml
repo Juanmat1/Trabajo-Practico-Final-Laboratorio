@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudClientesController">
+   <children>
+      <TableView fx:id="tableCliente" layoutX="261.0" layoutY="39.0" prefHeight="336.0" prefWidth="781.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="34.0" text="ID" />
+          <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="apellidoColumn" prefWidth="84.0" text="Apellido" />
+            <TableColumn fx:id="dniColumn" prefWidth="67.0" text="DNI" />
+            <TableColumn fx:id="cuitColumn" prefWidth="76.0" text="CUIT" />
+            <TableColumn fx:id="fechaCreacionColumn" prefWidth="119.0" text="Fecha de creacion" />
+            <TableColumn fx:id="estadoColumn" prefWidth="57.0" text="Estado" />
+            <TableColumn fx:id="domicilioColumn" prefWidth="77.0" text="Domicilio" />
+            <TableColumn fx:id="telefonoColumn" prefWidth="77.0" text="Telefono" />
+            <TableColumn fx:id="categoriaColumn" prefWidth="114.0" text="Categoria Fiscal" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="14.0" layoutY="278.0" prefHeight="70.0" prefWidth="231.0">
+         <children>
+            <Button fx:id="agregarButton" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button fx:id="actualizarButton" layoutX="81.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="31.0" prefWidth="72.0" text="Actualizar">
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
+            <Button fx:id="limpiarButton" layoutX="89.0" layoutY="44.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button fx:id="borrarButton" layoutX="168.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrar">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="4.0" layoutY="30.0" prefHeight="242.0" prefWidth="260.0">
+         <children>
+            <TextField fx:id="nombreTextField" layoutX="26.0" layoutY="14.0" promptText="Nombre" />
+            <TextField fx:id="apellidoTextField" layoutX="26.0" layoutY="46.0" promptText="Apellido" />
+            <TextField fx:id="cuitTextField" layoutX="26.0" layoutY="109.0" promptText="CUIT" />
+            <TextField fx:id="domicilioTextField" layoutX="26.0" layoutY="143.0" promptText="Domicilio" />
+            <CheckBox fx:id="estadoCheckBox" layoutY="218.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="246.0" text="Estado(click para habilitar cliente)" textAlignment="RIGHT" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font></CheckBox>
+            <TextField fx:id="dniTextField" layoutX="26.0" layoutY="77.0" promptText="DNI" />
+            <TextField fx:id="telefonoTextField" layoutX="26.0" layoutY="174.0" promptText="Telefono" />
+         </children>
+      </AnchorPane>
+      <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="volverButton" layoutX="5.0" layoutY="376.0" mnemonicParsing="false" onAction="#volver" text="Volver">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -87,7 +87,7 @@ public class loginController implements Initializable {
                     SingletonUsuarioClass.getInstancia().SetInfo(user);
 
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/CRUD_Importador.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Seleccion.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
                         Scene scene = new Scene(loader.load());
 
