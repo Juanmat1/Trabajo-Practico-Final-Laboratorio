@@ -1,5 +1,6 @@
 package com.tp.tp_final_lab3.controllers;
 
+import com.tp.tp_final_lab3.Models.Delta;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import javafx.fxml.FXML;
@@ -7,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -90,6 +92,10 @@ public class createUserController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
             Stage stage = (Stage) loginButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
+
+            scene.setFill(Color.TRANSPARENT);
+            Delta.dragScene(stage,scene);
+
             stage.setScene(scene);
         } catch (IOException io) {
             io.printStackTrace();

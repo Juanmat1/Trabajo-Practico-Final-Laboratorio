@@ -1,0 +1,166 @@
+
+.root
+{
+    -fx-background-radius: 20 ;
+    -fx-background-color: grey;
+    -fx-padding: 10;
+    -fx-font-family:Arial;
+
+}
+/*LOS BOTONES*/
+.button
+{
+    -fx-background-color: #464646;
+    -fx-background-radius: 5 5;
+    -fx-border-radius:  5 5;
+    -fx-text-fill: #b2b2b2;
+
+}
+.button:hover
+{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+.button:pressed
+{
+    -fx-background-color: #464646;
+
+}
+.button:focused {
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2;
+}
+/*LOS TEXT FIELD*/
+.text-field
+{
+    -fx-background-color: #464646;
+    -fx-background-radius: 5 5;
+    -fx-border-radius:  5 5;
+    -fx-text-fill: #ffffff;
+}
+.text-field:focused
+{
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2;
+}
+
+
+/*COMBOX*/
+.combo-box
+{
+    -fx-background-color: #464646;
+    -fx-background-radius: 5 5;
+    -fx-border-radius:  5 5;
+    -fx-text-fill: #b2b2b2;
+}
+.list-cell
+{
+    -fx-background-color: #464646;
+    -fx-text-fill: #b2b2b2;
+    -fx-background-radius: 5 5;
+}
+.list-cell:hover
+{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+.list-view
+{
+    -fx-background-color: transparent;
+}
+
+
+/*SCROLLBAR*/
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color :transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 0.0 10.0 0.0;
+
+}
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.15em 0.0;
+}
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color :derive(#4D4C4F,10.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+
+/*TABLA CSS*/
+
+.table-cell {
+    -fx-padding: 0.5em 0.5em 0.1em 0.3em;
+    -fx-border-color: -fx-box-border -fx-box-border transparent transparent;
+    -fx-font: 11px "Arial";
+    -fx-border-insets: 0;
+    -fx-background-color: #b2b2b2;
+}
+.table-column
+{
+    -fx-background-color: #b6b6b6;
+}
+.table-view
+{
+    -fx-background-color: #b6b6b6;
+}
+
+/*DATEPICKER*/
+.date-picker
+{
+    -fx-background-color: transparent;
+}
+.date-picker .cell {
+    -fx-background-color: #b6b6b6;
+}
+.date-picker .cell:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+.date-picker .cell:focused {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+.date-picker .selected {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+.
+{
+
+}
+
+
+
+
+
+

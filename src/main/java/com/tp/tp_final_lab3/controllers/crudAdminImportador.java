@@ -1,10 +1,7 @@
 package com.tp.tp_final_lab3.controllers;
 
+import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
-import com.tp.tp_final_lab3.Models.Categorias;
-import com.tp.tp_final_lab3.Models.Pedido;
-import com.tp.tp_final_lab3.Models.Producto;
-import com.tp.tp_final_lab3.Models.Proveedor;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
@@ -16,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -208,7 +206,11 @@ public class crudAdminImportador implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
             Stage stage = (Stage) buttonlogout.getScene().getWindow();
+
             Scene scene = new Scene(loader.load());
+
+            scene.setFill(Color.TRANSPARENT);
+            Delta.dragScene(stage,scene);
 
             stage.setScene(scene);
         } catch (IOException io) {

@@ -15,7 +15,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,7 +67,11 @@ public class loginController implements Initializable {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Seleccion.fxml"));
                     Stage stage = (Stage) loginButton.getScene().getWindow();
                     Scene scene = new Scene(loader.load());
+
+
+                    scene.setFill(Color.TRANSPARENT);
                     Delta.dragScene(stage,scene);
+
                     stage.setScene(scene);
                 } catch (IOException io) {
                     io.printStackTrace();
@@ -84,7 +90,10 @@ public class loginController implements Initializable {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/CRUD_Importador.fxml"));
                         Stage stage = (Stage) loginButton.getScene().getWindow();
                         Scene scene = new Scene(loader.load());
+
+                        scene.setFill(Color.TRANSPARENT);
                         Delta.dragScene(stage,scene);
+
                         stage.setScene(scene);
                     } catch (IOException io) {
                         io.printStackTrace();
@@ -112,6 +121,10 @@ public class loginController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_creacion.fxml"));
             Stage stage = (Stage) loginButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
+
+            scene.setFill(Color.TRANSPARENT);
+            Delta.dragScene(stage,scene);
+
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,5 +1,6 @@
 package com.tp.tp_final_lab3.controllers;
 
+import com.tp.tp_final_lab3.Models.Delta;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -193,6 +195,10 @@ public class crudUsuariosController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Seleccion.fxml"));
             Stage stage = (Stage) volverButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
+
+            scene.setFill(Color.TRANSPARENT);
+            Delta.dragScene(stage,scene);
+
 
             stage.setScene(scene);
         } catch (IOException io) {

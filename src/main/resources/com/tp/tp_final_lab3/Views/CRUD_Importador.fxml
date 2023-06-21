@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1071.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudImportadorController">
+<AnchorPane prefHeight="400.0" prefWidth="1071.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudImportadorController">
    <children>
       <TableView fx:id="tablePedidos" layoutX="250.0" layoutY="39.0" prefHeight="336.0" prefWidth="519.0">
         <columns>
@@ -31,7 +31,7 @@
       <AnchorPane layoutX="40.0" layoutY="31.0" prefHeight="275.0" prefWidth="200.0">
          <children>
             <TextField fx:id="textPrecio" layoutX="27.0" layoutY="127.0" promptText="Precio de compra" />
-            <DatePicker fx:id="textFechac" layoutX="26.0" layoutY="159.0" prefHeight="25.0" prefWidth="149.0" promptText="Fecha de Compra" />
+            <DatePicker fx:id="textFechac" layoutX="25.0" layoutY="159.0" prefHeight="25.0" prefWidth="150.0" promptText="Fecha de Compra" />
             <ComboBox fx:id="comboBoxCat" layoutX="26.0" layoutY="60.0" onAction="#setProductos" prefWidth="150.0" promptText="Categoria" />
             <ComboBox fx:id="comboBoxProduc" layoutX="25.0" layoutY="94.0" prefWidth="150.0" promptText="Producto" />
             <ComboBox fx:id="comboBoxCantidad" layoutX="25.0" layoutY="191.0" prefWidth="150.0" />
@@ -44,13 +44,13 @@
       </Text>
       <AnchorPane layoutX="250.0" layoutY="9.0" prefHeight="23.0" prefWidth="425.0">
          <children>
-            <Text fx:id="dolarBlue" layoutX="121.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar : " wrappingWidth="91.8046875" />
-            <Text fx:id="euroBlue" layoutX="333.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="91.8046875" />
-            <Text fx:id="dolarOficial" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar :" wrappingWidth="102.8046875" />
-            <Text fx:id="euroOficial" layoutX="230.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
+            <Text fx:id="dolarBlue" layoutX="116.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar : " wrappingWidth="102.8046875" />
+            <Text fx:id="euroBlue" layoutX="333.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
+            <Text fx:id="dolarOficial" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar :" wrappingWidth="102.8046875" />
+            <Text fx:id="euroOficial" layoutX="230.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tableStock" layoutX="794.0" layoutY="32.0" prefHeight="336.0" prefWidth="256.0">
+      <TableView fx:id="tableStock" layoutX="795.0" layoutY="40.0" prefHeight="336.0" prefWidth="256.0">
         <columns>
           <TableColumn fx:id="tableGStock" prefWidth="44.0" text="Stock" />
           <TableColumn fx:id="tableGProduct" prefWidth="99.0" text="Producto" />

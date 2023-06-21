@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -201,7 +202,12 @@ public class crudImportadorController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
             Stage stage = (Stage) buttonlogout.getScene().getWindow();
+
+
             Scene scene = new Scene(loader.load());
+
+            scene.setFill(Color.TRANSPARENT);
+            Delta.dragScene(stage,scene);
 
             stage.setScene(scene);
         } catch (IOException io) {
@@ -306,7 +312,7 @@ public class crudImportadorController implements Initializable {
     }
     public void obtenerUser()
     {
-        textUser.setText("USUARIO : " +SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+        textUser.setText("USUARIO : " +SingletonUsuarioClass.getInstancia().getInfo().getUsuario().toUpperCase());
     }
 
     public void cargarArrayPedidos()
@@ -324,7 +330,6 @@ public class crudImportadorController implements Initializable {
             }
         }
         tablePedidos.setItems(observablePedido);
-
     }
     public void cargarArrayProductos() {
 
@@ -341,7 +346,6 @@ public class crudImportadorController implements Initializable {
             }
         }
         tableStock.setItems(observableProducto);
-
     }
 
     public void setCategorias()
