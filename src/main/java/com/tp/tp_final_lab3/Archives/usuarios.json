@@ -43,4 +43,13 @@
   "id" : 5,
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 11 ]
+}, {
+  "nombre" : "josefina",
+  "apellido" : "fructuoso",
+  "dni" : "41131944",
+  "usuario" : "josefinaf",
+  "contrasenia" : "1234",
+  "id" : 6,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 } ]

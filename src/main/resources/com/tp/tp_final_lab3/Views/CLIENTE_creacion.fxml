@@ -15,14 +15,14 @@
       <TextField fx:id="textApellido" layoutX="58.0" layoutY="109.0" promptText="Apellido" />
       <TextField fx:id="textDNI" layoutX="58.0" layoutY="140.0" promptText="DNI" />
       <TextField fx:id="textCUIT" layoutX="58.0" layoutY="171.0" promptText="CUIT" />
-      <PasswordField fx:id="textDomicilio" layoutX="58.0" layoutY="200.0" promptText="Domicilio" />
-      <PasswordField fx:id="textTelefono" layoutX="58.0" layoutY="231.0" promptText="Telefono" />
       <Button fx:id="createButton" layoutX="98.0" layoutY="315.0" mnemonicParsing="false" onAction="#crearCliente" text="Crear Cliente" />
-      <Button fx:id="loginButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#irAtras" text="Atras">
+      <Button fx:id="irAtrasButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#irAtras" text="Atras">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <PasswordField fx:id="textCategoria" layoutX="58.0" layoutY="262.0" promptText="Categoria fiscal" />
+      <TextField fx:id="textDomicilio" layoutX="59.0" layoutY="200.0" promptText="Domicilio" />
+      <TextField fx:id="textTelefono" layoutX="58.0" layoutY="231.0" promptText="Telefono" />
+      <ComboBox fx:id="comboBoxCategoria" layoutX="66.0" layoutY="262.0" onAction="#mostrarOpciones" prefHeight="31.0" prefWidth="170.0" promptText="Categoria Fiscal" />
    </children>
 </AnchorPane>

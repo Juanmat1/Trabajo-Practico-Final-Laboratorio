@@ -1,34 +1,43 @@
 package com.tp.tp_final_lab3.Models;
 
+import com.tp.tp_final_lab3.Repository.Jackson;
+
 import java.io.Serializable;
-import java.util.Objects;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Clientes extends Persona implements Serializable {
 
     private int idCliente;
     private String cuit;
     private String domicilio;
-    private int telefono;
+    private String telefono;
 
-    public Clientes(int idCliente, String cuit, String domicilio, int telefono) {
-        this.idCliente = idCliente;
-        this.cuit = cuit;
-        this.domicilio = domicilio;
-        this.telefono = telefono;
+    public enum Estado{
+        Activo,
+        Inactivo
     }
+    private Estado estado;
+    private LocalDate fechaCreacion;
+    private CategoriaFiscal categoria;
+
 
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellido, String dni, int idCliente, String cuit, String domicilio, int telefono) {
+    public Clientes(int idCliente,String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, Estado estado) {
         super(nombre, apellido, dni);
-        this.idCliente = idCliente;
+        this.idCliente= idCliente;
         this.cuit = cuit;
         this.domicilio = domicilio;
         this.telefono = telefono;
+        this.estado = estado;
+        this.fechaCreacion = LocalDate.now();
     }
 
-    //region getters y setters
+
+
+//region getters y setters
 
 
     public int getIdCliente() {
@@ -55,28 +64,31 @@ public class Clientes extends Persona implements Serializable {
         this.domicilio = domicilio;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-//endregion
 
 
-    /*@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Clientes clientes = (Clientes) o;
-        return idCliente == clientes.idCliente && telefono == clientes.telefono && cuit.equals(clientes.cuit) && domicilio.equals(clientes.domicilio);
+    public Estado getEstado() {
+        return estado;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idCliente, cuit, domicilio, telefono);
-    }*/
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+    //endregion
+
 
     @Override
     public String toString() {
@@ -84,7 +96,9 @@ public class Clientes extends Persona implements Serializable {
                 "idCliente=" + idCliente +
                 ", cuit='" + cuit + '\'' +
                 ", domicilio='" + domicilio + '\'' +
-                ", telefono=" + telefono +
+                ", telefono='" + telefono + '\'' +
+                ", estado=" + estado +
+                ", fechaCreacion=" + fechaCreacion +
                 '}';
     }
 }

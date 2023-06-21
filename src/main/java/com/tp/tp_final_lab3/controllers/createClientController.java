@@ -1,16 +1,16 @@
 package com.tp.tp_final_lab3.controllers;
-import com.tp.tp_final_lab3.Models.Clientes;
-import com.tp.tp_final_lab3.Models.EstadosPersona;
-import com.tp.tp_final_lab3.Models.Usuario;
+import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -20,18 +20,33 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class createClientController implements Initializable {
+
+    ArrayList<Clientes> clientes;
 @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    setCategorias();
 
     }
 
-    ArrayList<Clientes> clientes;
+    private String opcionElegida;
+
+    private ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
+        @Override
+        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if (newValue != null) {
+                opcionElegida = newValue;
+            }
+        }
+    };
+
+
 
     @FXML
-    private PasswordField textDomicilio;
+    private TextField textDomicilio;
 
     @FXML
-    private PasswordField textCategoria;
+    private ComboBox<String> comboBoxCategoria;
+
 
     @FXML
     private AnchorPane creaCliente;
@@ -49,7 +64,7 @@ public class createClientController implements Initializable {
     private Button createButton;
 
     @FXML
-    private PasswordField textTelefono;
+    private TextField textTelefono;
 
     @FXML
     private TextField textDNI;
@@ -61,10 +76,11 @@ public class createClientController implements Initializable {
     public void crearCliente() {
 
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
-        Clientes clientes1 = new Clientes();//textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(),textCategoria.getText(), EstadosPersona.Activo);
+        int lastId = obtenerIdMasGrande(clientes);
+        Clientes clientes1 = new Clientes(lastId + 1,textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), Clientes.Estado.Activo);
 
         if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
-                || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || textCategoria.getText().isEmpty())
+                || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error en la creacion");
@@ -72,7 +88,7 @@ public class createClientController implements Initializable {
             alert.showAndWait();
         }
 
-        else if(clientes.contains(clientes1)){
+        else if (clientes.contains(clientes1)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Login");
             alert.setHeaderText("El cliente ya existe");
@@ -80,7 +96,6 @@ public class createClientController implements Initializable {
         }
         else{
             clientes.add(clientes1);
-
             Jackson.serializar(clientes,"src/main/java/com/tp/tp_final_lab3/Archives/clientes.json");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cliente creado");
@@ -89,9 +104,32 @@ public class createClientController implements Initializable {
         }
 
     }
+    @FXML
+    public void setCategorias() {
+        ObservableList<String> categoriasString = FXCollections.observableArrayList();
+
+        for(CategoriaFiscal categoria : CategoriaFiscal.values())
+        {
+            categoriasString.add(categoria.getDescripcion());
+        }
+        comboBoxCategoria.setItems(categoriasString);
+    }
+    @FXML
+    private void mostrarOpciones(ActionEvent event) {
+
+        comboBoxCategoria.show();
+    }
+
+    @FXML
+    public void cargarCategorias() {
+
+        setCategorias();
+
+        comboBoxCategoria.getSelectionModel().selectedItemProperty().addListener(opcionSeleccionadaListener);
+    }
+
     public void irAtras()
     {
-        //Jackson.serializar(observableList, pathJson);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Venta.fxml"));
             Stage stage = (Stage) irAtrasButton.getScene().getWindow();
@@ -102,4 +140,15 @@ public class createClientController implements Initializable {
         }
 
     }
+
+    public static int obtenerIdMasGrande(ArrayList<Clientes> cliente) {
+        int maxId = 0;
+        for (Clientes clientes2 : cliente) {
+            if (clientes2.getIdCliente() > maxId) {
+                maxId = clientes2.getIdCliente();
+            }
+        }
+        return maxId;
+    }
+
 }
