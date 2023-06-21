@@ -158,8 +158,10 @@ public class crudProveedoresController implements Initializable,ICrud{
         }
     }
     public void modificar(Proveedor proveedor){
+        System.out.println(proveedor);
 
-        if(ControllersMethods.checkTxtField(nombreTextField,razonSocialTextField,cuitTextField)) {
+        if(checkCampos()) {
+            System.out.println(proveedor);
             proveedor.setNombre(nombreTextField.getText());
             proveedor.setRazonSocial(razonSocialTextField.getText());
             proveedor.setCuit(cuitTextField.getText());
@@ -170,6 +172,21 @@ public class crudProveedoresController implements Initializable,ICrud{
         actualizarButton.setText("Actualizar");
         actualizarButton.setOnAction(event -> actualizar());
     }
+    /*public void modificar(Usuario usuario){
+
+        if(checkCampos()) {
+            usuario.setNombre(nombreTextField.getText());
+            usuario.setApellido(apellidoTextField.getText());
+            usuario.setDni(dniTextField.getText());
+            usuario.setUsuario(usuarioTextField.getText());
+            usuario.setContrasenia(contraseniaTextField.getText());
+            usuario.setEstado(obtenerEstado());
+            observableList.set(observableList.indexOf(usuario),usuario);
+        }
+        limpiar();
+        actualizarButton.setText("Actualizar");
+        actualizarButton.setOnAction(event -> actualizar());
+    }*/
 
     @Override
     public void borrar() {

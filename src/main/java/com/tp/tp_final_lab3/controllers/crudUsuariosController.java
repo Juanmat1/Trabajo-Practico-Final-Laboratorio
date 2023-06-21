@@ -175,13 +175,12 @@ public class crudUsuariosController implements Initializable, ICrud {
     }
     public void modificar(Usuario usuario){
 
-        if(ControllersMethods.checkTxtField(usuarioTextField,nombreTextField,
-                apellidoTextField,contraseniaTextField, dniTextField)) {
+        if(checkCampos()) {
             usuario.setNombre(nombreTextField.getText());
             usuario.setApellido(apellidoTextField.getText());
             usuario.setDni(dniTextField.getText());
             usuario.setUsuario(usuarioTextField.getText());
-            usuario.setContrasenia(usuarioTextField.getText());
+            usuario.setContrasenia(contraseniaTextField.getText());
             usuario.setEstado(obtenerEstado());
             observableList.set(observableList.indexOf(usuario),usuario);
         }

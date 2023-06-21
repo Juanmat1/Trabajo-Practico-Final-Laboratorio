@@ -10,7 +10,7 @@
   "nombre" : "Producto 2",
   "categoria" : "HOGAR",
   "proveedor" : "Proveedor R",
-  "stock" : 10,
+  "stock" : 5,
   "estado" : "Inactivo"
 }, {
   "id" : 3,
@@ -31,7 +31,7 @@
   "nombre" : "Producto 5",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor E",
-  "stock" : 15,
+  "stock" : 8,
   "estado" : "Activo"
 }, {
   "id" : 6,
