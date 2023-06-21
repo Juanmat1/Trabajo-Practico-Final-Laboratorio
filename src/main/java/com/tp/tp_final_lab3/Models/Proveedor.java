@@ -21,6 +21,13 @@ public class Proveedor {
         this.cuit = cuit;
         this.estado = estado;
     }
+    public Proveedor(int id,String nombre, String razonSocial, String cuit) {
+        this.id = id;
+        this.nombre = nombre;
+        this.razonSocial = razonSocial;
+        this.cuit = cuit;
+        this.estado = Estado.Activo;
+    }
 
     public int getId() {
         return id;
