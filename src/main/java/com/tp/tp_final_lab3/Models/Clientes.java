@@ -12,7 +12,12 @@ public class Clientes extends Persona implements Serializable {
     private String cuit;
     private String domicilio;
     private String telefono;
-    private EstadosPersona estadosPersona;
+
+    public enum Estado{
+        Activo,
+        Inactivo
+    }
+    private Estado estado;
     private LocalDate fechaCreacion;
     private CategoriaFiscal categoria;
 
@@ -20,19 +25,17 @@ public class Clientes extends Persona implements Serializable {
     public Clientes() {
     }
 
-
-    public Clientes(String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, EstadosPersona estadosPersona) {
+    public Clientes(int idCliente,String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, Estado estado) {
         super(nombre, apellido, dni);
-        this.idCliente = idCliente;
+        this.idCliente= idCliente;
         this.cuit = cuit;
         this.domicilio = domicilio;
         this.telefono = telefono;
-        this.estadosPersona = estadosPersona;
+        this.estado = estado;
         this.fechaCreacion = LocalDate.now();
     }
 
-    public Clientes(int i, String text, String text1, String text2, String text3, String text4, String text5, EstadosPersona activo) {
-    }
+
 
 //region getters y setters
 
@@ -70,12 +73,12 @@ public class Clientes extends Persona implements Serializable {
     }
 
 
-    public EstadosPersona getEstadosPersona() {
-        return estadosPersona;
+    public Estado getEstado() {
+        return estado;
     }
 
-    public void setEstadosPersona(EstadosPersona estadosPersona) {
-        this.estadosPersona = estadosPersona;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
     public LocalDate getFechaCreacion() {
         return fechaCreacion;
@@ -94,7 +97,7 @@ public class Clientes extends Persona implements Serializable {
                 ", cuit='" + cuit + '\'' +
                 ", domicilio='" + domicilio + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", estadosPersona=" + estadosPersona +
+                ", estado=" + estado +
                 ", fechaCreacion=" + fechaCreacion +
                 '}';
     }

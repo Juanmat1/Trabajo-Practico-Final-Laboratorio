@@ -1,25 +1,21 @@
 [ {
-  "nombre" : "Juan",
-  "apellido" : "Perez",
-  "dni" : "111",
+  "nombre" : "josefin",
+  "apellido" : "fructuoso",
+  "dni" : "12345",
   "idCliente" : 1,
-  "cuit" : "12345678901",
-  "domicilio" : "Calle 123",
-  "telefono" : 123456789
+  "cuit" : "123456",
+  "domicilio" : "chubut 123",
+  "telefono" : "12345",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 }, {
-  "nombre" : "María",
-  "apellido" : "Gómez",
-  "dni" : "87654321",
+  "nombre" : "josefin",
+  "apellido" : "gonzalez",
+  "dni" : "123",
   "idCliente" : 2,
-  "cuit" : "10987654321",
-  "domicilio" : "Avenida 456",
-  "telefono" : 987654321
-}, {
-  "nombre" : "Pedro",
-  "apellido" : "López",
-  "dni" : "56789012",
-  "idCliente" : 3,
-  "cuit" : "98765432109",
-  "domicilio" : "Plaza 789",
-  "telefono" : 567890123
+  "cuit" : "1234",
+  "domicilio" : "chubut 123",
+  "telefono" : "1234",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 } ]

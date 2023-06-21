@@ -20,8 +20,11 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class createClientController implements Initializable {
+
+    ArrayList<Clientes> clientes;
 @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    setCategorias();
 
     }
 
@@ -36,7 +39,7 @@ public class createClientController implements Initializable {
         }
     };
 
-    ArrayList<Clientes> clientes;
+
 
     @FXML
     private TextField textDomicilio;
@@ -74,8 +77,7 @@ public class createClientController implements Initializable {
 
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
         int lastId = obtenerIdMasGrande(clientes);
-        setCategorias();
-        Clientes clientes1 = new Clientes(lastId + 1,textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), EstadosPersona.Activo);
+        Clientes clientes1 = new Clientes(lastId + 1,textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), Clientes.Estado.Activo);
 
         if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
                 || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty())
@@ -86,7 +88,7 @@ public class createClientController implements Initializable {
             alert.showAndWait();
         }
 
-        else if(clientes.contains(clientes1)){
+        else if (clientes.contains(clientes1)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Login");
             alert.setHeaderText("El cliente ya existe");
@@ -94,7 +96,6 @@ public class createClientController implements Initializable {
         }
         else{
             clientes.add(clientes1);
-
             Jackson.serializar(clientes,"src/main/java/com/tp/tp_final_lab3/Archives/clientes.json");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cliente creado");
@@ -109,7 +110,7 @@ public class createClientController implements Initializable {
 
         for(CategoriaFiscal categoria : CategoriaFiscal.values())
         {
-            categoriasString.add(categoria.toString());
+            categoriasString.add(categoria.getDescripcion());
         }
         comboBoxCategoria.setItems(categoriasString);
     }
