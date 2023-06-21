@@ -1,7 +1,6 @@
 package com.tp.tp_final_lab3.Models;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class Clientes extends Persona implements Serializable {
 
@@ -9,15 +8,22 @@ public class Clientes extends Persona implements Serializable {
     private String cuit;
     private String domicilio;
     private int telefono;
+    private CategoriaFiscal categoriaFiscal;
+    private EstadosPersona estadosPersona;
 
-    public Clientes(int idCliente, String cuit, String domicilio, int telefono) {
+    public Clientes() {
+    }
+
+
+    public Clientes(int idCliente, String cuit, String domicilio, int telefono, CategoriaFiscal categoriaFiscal) {
         this.idCliente = idCliente;
         this.cuit = cuit;
         this.domicilio = domicilio;
         this.telefono = telefono;
+        this.categoriaFiscal = categoriaFiscal;
     }
 
-    public Clientes() {
+    public Clientes(String text, String textApellidoText, String textDNIText, String textCUITText, String textDomicilioText, String textTelefonoText, CategoriaFiscal selectedItem, EstadosPersona activo) {
     }
 
     public Clientes(String nombre, String apellido, String dni, int idCliente, String cuit, String domicilio, int telefono) {
