@@ -1,16 +1,13 @@
 package com.tp.tp_final_lab3.controllers;
-import com.tp.tp_final_lab3.Models.Clientes;
-import com.tp.tp_final_lab3.Models.EstadosPersona;
-import com.tp.tp_final_lab3.Models.Usuario;
+import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -28,10 +25,10 @@ public class createClientController implements Initializable {
     ArrayList<Clientes> clientes;
 
     @FXML
-    private PasswordField textDomicilio;
+    private TextField textDomicilio;
 
     @FXML
-    private PasswordField textCategoria;
+    private ComboBox<CategoriaFiscal> comboBoxCategoria;
 
     @FXML
     private AnchorPane creaCliente;
@@ -49,7 +46,7 @@ public class createClientController implements Initializable {
     private Button createButton;
 
     @FXML
-    private PasswordField textTelefono;
+    private TextField textTelefono;
 
     @FXML
     private TextField textDNI;
@@ -61,10 +58,10 @@ public class createClientController implements Initializable {
     public void crearCliente() {
 
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
-        Clientes clientes1 = new Clientes();//textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(),textCategoria.getText(), EstadosPersona.Activo);
+        Clientes clientes1 = new Clientes(textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(),comboBoxCategoria.getSelectionModel().getSelectedItem(), EstadosPersona.Activo);
 
         if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
-                || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || textCategoria.getText().isEmpty())
+                || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error en la creacion");
@@ -89,6 +86,16 @@ public class createClientController implements Initializable {
         }
 
     }
+    @FXML
+    public void setCategorias() {
+        ObservableList<String> categoriasString = FXCollections.observableArrayList();
+
+        for(CategoriaFiscal categoria : Categorias.values())
+        {
+            categoriasString.add(categoria.toString());
+        }
+        comboBoxCategoria.setItems(categoriasString);
+    }
     public void irAtras()
     {
         //Jackson.serializar(observableList, pathJson);
@@ -102,4 +109,5 @@ public class createClientController implements Initializable {
         }
 
     }
+
 }
