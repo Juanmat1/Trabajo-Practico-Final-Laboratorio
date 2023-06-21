@@ -1,9 +1,7 @@
 package com.tp.tp_final_lab3.controllers;
 
-import com.tp.tp_final_lab3.Models.CategoriaFiscal;
 import com.tp.tp_final_lab3.Models.Clientes;
 import com.tp.tp_final_lab3.Models.EstadosPersona;
-import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.collections.FXCollections;
@@ -47,7 +45,7 @@ import java.util.ResourceBundle;
         @FXML
         private TableColumn<Clientes, EstadosPersona> estadoColumn;
         @FXML
-        private TableColumn<Clientes, CategoriaFiscal> categoriaColumn;
+        private TableColumn<Clientes, String> categoriaColumn;
         @FXML
         private Button agregarButton;
         @FXML

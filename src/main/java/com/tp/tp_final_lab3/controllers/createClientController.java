@@ -1,8 +1,11 @@
 package com.tp.tp_final_lab3.controllers;
 import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,13 +25,25 @@ public class createClientController implements Initializable {
 
     }
 
+    private String opcionElegida;
+
+    private ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
+        @Override
+        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if (newValue != null) {
+                opcionElegida = newValue;
+            }
+        }
+    };
+
     ArrayList<Clientes> clientes;
 
     @FXML
     private TextField textDomicilio;
 
     @FXML
-    private ComboBox<CategoriaFiscal> comboBoxCategoria;
+    private ComboBox<String> comboBoxCategoria;
+
 
     @FXML
     private AnchorPane creaCliente;
@@ -58,7 +73,9 @@ public class createClientController implements Initializable {
     public void crearCliente() {
 
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
-        Clientes clientes1 = new Clientes(textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(),comboBoxCategoria.getSelectionModel().getSelectedItem(), EstadosPersona.Activo);
+        int lastId = obtenerIdMasGrande(clientes);
+        setCategorias();
+        Clientes clientes1 = new Clientes(lastId + 1,textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), EstadosPersona.Activo);
 
         if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
                 || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty())
@@ -87,15 +104,29 @@ public class createClientController implements Initializable {
 
     }
     @FXML
-    public void setComboBoxCategoria() {
+    public void setCategorias() {
         ObservableList<String> categoriasString = FXCollections.observableArrayList();
 
-        for(CategoriaFiscal categoria : Categorias.values())
+        for(CategoriaFiscal categoria : CategoriaFiscal.values())
         {
             categoriasString.add(categoria.toString());
         }
         comboBoxCategoria.setItems(categoriasString);
     }
+    @FXML
+    private void mostrarOpciones(ActionEvent event) {
+
+        comboBoxCategoria.show();
+    }
+
+    @FXML
+    public void cargarCategorias() {
+
+        setCategorias();
+
+        comboBoxCategoria.getSelectionModel().selectedItemProperty().addListener(opcionSeleccionadaListener);
+    }
+
     public void irAtras()
     {
         try {
@@ -107,6 +138,16 @@ public class createClientController implements Initializable {
             io.printStackTrace();
         }
 
+    }
+
+    public static int obtenerIdMasGrande(ArrayList<Clientes> cliente) {
+        int maxId = 0;
+        for (Clientes clientes2 : cliente) {
+            if (clientes2.getIdCliente() > maxId) {
+                maxId = clientes2.getIdCliente();
+            }
+        }
+        return maxId;
     }
 
 }

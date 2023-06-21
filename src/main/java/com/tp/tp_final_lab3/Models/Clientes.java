@@ -12,33 +12,31 @@ public class Clientes extends Persona implements Serializable {
     private String cuit;
     private String domicilio;
     private String telefono;
-    private CategoriaFiscal categoriaFiscal;
     private EstadosPersona estadosPersona;
     private LocalDate fechaCreacion;
-    private static int ultimoId;
+    private CategoriaFiscal categoria;
+
 
     public Clientes() {
     }
 
 
-    public Clientes(String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, CategoriaFiscal categoriaFiscal, EstadosPersona estadosPersona) {
+    public Clientes(String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, EstadosPersona estadosPersona) {
         super(nombre, apellido, dni);
-        Clientes.ultimoId = getUltimoClienteID();
-        this.idCliente = ultimoId + 1;
+        this.idCliente = idCliente;
         this.cuit = cuit;
         this.domicilio = domicilio;
         this.telefono = telefono;
-        this.categoriaFiscal = categoriaFiscal;
         this.estadosPersona = estadosPersona;
         this.fechaCreacion = LocalDate.now();
     }
 
+    public Clientes(int i, String text, String text1, String text2, String text3, String text4, String text5, EstadosPersona activo) {
+    }
+
 //region getters y setters
 
-    private static int getUltimoClienteID(){
-        ArrayList<Clientes> clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Usuario.class);
-        return clientes.get(clientes.size()-1).getIdCliente();
-    }
+
     public int getIdCliente() {
         return idCliente;
     }
@@ -71,13 +69,6 @@ public class Clientes extends Persona implements Serializable {
         this.telefono = telefono;
     }
 
-    public CategoriaFiscal getCategoriaFiscal() {
-        return categoriaFiscal;
-    }
-
-    public void setCategoriaFiscal(CategoriaFiscal categoriaFiscal) {
-        this.categoriaFiscal = categoriaFiscal;
-    }
 
     public EstadosPersona getEstadosPersona() {
         return estadosPersona;
@@ -103,7 +94,6 @@ public class Clientes extends Persona implements Serializable {
                 ", cuit='" + cuit + '\'' +
                 ", domicilio='" + domicilio + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", categoriaFiscal=" + categoriaFiscal +
                 ", estadosPersona=" + estadosPersona +
                 ", fechaCreacion=" + fechaCreacion +
                 '}';
