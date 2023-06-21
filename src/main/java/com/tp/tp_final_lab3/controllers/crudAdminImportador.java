@@ -1,8 +1,10 @@
 package com.tp.tp_final_lab3.controllers;
 
-
-import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
+import com.tp.tp_final_lab3.Models.Categorias;
+import com.tp.tp_final_lab3.Models.Pedido;
+import com.tp.tp_final_lab3.Models.Producto;
+import com.tp.tp_final_lab3.Models.Proveedor;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
@@ -20,10 +22,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.ResourceBundle;
 
-public class crudImportadorController implements Initializable {
-    //region LISTAS
+public class crudAdminImportador implements Initializable {
+
     private final ArrayList<Pedido> listaPedidos =
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json", Pedido.class);
     private final ArrayList<Proveedor> listaProveedores =
@@ -32,7 +37,7 @@ public class crudImportadorController implements Initializable {
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/productos.json", Producto.class);
     private final ObservableList<Pedido> observablePedido = FXCollections.observableArrayList();
     private final ObservableList<Producto> observableProducto = FXCollections.observableArrayList();
-        private final ObservableList<Proveedor> observableProveedor = FXCollections.observableArrayList(listaProveedores);
+    private final ObservableList<Proveedor> observableProveedor = FXCollections.observableArrayList(listaProveedores);
     //endregion
 
     //region FXML
@@ -73,6 +78,8 @@ public class crudImportadorController implements Initializable {
 
     @FXML
     private TableColumn<Pedido, Double> tablePrecioC;
+    @FXML
+    private TableColumn<Pedido, String> tableUser;
 
     @FXML
     private TableView<Pedido> tablePedidos;
@@ -163,7 +170,7 @@ public class crudImportadorController implements Initializable {
             try{
                 Pedido pedido = new Pedido(obtenerIDProveedor(comboBoxProduc.getSelectionModel().getSelectedItem()),comboBoxCantidad.getSelectionModel().getSelectedItem(),
                         comboBoxProduc.getSelectionModel().getSelectedItem(),comboBoxCat.getSelectionModel().getSelectedItem(),
-                        Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada",SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+                        Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada", SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
 
                 observablePedido.add(pedido);
 
@@ -296,6 +303,7 @@ public class crudImportadorController implements Initializable {
         tableFechaC.setCellValueFactory(new PropertyValueFactory<>("fechaCompra"));
         tableID.setCellValueFactory(new PropertyValueFactory<>("idOrdenDcompra"));
         columnStock.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        tableUser.setCellValueFactory(new PropertyValueFactory<>("username"));
     }
 
     public void setearColumnasStock()
@@ -306,7 +314,7 @@ public class crudImportadorController implements Initializable {
     }
     public void obtenerUser()
     {
-        textUser.setText("USUARIO : " +SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+        textUser.setText("ADMIN");
     }
 
     public void cargarArrayPedidos()
@@ -317,11 +325,10 @@ public class crudImportadorController implements Initializable {
         {
             Pedido pedido = iterator.next();
 
-            if(pedido.getUsername().equals(SingletonUsuarioClass.getInstancia().getInfo().getUsuario()))
-            {
+
                 observablePedido.add(pedido);
                 iterator.remove();
-            }
+
         }
         tablePedidos.setItems(observablePedido);
 
@@ -346,12 +353,12 @@ public class crudImportadorController implements Initializable {
 
     public void setCategorias()
     {
-       ObservableList<String> categoriasString = FXCollections.observableArrayList();
+        ObservableList<String> categoriasString = FXCollections.observableArrayList();
 
-       for(Categorias categoria : Categorias.values())
-       {
-           categoriasString.add(categoria.toString());
-       }
+        for(Categorias categoria : Categorias.values())
+        {
+            categoriasString.add(categoria.toString());
+        }
         comboBoxCat.setItems(categoriasString);
     }
 
@@ -396,7 +403,7 @@ public class crudImportadorController implements Initializable {
 
     public void actualizarListaPedidos()
     {
-       listaPedidos.addAll(observablePedido);
+        listaPedidos.addAll(observablePedido);
 
         Collections.sort(listaPedidos);
     }
@@ -449,17 +456,17 @@ public class crudImportadorController implements Initializable {
 
     public int obtenerIndexCategoria(String categoria)
     {
-       int index = 0;
+        int index = 0;
 
-       for(String string : comboBoxCat.getItems())
-       {
+        for(String string : comboBoxCat.getItems())
+        {
 
-           if(string.equals(categoria))
-           {
-               break;
-           }
-           index++;
-       }
+            if(string.equals(categoria))
+            {
+                break;
+            }
+            index++;
+        }
         return  index;
     }
 
@@ -488,6 +495,7 @@ public class crudImportadorController implements Initializable {
         ControllersMethods.alinearTabla(tableIdProv);
         ControllersMethods.alinearTabla(tableName);
         ControllersMethods.alinearTabla(tableFechaC);
+        ControllersMethods.alinearTabla(tableUser);
         ControllersMethods.alinearTabla(tableGCat);
         ControllersMethods.alinearTabla(tableGStock);
         ControllersMethods.alinearTabla(tableGProduct);
@@ -496,4 +504,6 @@ public class crudImportadorController implements Initializable {
 
 
     //endregion
+
+
 }
