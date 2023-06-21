@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.ComboBox?>
-<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.createProvController">
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.createProvController">
     <children>
         <Text layoutX="46.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Cuenta Proveedor">
             <font>
                 <Font size="19.0" />
             </font>
         </Text>
-        <TextField fx:id="textNombre" layoutX="76.0" layoutY="77.0" promptText="Nombre"/>
-        <TextField fx:id="textRazonSocial" layoutX="76.0" layoutY="109.0" promptText="Razón Social"/>
-        <TextField fx:id="textCUIT" layoutX="76.0" layoutY="141.0" promptText="CUIT"/>
-        <Button fx:id="createButton" layoutX="108.0" layoutY="319.0" mnemonicParsing="false" onAction="#crearCuenta"
-                text="Crear Cuenta"/>
-        <Button fx:id="loginButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#irLogin"
-                text="Login">
+        <TextField fx:id="textNombre" layoutX="76.0" layoutY="77.0" promptText="Nombre" />
+        <TextField fx:id="textRazonSocial" layoutX="76.0" layoutY="109.0" promptText="Razón Social" />
+        <TextField fx:id="textCUIT" layoutX="76.0" layoutY="141.0" promptText="CUIT" />
+        <Button fx:id="createButton" layoutX="108.0" layoutY="319.0" mnemonicParsing="false" onAction="#crearCuenta" text="Crear Cuenta" />
+        <Button fx:id="volverButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#volver" text="Volver">
             <font>
-                <Font size="10.0"/>
+                <Font size="10.0" />
             </font>
         </Button>
-        <ComboBox fx:id="categoryChoice" accessibleText="Categorias" layoutX="76.0" layoutY="175.0"
-                  onAction="#mostrarOpciones" onMouseClicked="#cargarCategorias" prefWidth="150.0"/>
+        <ComboBox fx:id="categoryChoice" accessibleText="Categorias" layoutX="76.0" layoutY="175.0" onAction="#mostrarOpciones" onMouseClicked="#cargarCategorias" prefWidth="150.0" />
 
     </children>
 </AnchorPane>

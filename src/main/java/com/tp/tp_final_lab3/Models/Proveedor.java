@@ -14,20 +14,12 @@ public class Proveedor {
     public Proveedor() {
     }
 
-    public Proveedor(String nombre, String razonSocial, String cuit, Estado estado) {
-        //id autoincremental
+    public Proveedor(int id,String nombre, String razonSocial, String cuit, Estado estado) {
         this.id = id;
         this.nombre = nombre;
         this.razonSocial = razonSocial;
         this.cuit = cuit;
-
-    }
-
-    public Proveedor(int id, String nombre, String razonSocial, String cuit) {
-        this.id = id;
-        this.nombre = nombre;
-        this.razonSocial = razonSocial;
-        this.cuit = cuit;
+        this.estado = estado;
     }
 
     public int getId() {
@@ -85,7 +77,8 @@ public class Proveedor {
                 ", nombre='" + nombre + '\'' +
                 ", razonSocial='" + razonSocial + '\'' +
                 ", cuit='" + cuit + '\'' +
-                ", categoria=" + categoria +
+                ", categoria=" + categoria + '\'' +
+                ", estado=" + estado +
                 '}';
     }
 }
