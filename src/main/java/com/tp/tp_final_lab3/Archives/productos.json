@@ -3,7 +3,7 @@
   "nombre" : "Producto 1",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor A",
-  "stock" : 10,
+  "stock" : 7,
   "estado" : "Activo"
 }, {
   "id" : 2,
@@ -73,7 +73,7 @@
   "nombre" : "Producto 11",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor A",
-  "stock" : 7,
+  "stock" : 1,
   "estado" : "Activo"
 }, {
   "id" : 12,
