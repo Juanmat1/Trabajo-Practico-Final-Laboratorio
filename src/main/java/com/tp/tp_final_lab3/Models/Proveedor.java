@@ -1,5 +1,9 @@
 package com.tp.tp_final_lab3.Models;
 
+import com.tp.tp_final_lab3.Repository.Jackson;
+
+import java.util.ArrayList;
+
 public class Proveedor {
     public enum Estado{
         Activo,Inactivo
@@ -9,23 +13,26 @@ public class Proveedor {
     private String razonSocial;
     private String cuit;
     private Estado estado;
-
+    private static int ultimoId;
+    private static boolean primeraCarga = true;
     public Proveedor() {
     }
 
-    public Proveedor(int id,String nombre, String razonSocial, String cuit, Estado estado) {
-        this.id = id;
+    public Proveedor(String nombre, String razonSocial, String cuit, Estado estado) {
         this.nombre = nombre;
+        if(primeraCarga){
+            Proveedor.ultimoId = getUltimoProveedoresID();
+            primeraCarga = false;
+        }
+        this.id = ultimoId + 1;
+        Proveedor.ultimoId ++;
         this.razonSocial = razonSocial;
         this.cuit = cuit;
         this.estado = estado;
     }
-    public Proveedor(int id,String nombre, String razonSocial, String cuit) {
-        this.id = id;
-        this.nombre = nombre;
-        this.razonSocial = razonSocial;
-        this.cuit = cuit;
-        this.estado = Estado.Activo;
+    private static int getUltimoProveedoresID(){
+        ArrayList<Proveedor> proveedors = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
+        return proveedors.get(proveedors.size()-1).getId();
     }
 
     public int getId() {

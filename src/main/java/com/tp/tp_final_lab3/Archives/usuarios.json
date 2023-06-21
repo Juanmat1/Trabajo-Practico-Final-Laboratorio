@@ -52,4 +52,40 @@
   "id" : 6,
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "asd",
+  "apellido" : "asd",
+  "dni" : "222",
+  "usuario" : "asd",
+  "contrasenia" : "ads",
+  "id" : 7,
+  "estado" : "Inactivo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "asf",
+  "apellido" : "asf",
+  "dni" : "211",
+  "usuario" : "asf",
+  "contrasenia" : "asf",
+  "id" : 8,
+  "estado" : "Inactivo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "asdasd",
+  "apellido" : "asda",
+  "dni" : "222",
+  "usuario" : "asdasd",
+  "contrasenia" : "adsda",
+  "id" : 9,
+  "estado" : "Inactivo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "sdgsd",
+  "apellido" : "sdgsd",
+  "dni" : "34543",
+  "usuario" : "dgsdg",
+  "contrasenia" : "gsdds",
+  "id" : 11,
+  "estado" : "Inactivo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 } ]

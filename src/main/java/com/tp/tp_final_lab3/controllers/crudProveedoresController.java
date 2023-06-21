@@ -90,8 +90,8 @@ public class crudProveedoresController implements Initializable,ICrud{
         if(checkCampos()){
             try {
                 ArrayList<Proveedor>provs = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
-                int lastId = createProvController.obtenerIdMasGrande(provs);
-                Proveedor proveedor = new Proveedor(lastId+1,nombreTextField.getText(),razonSocialTextField.getText(),cuitTextField.getText(),obtenerEstado());
+                Proveedor proveedor = new Proveedor(nombreTextField.getText(),razonSocialTextField.getText(),cuitTextField.getText(),obtenerEstado());
+
                 if (observableList.contains(proveedor)){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
