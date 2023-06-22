@@ -5,10 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.adminTicketsController">
+<AnchorPane prefHeight="400.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.adminTicketsController">
    <children>
-      <TableView layoutX="14.0" layoutY="40.0" prefHeight="260.0" prefWidth="595.0">
+      <TableView fx:id="tableTicket" layoutX="24.0" layoutY="38.0" prefHeight="260.0" prefWidth="647.0">
         <columns>
           <TableColumn fx:id="columnId" prefWidth="61.0" text="ID" />
           <TableColumn fx:id="columnVendedor" prefWidth="68.0" text="Vendedor" />
@@ -17,7 +16,7 @@
             <TableColumn fx:id="columnCantidad" prefWidth="71.0" text="Cantidad" />
             <TableColumn fx:id="columnPrecio" prefWidth="68.0" text="Precio" />
             <TableColumn fx:id="columnDni" prefWidth="82.0" text="DNI" />
-            <TableColumn fx:id="columnCatFiscal" prefWidth="93.0" text="Categoria fiscal" />
+            <TableColumn fx:id="columnCatFiscal" prefWidth="145.0" text="Categoria fiscal" />
         </columns>
       </TableView>
       <Button fx:id="volverButton" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
