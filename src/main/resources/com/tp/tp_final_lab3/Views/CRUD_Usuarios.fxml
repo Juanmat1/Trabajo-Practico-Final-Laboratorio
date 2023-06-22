@@ -40,7 +40,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Button fx:id="volverButton" layoutX="5.0" layoutY="376.0" mnemonicParsing="false" onAction="#volver" text="Volver">
+      <Button fx:id="volverButton" layoutX="9.0" layoutY="371.0" mnemonicParsing="false" onAction="#volver" text="Volver">
          <font>
             <Font size="10.0" />
          </font>

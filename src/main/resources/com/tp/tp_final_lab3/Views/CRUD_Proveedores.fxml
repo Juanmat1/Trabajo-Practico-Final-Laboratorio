@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="620.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudProveedoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudProveedoresController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="686.0">
          <children>
@@ -17,7 +17,7 @@
                   <TableColumn fx:id="estadoColumn" prefWidth="75.0" text="Estado" />
                </columns>
             </TableView>
-            <AnchorPane layoutX="41.0" layoutY="272.0" prefHeight="70.0" prefWidth="231.0">
+            <AnchorPane layoutX="36.0" layoutY="272.0" prefHeight="70.0" prefWidth="231.0">
                <children>
                   <Button fx:id="agregarButton" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
                   <Button fx:id="actualizarButton" layoutX="81.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="25.0" prefWidth="72.0" text="Actualizar" />
@@ -38,7 +38,7 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="volverButton" layoutX="5.0" layoutY="376.0" mnemonicParsing="false" onAction="#volver" text="Volver">
+            <Button fx:id="volverButton" layoutX="11.0" layoutY="371.0" mnemonicParsing="false" onAction="#volver" text="Volver">
                <font>
                   <Font size="10.0" />
                </font>

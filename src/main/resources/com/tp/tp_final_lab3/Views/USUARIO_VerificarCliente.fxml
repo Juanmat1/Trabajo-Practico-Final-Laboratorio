@@ -14,6 +14,9 @@
       <TextField fx:id="dniTextField" alignment="CENTER" layoutX="77.0" layoutY="179.0" promptText="Ingrese DNI" />
       <Button fx:id="verificarButton" layoutX="122.0" layoutY="231.0" mnemonicParsing="false" onAction="#verificar" text="Verificar" />
       <Button fx:id="volverButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
-      <Text layoutX="99.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese DNI" textAlignment="CENTER" wrappingWidth="106.736328125" />
+      <Text layoutX="99.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese DNI" textAlignment="CENTER" wrappingWidth="106.736328125">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
    </children>
 </AnchorPane>

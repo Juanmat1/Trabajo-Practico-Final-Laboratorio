@@ -6,18 +6,17 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="300.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.createUserController">
    <children>
-      <Text layoutX="79.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cree su cuenta">
+      <Text layoutX="89.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cree su cuenta">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
       <TextField fx:id="textNombre" layoutX="76.0" layoutY="77.0" promptText="Nombre" />
-      <TextField fx:id="textApellido" layoutX="76.0" layoutY="109.0" promptText="Apellido" />
+      <TextField fx:id="textApellido" layoutX="76.0" layoutY="109.0" prefHeight="23.0" prefWidth="150.0" promptText="Apellido" />
       <TextField fx:id="textDNI" layoutX="76.0" layoutY="141.0" promptText="DNI" />
       <TextField fx:id="textUser" layoutX="76.0" layoutY="175.0" promptText="Usuario" />
-      <PasswordField fx:id="textPassword" layoutX="76.0" layoutY="212.0" promptText="Contrasenia" />
+      <PasswordField fx:id="textPassword" layoutX="76.0" layoutY="210.0" promptText="Contrasenia" />
       <PasswordField fx:id="textValidatePass" layoutX="76.0" layoutY="244.0" promptText="Contrasenia" />
-      <CheckBox fx:id="buttonMostrarPass" layoutX="76.0" layoutY="281.0" mnemonicParsing="false" text="Mostrar Contrasenia" />
       <Button fx:id="createButton" layoutX="98.0" layoutY="315.0" mnemonicParsing="false" onAction="#crearCuenta" text="Crear Cuenta" />
       <Button fx:id="loginButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#irLogin" text="Login">
          <font>

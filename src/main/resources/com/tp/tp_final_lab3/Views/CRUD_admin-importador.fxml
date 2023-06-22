@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1071.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudAdminImportador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1100.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudAdminImportador">
    <children>
       <TableView fx:id="tablePedidos" layoutX="221.0" layoutY="32.0" prefHeight="336.0" prefWidth="574.0">
         <columns>
@@ -22,7 +22,7 @@
          <children>
             <Button fx:id="buttonAdd" layoutX="52.0" layoutY="8.0" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
             <Button fx:id="buttonClear" layoutX="57.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
-            <Button fx:id="buttonlogout" layoutX="-19.0" layoutY="65.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Volver">
+            <Button fx:id="buttonlogout" layoutX="-7.0" layoutY="62.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Volver">
                <font>
                   <Font size="10.0" />
                </font>
@@ -31,7 +31,7 @@
             <Button fx:id="buttonDelete" layoutX="-19.0" layoutY="8.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrar" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="20.0" layoutY="31.0" prefHeight="275.0" prefWidth="200.0">
+      <AnchorPane layoutY="33.0" prefHeight="275.0" prefWidth="200.0">
          <children>
             <TextField fx:id="textPrecio" layoutX="27.0" layoutY="127.0" promptText="Precio de compra" />
             <DatePicker fx:id="textFechac" layoutX="26.0" layoutY="159.0" prefHeight="25.0" prefWidth="149.0" promptText="Fecha de Compra" />
@@ -47,20 +47,20 @@
       </Text>
       <AnchorPane layoutX="250.0" layoutY="9.0" prefHeight="23.0" prefWidth="425.0">
          <children>
-            <Text fx:id="dolarBlue" layoutX="103.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar : " wrappingWidth="102.8046875" />
-            <Text fx:id="euroBlue" layoutX="333.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
-            <Text fx:id="dolarOficial" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar :" wrappingWidth="102.8046875" />
-            <Text fx:id="euroOficial" layoutX="230.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
+            <Text fx:id="dolarBlue" layoutX="103.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar : " wrappingWidth="102.8046875" />
+            <Text fx:id="euroBlue" layoutX="333.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
+            <Text fx:id="dolarOficial" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar :" wrappingWidth="102.8046875" />
+            <Text fx:id="euroOficial" layoutX="230.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tableStock" layoutX="804.0" layoutY="32.0" prefHeight="336.0" prefWidth="256.0">
+      <TableView fx:id="tableStock" layoutX="819.0" layoutY="32.0" prefHeight="336.0" prefWidth="256.0">
         <columns>
           <TableColumn fx:id="tableGStock" prefWidth="44.0" text="Stock" />
           <TableColumn fx:id="tableGProduct" prefWidth="99.0" text="Producto" />
             <TableColumn fx:id="tableGCat" prefWidth="97.0" text="Categoria" />
         </columns>
       </TableView>
-      <Text layoutX="864.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STOCK GENERAL" wrappingWidth="135.56982421875">
+      <Text layoutX="879.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STOCK GENERAL" wrappingWidth="135.56982421875">
          <font>
             <Font size="18.0" />
          </font>

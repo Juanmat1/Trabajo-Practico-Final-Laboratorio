@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.usuarioVenderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.usuarioVenderController">
    <children>
       <TableView fx:id="tableProductos" layoutX="202.0" layoutY="36.0" prefHeight="329.0" prefWidth="388.0">
          <columns>
@@ -15,7 +15,7 @@
             <TableColumn fx:id="precioCollum" prefWidth="57.0" text="Precio" />
          </columns>
       </TableView>
-      <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
+      <Text layoutX="74.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
          <font>
             <Font size="24.0" />
          </font>

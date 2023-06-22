@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.TicketController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.TicketController">
    <children>
       <Text layoutX="98.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3JD" textAlignment="CENTER" wrappingWidth="104.228515625">
          <font>
@@ -17,7 +16,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="textVendedor" layoutX="141.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VENDEDOR">
+      <Text fx:id="textVendedor" layoutX="135.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VENDEDOR">
          <font>
             <Font size="18.0" />
          </font>
@@ -37,7 +36,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="textDni" layoutX="3.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI 41149231">
+      <Text fx:id="textDni" layoutX="3.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI 41149231">
          <font>
             <Font size="18.0" />
          </font>
@@ -53,7 +52,7 @@
       <Line endX="150.0" layoutX="151.0" layoutY="53.0" startX="-151.0" />
       <Line endX="150.0" layoutX="151.0" layoutY="124.0" startX="-151.0" />
       <Line endX="150.0" layoutX="151.0" layoutY="200.0" startX="-151.0" />
-      <Text fx:id="textCategoria" layoutX="2.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cate.Fiscal: Responsable Inscipto">
+      <Text fx:id="textCategoria" layoutX="2.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cate.Fiscal: Responsable Inscipto">
          <font>
             <Font size="18.0" />
          </font>

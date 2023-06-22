@@ -153,6 +153,8 @@ public class crudAdminImportador implements Initializable,ICrud {
 
         setearColumnasStock();
 
+        textFechac.setValue(LocalDate.now());
+
 
         alinearTablas();
 
@@ -258,6 +260,7 @@ public class crudAdminImportador implements Initializable,ICrud {
             observablePedido.set(observablePedido.indexOf(pedido),pedido);
             limpiar();
 
+
             buttonUpdate.setText("Actualizar");
             buttonUpdate.setOnAction(event -> {
                 actualizar();
@@ -276,7 +279,8 @@ public class crudAdminImportador implements Initializable,ICrud {
         comboBoxProduc.getSelectionModel().clearSelection();
         comboBoxCantidad.getSelectionModel().clearSelection();
         textPrecio.clear();
-        textFechac.getEditor().clear();
+        //textFechac.getEditor().clear();
+        textFechac.setValue(LocalDate.now());
     }
     public boolean checkCampos()
     {

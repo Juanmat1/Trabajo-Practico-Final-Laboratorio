@@ -4,15 +4,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="309.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.usuarioVentaController">
+<AnchorPane prefHeight="400.0" prefWidth="300.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.usuarioVentaController">
     <children>
-        <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER" wrappingWidth="60.0">
+        <Text layoutX="120.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER" wrappingWidth="60.0">
             <font>
                 <Font size="22.0" />
             </font>
         </Text>
-        <Button fx:id="verificarButton" layoutX="105.0" layoutY="167.0" mnemonicParsing="false" onAction="#verificar" text="Verificar cliente" />
-        <Button fx:id="crearButton" layoutX="106.0" layoutY="202.0" mnemonicParsing="false" onAction="#crear" prefHeight="23.0" prefWidth="98.0" text="Crear cliente" />
-        <Button fx:id="volverButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
+        <Button fx:id="verificarButton" layoutX="101.0" layoutY="167.0" mnemonicParsing="false" onAction="#verificar" text="Verificar cliente" />
+        <Button fx:id="crearButton" layoutX="101.0" layoutY="202.0" mnemonicParsing="false" onAction="#crear" prefHeight="23.0" prefWidth="99.0" text="Crear cliente" />
+        <Button fx:id="volverButton" layoutX="14.0" layoutY="366.0" mnemonicParsing="false" onAction="#volver" text="Volver">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
     </children>
 </AnchorPane>

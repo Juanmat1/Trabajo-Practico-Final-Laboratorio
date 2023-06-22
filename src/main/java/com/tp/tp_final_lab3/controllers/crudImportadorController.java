@@ -150,6 +150,8 @@ public class crudImportadorController implements Initializable,ICrud {
 
         setearColumnasStock();
 
+        textFechac.setValue(LocalDate.now());
+
         alinearTablas();
 
         cargarArrayPedidos();
@@ -266,7 +268,8 @@ public class crudImportadorController implements Initializable,ICrud {
         comboBoxProduc.getSelectionModel().clearSelection();
         comboBoxCantidad.getSelectionModel().clearSelection();
         textPrecio.clear();
-        textFechac.getEditor().clear();
+        //textFechac.getEditor().clear();
+        textFechac.setValue(LocalDate.now());
     }
     @Override
     public boolean checkCampos()

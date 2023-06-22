@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1071.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudImportadorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1100.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudImportadorController">
    <children>
       <TableView fx:id="tablePedidos" layoutX="250.0" layoutY="39.0" prefHeight="336.0" prefWidth="519.0">
         <columns>
@@ -17,31 +17,22 @@
             <TableColumn fx:id="tableFechaC" text="Fecha C" />
         </columns>
       </TableView>
-      <AnchorPane layoutX="20.0" layoutY="306.0" prefHeight="69.0" prefWidth="268.0">
-         <children>
-            <Button fx:id="buttonAdd" layoutX="85.0" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
-            <Button fx:id="buttonClear" layoutX="90.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
-            <Button fx:id="buttonlogout" layoutY="68.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Volver">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="40.0" layoutY="31.0" prefHeight="275.0" prefWidth="200.0">
+      <Button fx:id="buttonClear" layoutX="86.0" layoutY="342.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+      <Button fx:id="buttonlogout" layoutX="12.0" layoutY="365.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Volver">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="14.0" layoutY="40.0" prefHeight="275.0" prefWidth="200.0">
          <children>
             <TextField fx:id="textPrecio" layoutX="27.0" layoutY="127.0" promptText="Precio de compra" />
             <DatePicker fx:id="textFechac" layoutX="25.0" layoutY="159.0" prefHeight="25.0" prefWidth="150.0" promptText="Fecha de Compra" />
             <ComboBox fx:id="comboBoxCat" layoutX="26.0" layoutY="60.0" onAction="#setProductos" prefWidth="150.0" promptText="Categoria" />
             <ComboBox fx:id="comboBoxProduc" layoutX="25.0" layoutY="94.0" prefWidth="150.0" promptText="Producto" />
             <ComboBox fx:id="comboBoxCantidad" layoutX="25.0" layoutY="191.0" prefWidth="150.0" />
+            <Button fx:id="buttonAdd" layoutX="67.0" layoutY="259.0" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
          </children>
       </AnchorPane>
-      <Text fx:id="textUser" layoutX="28.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario : getuser">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
       <AnchorPane layoutX="250.0" layoutY="9.0" prefHeight="23.0" prefWidth="425.0">
          <children>
             <Text fx:id="dolarBlue" layoutX="116.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dolar : " wrappingWidth="102.8046875" />
@@ -50,7 +41,7 @@
             <Text fx:id="euroOficial" layoutX="230.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Euro:" wrappingWidth="102.8046875" />
          </children>
       </AnchorPane>
-      <TableView fx:id="tableStock" layoutX="795.0" layoutY="40.0" prefHeight="336.0" prefWidth="256.0">
+      <TableView fx:id="tableStock" layoutX="808.0" layoutY="40.0" prefHeight="336.0" prefWidth="256.0">
         <columns>
           <TableColumn fx:id="tableGStock" prefWidth="44.0" text="Stock" />
           <TableColumn fx:id="tableGProduct" prefWidth="99.0" text="Producto" />
@@ -60,6 +51,11 @@
       <Text layoutX="864.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STOCK GENERAL" wrappingWidth="135.56982421875">
          <font>
             <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="textUser" layoutX="9.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario : getuser">
+         <font>
+            <Font size="15.0" />
          </font>
       </Text>
    </children>

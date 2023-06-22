@@ -132,6 +132,10 @@ public class adminSelectionController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Tickets.fxml"));
             Stage stage = (Stage) productosButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
+
+            scene.setFill(Color.TRANSPARENT);
+            Delta.dragScene(stage,scene);
+
             stage.setScene(scene);
         }catch (IOException io) {
             io.printStackTrace();

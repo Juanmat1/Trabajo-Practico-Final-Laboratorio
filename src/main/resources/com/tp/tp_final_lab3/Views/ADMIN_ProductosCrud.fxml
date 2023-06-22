@@ -35,7 +35,7 @@
             <Button fx:id="borrarButton" layoutX="168.0" mnemonicParsing="false" onAction="#borrar" prefHeight="25.0" prefWidth="66.0" text="Borrrar" />
          </children>
       </AnchorPane>
-      <Button fx:id="volverButton" layoutX="5.0" layoutY="376.0" mnemonicParsing="false" onAction="#salir" text="Volver">
+      <Button fx:id="volverButton" layoutX="6.0" layoutY="372.0" mnemonicParsing="false" onAction="#salir" text="Volver">
          <font>
             <Font size="10.0" />
          </font>

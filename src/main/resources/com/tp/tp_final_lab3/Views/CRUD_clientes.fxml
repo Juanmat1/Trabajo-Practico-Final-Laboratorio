@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1044.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudClientesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1100.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudClientesController">
    <children>
-      <TableView fx:id="tableCliente" layoutX="249.0" layoutY="32.0" prefHeight="336.0" prefWidth="781.0">
+      <TableView fx:id="tableCliente" layoutX="287.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="781.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="34.0" text="ID" />
           <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
@@ -20,7 +20,7 @@
             <TableColumn fx:id="categoriaColumn" prefWidth="114.0" text="Categoria Fiscal" />
         </columns>
       </TableView>
-      <AnchorPane layoutX="14.0" layoutY="291.0" prefHeight="70.0" prefWidth="231.0">
+      <AnchorPane layoutX="17.0" layoutY="287.0" prefHeight="70.0" prefWidth="231.0">
          <children>
             <Button fx:id="agregarButton" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar">
                <font>
@@ -30,7 +30,7 @@
                <font>
                   <Font size="12.0" />
                </font></Button>
-            <Button fx:id="limpiarButton" layoutX="89.0" layoutY="44.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar">
+            <Button fx:id="limpiarButton" layoutX="87.0" layoutY="44.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar">
                <font>
                   <Font size="13.0" />
                </font></Button>
@@ -45,13 +45,13 @@
             <TextField fx:id="nombreTextField" layoutX="55.0" layoutY="14.0" promptText="Nombre" />
             <TextField fx:id="apellidoTextField" layoutX="55.0" layoutY="46.0" promptText="Apellido" />
             <TextField fx:id="cuitTextField" layoutX="55.0" layoutY="109.0" promptText="CUIT" />
-            <TextField fx:id="domicilioTextField" layoutX="55.0" layoutY="143.0" promptText="Domicilio" />
-            <CheckBox fx:id="estadoCheckBox" layoutY="220.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="246.0" text="Estado(click para habilitar cliente)" textAlignment="RIGHT" wrapText="true">
+            <TextField fx:id="domicilioTextField" layoutX="55.0" layoutY="141.0" promptText="Domicilio" />
+            <CheckBox fx:id="estadoCheckBox" layoutX="7.0" layoutY="226.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="246.0" text="Estado(click para habilitar cliente)" textAlignment="RIGHT" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></CheckBox>
             <TextField fx:id="dniTextField" layoutX="55.0" layoutY="77.0" promptText="DNI" />
-            <TextField fx:id="telefonoTextField" layoutX="55.0" layoutY="174.0" promptText="Telefono" />
+            <TextField fx:id="telefonoTextField" layoutX="55.0" layoutY="170.0" promptText="Telefono" />
             <ComboBox fx:id="comboBoxCategoria" layoutX="55.0" layoutY="200.0" onAction="#mostrarOpciones" prefWidth="150.0" promptText="Categoria Fiscal" />
          </children>
       </AnchorPane>
@@ -60,7 +60,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Button fx:id="volverButton" layoutX="5.0" layoutY="376.0" mnemonicParsing="false" onAction="#volver" text="Volver">
+      <Button fx:id="volverButton" layoutX="10.0" layoutY="373.0" mnemonicParsing="false" onAction="#volver" text="Volver">
          <font>
             <Font size="10.0" />
          </font>
