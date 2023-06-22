@@ -96,7 +96,7 @@ public class adminSelectionController {
         }
     }
 
-    public void clientesButton()
+    public void clientesAction()
     {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/CRUD_clientes.fxml"));

@@ -18,4 +18,14 @@
   "telefono" : "1234",
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "josefina",
+  "apellido" : "fructuoso",
+  "dni" : "1234",
+  "idCliente" : 3,
+  "cuit" : "123456",
+  "domicilio" : "chubut 296",
+  "telefono" : "155",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 } ]

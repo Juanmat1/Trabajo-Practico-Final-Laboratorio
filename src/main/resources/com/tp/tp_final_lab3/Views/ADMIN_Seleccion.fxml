@@ -20,6 +20,6 @@
       </Button>
       <Button fx:id="proveedoresButton" layoutX="111.0" layoutY="275.0" mnemonicParsing="false" onAction="#proveedoresAction" prefHeight="25.0" prefWidth="86.0" text="Proveedores" />
       <Button fx:id="productosButton" layoutX="111.0" layoutY="238.0" mnemonicParsing="false" onAction="#productosAction" prefHeight="26.0" prefWidth="86.0" text="Productos" />
-      <Button fx:id="clientesButton" layoutX="111.0" layoutY="200.0" mnemonicParsing="false" onAction="#userAction" prefHeight="26.0" prefWidth="86.0" text="Clientes" />
+      <Button fx:id="clientesButton" layoutX="111.0" layoutY="200.0" mnemonicParsing="false" onAction="#clientesAction" prefHeight="26.0" prefWidth="86.0" text="Clientes" />
    </children>
 </AnchorPane>
