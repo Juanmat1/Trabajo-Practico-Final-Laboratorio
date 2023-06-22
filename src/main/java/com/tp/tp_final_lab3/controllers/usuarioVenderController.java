@@ -47,6 +47,8 @@ public class usuarioVenderController implements Initializable {
 
     @FXML
     private TableColumn<Producto, Integer> stockCollum;
+    @FXML
+    private TableColumn<Producto,Double> precioColumn;
 
     @FXML
     private TableView<Producto> tableProductos;
@@ -70,6 +72,7 @@ public class usuarioVenderController implements Initializable {
         categoriaCollum.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         proveedorCollum.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
         stockCollum.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        precioColumn.setCellValueFactory(new PropertyValueFactory<>("precio"));
 
         tableProductos.setItems(observableListProducto);
 
@@ -77,6 +80,7 @@ public class usuarioVenderController implements Initializable {
         ControllersMethods.alinearTabla(categoriaCollum);
         ControllersMethods.alinearTabla(proveedorCollum);
         ControllersMethods.alinearTabla(stockCollum);
+        ControllersMethods.alinearTabla(precioColumn);
     }
 
     @FXML
