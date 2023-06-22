@@ -20,7 +20,7 @@
             <TableColumn fx:id="categoriaColumn" prefWidth="114.0" text="Categoria Fiscal" />
         </columns>
       </TableView>
-      <AnchorPane layoutX="14.0" layoutY="278.0" prefHeight="70.0" prefWidth="231.0">
+      <AnchorPane layoutX="14.0" layoutY="291.0" prefHeight="70.0" prefWidth="231.0">
          <children>
             <Button fx:id="agregarButton" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar">
                <font>
@@ -46,12 +46,13 @@
             <TextField fx:id="apellidoTextField" layoutX="26.0" layoutY="46.0" promptText="Apellido" />
             <TextField fx:id="cuitTextField" layoutX="26.0" layoutY="109.0" promptText="CUIT" />
             <TextField fx:id="domicilioTextField" layoutX="26.0" layoutY="143.0" promptText="Domicilio" />
-            <CheckBox fx:id="estadoCheckBox" layoutY="218.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="246.0" text="Estado(click para habilitar cliente)" textAlignment="RIGHT" wrapText="true">
+            <CheckBox fx:id="estadoCheckBox" layoutY="220.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="246.0" text="Estado(click para habilitar cliente)" textAlignment="RIGHT" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></CheckBox>
             <TextField fx:id="dniTextField" layoutX="26.0" layoutY="77.0" promptText="DNI" />
             <TextField fx:id="telefonoTextField" layoutX="26.0" layoutY="174.0" promptText="Telefono" />
+            <ComboBox fx:id="comboBoxCategoria" layoutX="26.0" layoutY="200.0" onAction="#mostrarOpciones" prefWidth="150.0" promptText="Categoria Fiscal" />
          </children>
       </AnchorPane>
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">

@@ -6,6 +6,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.util.Callback;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ControllersMethods {
     public static boolean checkTxtField(TextField...textFields){
         for(TextField textField : textFields){
@@ -44,5 +47,15 @@ public class ControllersMethods {
                 };
             }
         });
+    }
+    public static boolean contieneNumeros(String... texto) {
+        for (String text : texto) {
+            Pattern patron = Pattern.compile("[0-9]");
+            Matcher matcher = patron.matcher(text);
+            if (matcher.find()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

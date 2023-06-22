@@ -76,8 +76,7 @@ public class createClientController implements Initializable {
     public void crearCliente() {
 
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
-        int lastId = obtenerIdMasGrande(clientes);
-        Clientes clientes1 = new Clientes(lastId + 1,textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), Clientes.Estado.Activo);
+        Clientes clientes1 = new Clientes(textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), Clientes.Estado.Activo,comboBoxCategoria.getSelectionModel().getSelectedItem());
 
         if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
                 || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty())
@@ -141,14 +140,5 @@ public class createClientController implements Initializable {
 
     }
 
-    public static int obtenerIdMasGrande(ArrayList<Clientes> cliente) {
-        int maxId = 0;
-        for (Clientes clientes2 : cliente) {
-            if (clientes2.getIdCliente() > maxId) {
-                maxId = clientes2.getIdCliente();
-            }
-        }
-        return maxId;
-    }
 
 }
