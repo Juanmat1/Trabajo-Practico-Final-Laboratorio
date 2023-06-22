@@ -141,7 +141,7 @@ public class usuarioVenderController implements Initializable {
     @FXML
     void vender() {
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
-        if (ControllersMethods.contieneLetras(textPrecio.getText())) {
+        if (ControllersMethods.contieneLetras(textPrecio.getText()) || textPrecio.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error para vender");
             alert.setContentText("Precio invalido");
@@ -163,7 +163,7 @@ public class usuarioVenderController implements Initializable {
                 ticket.setCategoriaFiscal(SingletonClienteClass.getInstancia().getInfo().getCategoria());//Esperar que jose termine clientes
                 ticket.setProducto(producto.getNombre());
                 ticket.setVendedor(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
-                ticket.setPrecio(Double.parseDouble(textPrecio.getText()));
+                ticket.setPrecio(Double.parseDouble(textPrecio.getText()) * ticket.getCantidad());
                 ticket.setFecha(localDate.toString());
 
                 SIngletonTicketClass.getInstancia().SetInfo(ticket);
@@ -186,9 +186,17 @@ public class usuarioVenderController implements Initializable {
 
                     producto.setStock(producto.getStock() - comboBoxCant.getValue());
                     int index = observableListProducto.indexOf(producto);
+
+
                     observableListProducto.set(index, producto);
+                    tableProductos.refresh();
 
                     observableTicket.add(ticket);
+                    textPrecio.clear();
+                    comboBoxCant.getSelectionModel().clearSelection();
+                    comboBoxProv.getSelectionModel().clearSelection();
+
+
 
 
                     alert.close();

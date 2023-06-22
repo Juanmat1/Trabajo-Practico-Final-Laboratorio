@@ -3,7 +3,7 @@
   "nombre" : "TV Samsung",
   "categoria" : "HOGAR",
   "proveedor" : "ElectroCasa",
-  "stock" : 211,
+  "stock" : 180,
   "estado" : "Activo",
   "precio" : 60000.0
 }, {
@@ -11,7 +11,7 @@
   "nombre" : "Zapatillas deportivas",
   "categoria" : "INDUMENTARIA",
   "proveedor" : "ADIDAS",
-  "stock" : 50,
+  "stock" : 45,
   "estado" : "Activo",
   "precio" : 40000.0
 }, {
@@ -28,7 +28,7 @@
   "categoria" : "DEPORTES",
   "proveedor" : "PUMA",
   "stock" : 20,
-  "estado" : "Inactivo",
+  "estado" : "Activo",
   "precio" : 5000.0
 }, {
   "id" : 5,
@@ -43,7 +43,7 @@
   "nombre" : "Smart TV Philco",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "HogarPlus",
-  "stock" : 38,
+  "stock" : 46,
   "estado" : "Activo",
   "precio" : 56000.0
 }, {
@@ -75,7 +75,7 @@
   "nombre" : "Estanteria",
   "categoria" : "MUEBLES",
   "proveedor" : "ElectroMuebles",
-  "stock" : 70,
+  "stock" : 100,
   "estado" : "Activo",
   "precio" : 15000.0
 }, {
@@ -108,7 +108,7 @@
   "categoria" : "BELLEZA",
   "proveedor" : "FashionLife",
   "stock" : 60,
-  "estado" : "Inactivo",
+  "estado" : "Activo",
   "precio" : 10000.0
 }, {
   "id" : 15,
@@ -158,4 +158,52 @@
   "stock" : 15,
   "estado" : "Activo",
   "precio" : 50000.0
+}, {
+  "id" : 21,
+  "nombre" : "Frenos delanteros",
+  "categoria" : "AUTOMOTRIZ",
+  "proveedor" : "HogarPlus",
+  "stock" : 1000,
+  "estado" : "Activo",
+  "precio" : 100000.0
+}, {
+  "id" : 22,
+  "nombre" : "Heladera",
+  "categoria" : "ELECTRODOMESTICOS",
+  "proveedor" : "ElectroCasa",
+  "stock" : 1000,
+  "estado" : "Activo",
+  "precio" : 10000.0
+}, {
+  "id" : 23,
+  "nombre" : "Ajedrez",
+  "categoria" : "JUGUETERIA",
+  "proveedor" : "HogarPlus",
+  "stock" : 100,
+  "estado" : "Activo",
+  "precio" : 1000.0
+}, {
+  "id" : 24,
+  "nombre" : "Rollo cables 20m",
+  "categoria" : "ILUMINACION",
+  "proveedor" : "ElectroCasa",
+  "stock" : 100,
+  "estado" : "Activo",
+  "precio" : 1000.0
+}, {
+  "id" : 25,
+  "nombre" : "Bolsa de dormir",
+  "categoria" : "CAMPING",
+  "proveedor" : "HogarPlus",
+  "stock" : 1000,
+  "estado" : "Activo",
+  "precio" : 1000.0
+}, {
+  "id" : 26,
+  "nombre" : "Aros de oro",
+  "categoria" : "JOYERIA",
+  "proveedor" : "FashionWorld",
+  "stock" : 10,
+  "estado" : "Activo",
+  "precio" : 100000.0
 } ]
