@@ -48,8 +48,11 @@ public class Clientes extends Persona implements Serializable {
 
     private static int getUltimoClientessID(){
         ArrayList<Clientes> clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
+        if (clientes.isEmpty()){
+            return 0;
+        } else {
         return clientes.get(clientes.size()-1).getIdCliente();
-    }
+    }}
     public int getIdCliente() {
         return idCliente;
     }
