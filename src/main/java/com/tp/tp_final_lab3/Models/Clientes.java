@@ -40,7 +40,7 @@ public class Clientes extends Persona implements Serializable {
         this.telefono = telefono;
         this.estado = estado;
         this.fechaCreacion = LocalDate.now();
-        this.categoria = categoria;
+
 
     }
 
