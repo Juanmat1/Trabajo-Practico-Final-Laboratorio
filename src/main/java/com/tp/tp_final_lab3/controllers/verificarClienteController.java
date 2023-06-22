@@ -3,6 +3,7 @@ package com.tp.tp_final_lab3.controllers;
 import com.tp.tp_final_lab3.Models.Clientes;
 import com.tp.tp_final_lab3.Models.Delta;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.Services.ControllersMethods;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonClienteClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,35 +33,47 @@ public class verificarClienteController {
     @FXML
     void verificar() {
         if(!dniTextField.getText().isEmpty()){
-            Clientes cliente = new Clientes();
-            cliente.setDni(dniTextField.getText());
+            if(ControllersMethods.contieneLetras(dniTextField.getText())){
 
-            if(clientes.contains(cliente)){
-
-                Clientes aux = clientes.get(clientes.indexOf(cliente));
-
-                SingletonClienteClass.getInstancia().SetInfo(aux);
-
-
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Vender.fxml"));
-                    Stage stage = (Stage) verificarButton.getScene().getWindow();
-                    Scene scene = new Scene(loader.load());
-
-                    scene.setFill(Color.TRANSPARENT);
-                    Delta.dragScene(stage,scene);
-
-                    stage.setScene(scene);
-                }catch (IOException io) {
-                    io.printStackTrace();
-                }
-            }
-            else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error al verificar");
-                alert.setContentText("El cliente no existe, debe crear uno nuevo");
+                alert.setContentText("Verifique de poner caracteres validos");
                 alert.showAndWait();
+            }else {
+                Clientes cliente = new Clientes();
+                cliente.setDni(dniTextField.getText());
+
+                if (clientes.contains(cliente)) {
+
+                    Clientes aux = clientes.get(clientes.indexOf(cliente));
+
+                    SingletonClienteClass.getInstancia().SetInfo(aux);
+
+
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Vender.fxml"));
+                        Stage stage = (Stage) verificarButton.getScene().getWindow();
+                        Scene scene = new Scene(loader.load());
+
+                        scene.setFill(Color.TRANSPARENT);
+                        Delta.dragScene(stage, scene);
+
+                        stage.setScene(scene);
+                    } catch (IOException io) {
+                        io.printStackTrace();
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error al verificar");
+                    alert.setContentText("El cliente no existe, debe crear uno nuevo");
+                    alert.showAndWait();
+                }
             }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error al verificar");
+            alert.setContentText("No ingreso ningun DNI");
+            alert.showAndWait();
         }
     }
 
