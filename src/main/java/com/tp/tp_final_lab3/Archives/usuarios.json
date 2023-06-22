@@ -142,4 +142,22 @@
   "id" : 16,
   "estado" : "Inactivo",
   "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Picapiedra",
+  "apellido" : "juanma",
+  "dni" : "923819821",
+  "usuario" : "Pedro",
+  "contrasenia" : "1234",
+  "id" : 17,
+  "estado" : "Inactivo",
+  "fechaCreacion" : [ 2023, 6, 22 ]
+}, {
+  "nombre" : "Jazmin",
+  "apellido" : "Jamaica",
+  "dni" : "13983193",
+  "usuario" : "Jazmin",
+  "contrasenia" : "123",
+  "id" : 18,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 22 ]
 } ]
