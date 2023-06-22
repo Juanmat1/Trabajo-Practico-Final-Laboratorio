@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.loginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.loginController">
    <children>
-      <AnchorPane layoutX="75.0" layoutY="38.0">
+      <AnchorPane layoutX="32.0" layoutY="39.0" prefHeight="132.0" prefWidth="231.0">
          <children>
-            <Text layoutX="26.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido">
+            <Text layoutX="67.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="107.0" fitWidth="150.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="143.0" fitWidth="252.0" layoutX="-10.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Images/logo-utn.png" />
+               </image></ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="93.0" layoutY="213.0">
@@ -28,11 +28,6 @@
       </AnchorPane>
       <Button fx:id="loginButton" layoutX="124.0" layoutY="295.0" mnemonicParsing="false" onAction="#loginAction" text="Login" />
       <Button fx:id="createButton" layoutX="7.0" layoutY="369.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="17.0" prefWidth="77.0" text="Crear Cuenta">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Button>
-      <Button fx:id="helpButton" layoutX="93.0" layoutY="369.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="46.0" text="Ayuda">
          <font>
             <Font size="10.0" />
          </font>

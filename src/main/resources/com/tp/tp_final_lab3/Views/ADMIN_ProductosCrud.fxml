@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.adminProductosCrudController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.adminProductosCrudController">
    <children>
       <TableView fx:id="tableProductos" layoutX="286.0" layoutY="32.0" prefHeight="336.0" prefWidth="478.0">
         <columns>
@@ -28,7 +28,7 @@
             <CheckBox fx:id="estadoCheckBox" layoutY="187.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="213.0" text="Estado(click para habilitar producto)" textAlignment="RIGHT" wrapText="true" />
             <ComboBox fx:id="categoriaComboBox" layoutX="32.0" layoutY="67.0" prefWidth="150.0" promptText="Categoria" />
             <ComboBox fx:id="proveedorComboBox" layoutX="31.0" layoutY="96.0" prefWidth="150.0" promptText="Proveedor" />
-            <TextField fx:id="stockTextArea" layoutX="33.0" layoutY="130.0" />
+            <TextField fx:id="stockTextArea" layoutX="31.0" layoutY="131.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="12.0" layoutY="270.0" prefHeight="70.0" prefWidth="231.0">

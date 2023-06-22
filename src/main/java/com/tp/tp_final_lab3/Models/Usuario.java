@@ -18,6 +18,7 @@ public class Usuario extends Persona implements Serializable {
     private Estado estado;
     private LocalDate fechaCreacion;
     private static int ultimoId;
+    private static boolean primeraCarga = true;
 
     public Usuario(String usuario, String contrasenia) {
         this.usuario = usuario;
@@ -31,8 +32,12 @@ public class Usuario extends Persona implements Serializable {
         super(nombre, apellido, dni);
         this.usuario = usuario;
         this.contrasenia = contrasenia;
-        Usuario.ultimoId = getUltimoUsersID();
+        if(primeraCarga){
+            Usuario.ultimoId = getUltimoUsersID();
+            primeraCarga = false;
+        }
         this.id = ultimoId + 1;
+        Usuario.ultimoId ++;
         this.estado = estado;
         this.fechaCreacion = LocalDate.now();
     }

@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -29,13 +30,8 @@ public class usuarioVenderController implements Initializable {
     private final String pathJsonProveedores = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
     private ObservableList<Producto> observableListProducto = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProductos,Producto.class));
     private Producto producto = new Producto();
-
     @FXML
     private ComboBox<Integer> comboBoxCant;
-
-    @FXML
-    private ComboBox<String> comboBoxCategoria;
-
     @FXML
     private ComboBox<String> comboBoxProv;
     @FXML
@@ -63,7 +59,6 @@ public class usuarioVenderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCategorias();
         setProveedores();
 
         nombreColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -79,22 +74,6 @@ public class usuarioVenderController implements Initializable {
         ControllersMethods.alinearTabla(stockCollum);
     }
     @FXML
-    public void selecCategoria(){
-        ObservableList<String> productosProveedor = FXCollections.observableArrayList();
-        producto.setCategoria(comboBoxCategoria.getSelectionModel().getSelectedItem());
-
-        if(!comboBoxCategoria.getSelectionModel().isEmpty()){
-
-            for(Producto producto : observableListProducto){
-                if(comboBoxCategoria.getSelectionModel().getSelectedItem().equals(producto.getCategoria())){
-                    productosProveedor.add(producto.getProveedor());
-                }
-            }
-            comboBoxProv.setItems(productosProveedor);
-        }
-        ConsultaVenta.filtrarProducto(producto,tableProductos,observableListProducto);
-    }
-    @FXML
     public void selecProveedor(){
         ObservableList<String> productosCategorias = FXCollections.observableArrayList();
         producto.setProveedor(comboBoxProv.getSelectionModel().getSelectedItem());
@@ -106,40 +85,30 @@ public class usuarioVenderController implements Initializable {
                     productosCategorias.add(producto.getCategoria());
                 }
             }
-            comboBoxCategoria.setItems(productosCategorias);
         }
         ConsultaVenta.filtrarProducto(producto,tableProductos,observableListProducto);
     }
     @FXML
     public void setProveedores() {
-        ObservableList<Proveedor> listaProveedores = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProveedores, Proveedor.class));
+        //ObservableList<Proveedor> listaProveedores = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProveedores, Proveedor.class));
+        ObservableList<Producto> listaProveedores = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProductos,Producto.class));
         ObservableList<String> proveedoresString = FXCollections.observableArrayList();
 
-        for(Proveedor proveedor : listaProveedores)
+        for(Producto proveedor : listaProveedores)
         {
-            proveedoresString.add(proveedor.getNombre());
+            proveedoresString.add(proveedor.getProveedor());
         }
         comboBoxProv.setItems(proveedoresString);
 
     }
     @FXML
-    public void setCategorias() {
-        ObservableList<String> categoriasString = FXCollections.observableArrayList();
-
-        for(Categorias categoria : Categorias.values())
-        {
-            categoriasString.add(categoria.toString());
-        }
-        comboBoxCategoria.setItems(categoriasString);
-    }
-    @FXML
     public void Elegir(){
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
         if(producto != null){
-            System.out.println(producto.getCategoria());
-            System.out.println(producto.getProveedor());
-            System.out.println(producto);
-            comboBoxCategoria.setValue(producto.getCategoria().toString());
+
+            ObservableList<Producto> observableListNueva = FXCollections.observableArrayList(Arrays.asList(producto));
+            tableProductos.setItems(observableListNueva);
+
             comboBoxProv.setValue(producto.getProveedor());
 
             ObservableList<Integer> cantidad = FXCollections.observableArrayList();
@@ -185,7 +154,6 @@ public class usuarioVenderController implements Initializable {
                 alert2.showAndWait();
 
                 tableProductos.setItems(observableListProducto);
-                comboBoxCategoria.setValue(null);
                 comboBoxProv.setValue(null);
                 comboBoxCant.setValue(null);
 

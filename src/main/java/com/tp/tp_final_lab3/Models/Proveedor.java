@@ -1,5 +1,9 @@
 package com.tp.tp_final_lab3.Models;
 
+import com.tp.tp_final_lab3.Repository.Jackson;
+
+import java.util.ArrayList;
+
 public class Proveedor {
     public enum Estado{
         Activo,Inactivo
@@ -8,26 +12,27 @@ public class Proveedor {
     private String nombre;
     private String razonSocial;
     private String cuit;
-    private Categorias categoria;
     private Estado estado;
-
+    private static int ultimoId;
+    private static boolean primeraCarga = true;
     public Proveedor() {
     }
 
     public Proveedor(String nombre, String razonSocial, String cuit, Estado estado) {
-        //id autoincremental
-        this.id = id;
         this.nombre = nombre;
+        if(primeraCarga){
+            Proveedor.ultimoId = getUltimoProveedoresID();
+            primeraCarga = false;
+        }
+        this.id = ultimoId + 1;
+        Proveedor.ultimoId ++;
         this.razonSocial = razonSocial;
         this.cuit = cuit;
-
+        this.estado = estado;
     }
-
-    public Proveedor(int id, String nombre, String razonSocial, String cuit) {
-        this.id = id;
-        this.nombre = nombre;
-        this.razonSocial = razonSocial;
-        this.cuit = cuit;
+    private static int getUltimoProveedoresID(){
+        ArrayList<Proveedor> proveedors = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
+        return proveedors.get(proveedors.size()-1).getId();
     }
 
     public int getId() {
@@ -62,14 +67,6 @@ public class Proveedor {
         this.cuit = cuit;
     }
 
-    public Categorias getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categorias categoria) {
-        this.categoria = categoria;
-    }
-
     public Estado getEstado() {
         return estado;
     }
@@ -85,7 +82,7 @@ public class Proveedor {
                 ", nombre='" + nombre + '\'' +
                 ", razonSocial='" + razonSocial + '\'' +
                 ", cuit='" + cuit + '\'' +
-                ", categoria=" + categoria +
+                ", estado=" + estado +
                 '}';
     }
 }

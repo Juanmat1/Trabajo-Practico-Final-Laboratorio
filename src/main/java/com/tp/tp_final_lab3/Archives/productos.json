@@ -3,14 +3,14 @@
   "nombre" : "Producto 1",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor A",
-  "stock" : 10,
+  "stock" : 7,
   "estado" : "Activo"
 }, {
   "id" : 2,
   "nombre" : "Producto 2",
   "categoria" : "HOGAR",
   "proveedor" : "Proveedor R",
-  "stock" : 10,
+  "stock" : 5,
   "estado" : "Inactivo"
 }, {
   "id" : 3,
@@ -31,7 +31,7 @@
   "nombre" : "Producto 5",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor E",
-  "stock" : 15,
+  "stock" : 8,
   "estado" : "Activo"
 }, {
   "id" : 6,
@@ -73,7 +73,7 @@
   "nombre" : "Producto 11",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor A",
-  "stock" : 7,
+  "stock" : 1,
   "estado" : "Activo"
 }, {
   "id" : 12,
@@ -136,13 +136,13 @@
   "nombre" : "S23 Ultra 1TB",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "SAMSUNG",
-  "stock" : 160,
+  "stock" : 105,
   "estado" : "Activo"
 }, {
   "id" : 21,
   "nombre" : "A A a A",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "SAMSUNG",
-  "stock" : 10,
+  "stock" : 13,
   "estado" : "Activo"
 } ]

@@ -16,16 +16,14 @@ public class ConsultaVenta {
     }
     public static void filtrarProducto(Producto producto, TableView tableProductos, ObservableList<Producto> productos) {
 
-        String categoria = producto.getCategoria();
         String proveedor = producto.getProveedor();
 
         ArrayList<Producto> productosFiltrados = new ArrayList<>();
 
         for (Producto p : productos) {
-            boolean categoriaCoincide = (categoria == null) || categoria.equals(p.getCategoria());
             boolean proveedorCoincide = (proveedor == null) || proveedor.equals(p.getProveedor());
 
-            if (categoriaCoincide && proveedorCoincide) {
+            if (proveedorCoincide) {
                 productosFiltrados.add(p);
             }
         }
