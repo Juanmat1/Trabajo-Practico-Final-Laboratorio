@@ -231,9 +231,11 @@ public class crudClientesController implements Initializable {
         actualizarButton.setText("Actualizar");
         actualizarButton.setOnAction(event -> actualizar());
     }
-
-    public void borrar() {
-        observableList.remove(tableCliente.getSelectionModel().getSelectedItem());
+    
+    public void borrar(){
+        Clientes clientes= tableCliente.getSelectionModel().getSelectedItem();
+        clientes.setEstado(Clientes.Estado.Inactivo);
+        observableList.set(observableList.indexOf(clientes),clientes);
     }
 
     public void limpiar() {
