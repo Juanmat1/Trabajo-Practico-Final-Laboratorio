@@ -1,15 +1,4 @@
 [ {
-  "nombre" : "josefinaa",
-  "apellido" : "fructuoso",
-  "dni" : "41131944",
-  "idCliente" : 1,
-  "cuit" : "27411319447",
-  "domicilio" : "chubut 123",
-  "telefono" : "155702569",
-  "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 22 ],
-  "categoria" : null
-}, {
   "nombre" : "Juan Manuel",
   "apellido" : "Tretta",
   "dni" : "12121",
@@ -20,4 +9,15 @@
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 22 ],
   "categoria" : "Responsable Inscripto"
-} ]
+}, {
+  "nombre" : "josefinaa",
+  "apellido" : "fructuoso",
+  "dni" : "41131944",
+  "idCliente" : 1,
+  "cuit" : "27411319447",
+  "domicilio" : "chubut 123",
+  "telefono" : "155702569",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 22 ],
+  "categoria" : null
+}]

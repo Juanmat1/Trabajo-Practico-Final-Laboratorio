@@ -25,6 +25,8 @@ public class adminSelectionController {
     private Button closeButton;
     @FXML
     private Button clientesButton;
+    @FXML
+    private Button ticketsButton;
 
     @FXML
     public void buyAction()
@@ -117,5 +119,6 @@ public class adminSelectionController {
             io.printStackTrace();
         }
     }
+    public void ticketsAction(){}
 
 }
