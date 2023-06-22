@@ -12,7 +12,7 @@
             <TableColumn fx:id="categoriaCollum" prefWidth="94.0" text="Categoria" />
             <TableColumn fx:id="proveedorCollum" prefWidth="92.0" text="Proveedor" />
             <TableColumn fx:id="stockCollum" prefWidth="60.0" text="Stock" />
-            <TableColumn fx:id="precioCollum" prefWidth="57.0" text="Precio" />
+            <TableColumn fx:id="precioColumn" prefWidth="57.0" text="Precio" />
          </columns>
       </TableView>
       <Text layoutX="74.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
