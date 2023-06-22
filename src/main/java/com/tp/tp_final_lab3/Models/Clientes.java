@@ -40,11 +40,12 @@ public class Clientes extends Persona implements Serializable {
         this.telefono = telefono;
         this.estado = estado;
         this.fechaCreacion = LocalDate.now();
+        this.categoria = categoria;
+
     }
 
 
-
-//region getters y setters
+    //region getters y setters
 
     private static int getUltimoClientessID(){
         ArrayList<Clientes> clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
@@ -101,6 +102,14 @@ public class Clientes extends Persona implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public CategoriaFiscal getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaFiscal categoria) {
+        this.categoria = categoria;
+    }
+
     //endregion
 
 
@@ -113,6 +122,7 @@ public class Clientes extends Persona implements Serializable {
                 ", telefono='" + telefono + '\'' +
                 ", estado=" + estado +
                 ", fechaCreacion=" + fechaCreacion +
+                ", categoriaFiscal=" + categoria +
                 '}';
     }
 }

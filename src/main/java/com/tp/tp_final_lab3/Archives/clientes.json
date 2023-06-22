@@ -1,11 +1,1 @@
-[ {
-  "nombre" : "josefina",
-  "apellido" : "fructuoso",
-  "dni" : "41131944",
-  "idCliente" : 1,
-  "cuit" : "27411319447",
-  "domicilio" : "chubut 123",
-  "telefono" : "155826925",
-  "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 21 ]
-} ]
+[ ]

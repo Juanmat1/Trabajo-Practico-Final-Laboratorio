@@ -82,14 +82,14 @@ import java.util.ResourceBundle;
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
             setCategorias();
-            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+            idColumn.setCellValueFactory(new PropertyValueFactory<>("idCliente"));
             nombreColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
             apellidoColumn.setCellValueFactory(new PropertyValueFactory<>("apellido"));
             dniColumn.setCellValueFactory(new PropertyValueFactory<>("dni"));
             cuitColumn.setCellValueFactory(new PropertyValueFactory<>("cuit"));
             telefonoColumn.setCellValueFactory(new PropertyValueFactory<>("telefono"));
             domicilioColumn.setCellValueFactory(new PropertyValueFactory<>("domicilio"));
-            categoriaColumn.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+            categoriaColumn.setCellValueFactory(new PropertyValueFactory<>("categoriaFiscal"));
             fechaCreacionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
             estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
