@@ -2,6 +2,7 @@ package com.tp.tp_final_lab3.controllers;
 
 import com.tp.tp_final_lab3.Models.CategoriaFiscal;
 import com.tp.tp_final_lab3.Models.Clientes;
+import com.tp.tp_final_lab3.Models.Producto;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
@@ -216,7 +217,9 @@ import java.util.ResourceBundle;
             actualizarButton.setOnAction(event -> actualizar());
         }
         public void borrar(){
-            observableList.remove(tableCliente.getSelectionModel().getSelectedItem());
+           Clientes clientes= tableCliente.getSelectionModel().getSelectedItem();
+            clientes.setEstado(Clientes.Estado.Inactivo);
+            observableList.set(observableList.indexOf(clientes),clientes);
         }
         public void limpiar(){
             ControllersMethods.limpiarTxtField(nombreTextField,apellidoTextField,dniTextField,cuitTextField,telefonoTextField,domicilioTextField);
