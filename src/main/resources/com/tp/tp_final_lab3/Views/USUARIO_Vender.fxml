@@ -6,13 +6,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.usuarioVenderController">
    <children>
-      <TableView fx:id="tableProductos" layoutX="202.0" layoutY="36.0" prefHeight="329.0" prefWidth="388.0">
+      <TableView fx:id="tableProductos" layoutX="187.0" layoutY="36.0" prefHeight="329.0" prefWidth="400.0">
          <columns>
             <TableColumn fx:id="nombreColumn" prefWidth="82.0" text="Nombre" />
             <TableColumn fx:id="categoriaCollum" prefWidth="94.0" text="Categoria" />
             <TableColumn fx:id="proveedorCollum" prefWidth="92.0" text="Proveedor" />
             <TableColumn fx:id="stockCollum" prefWidth="60.0" text="Stock" />
-            <TableColumn fx:id="precioColumn" prefWidth="57.0" text="Precio" />
+            <TableColumn fx:id="precioColumn" prefWidth="71.0" text="Precio" />
          </columns>
       </TableView>
       <Text layoutX="74.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
@@ -26,6 +26,6 @@
       <Button fx:id="elegirButton" layoutX="26.0" layoutY="232.0" mnemonicParsing="false" onAction="#Elegir" prefHeight="26.0" prefWidth="57.0" text="Elegir" />
       <ComboBox fx:id="comboBoxProv" layoutX="27.0" layoutY="76.0" onAction="#selecProveedor" prefWidth="150.0" promptText="Proveedor" />
       <ComboBox fx:id="comboBoxCant" layoutX="27.0" layoutY="110.0" onAction="#selecCantidad" prefWidth="150.0" promptText="Cantidad" />
-      <TextField fx:id="textPrecio" layoutX="27.0" layoutY="144.0" promptText="Valor" />
+      <TextField fx:id="textPrecio" layoutX="27.0" layoutY="144.0" promptText="Precio por Unidad" />
    </children>
 </AnchorPane>

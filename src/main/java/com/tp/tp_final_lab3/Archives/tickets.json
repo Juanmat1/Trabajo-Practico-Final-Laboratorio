@@ -1,28 +1,64 @@
 [ {
+  "cantidad" : 10,
+  "categoriaFiscal" : "Responsable Inscripto",
+  "dni" : "43219876",
+  "id" : 99180726,
+  "precio" : 100.0,
+  "vendedor" : "juanma",
+  "producto" : "Secadora de ropa",
+  "fecha" : "2023-06-22"
+}, {
+  "cantidad" : 7,
+  "categoriaFiscal" : "Responsable Inscripto",
+  "dni" : "43219876",
+  "id" : 30753452,
+  "precio" : 1000.0,
+  "vendedor" : "juanma",
+  "producto" : "TV Samsung",
+  "fecha" : "2023-06-22"
+}, {
+  "cantidad" : 1,
+  "categoriaFiscal" : "Responsable Inscripto",
+  "dni" : "43219876",
+  "id" : 58934297,
+  "precio" : 1000.0,
+  "vendedor" : "juanma",
+  "producto" : "TV Samsung",
+  "fecha" : "2023-06-22"
+}, {
   "cantidad" : 5,
   "categoriaFiscal" : "Responsable Inscripto",
-  "dni" : "123",
-  "id" : 10,
-  "precio" : 1000.0,
+  "dni" : "43219876",
+  "id" : 63867830,
+  "precio" : 10.0,
   "vendedor" : "juanma",
-  "producto" : "Producto 3",
-  "fecha" : null
+  "producto" : "Zapatillas deportivas",
+  "fecha" : "2023-06-22"
 }, {
-  "cantidad" : 4,
+  "cantidad" : 3,
   "categoriaFiscal" : "Responsable Inscripto",
-  "dni" : "123",
-  "id" : 92752966,
+  "dni" : "43219876",
+  "id" : 80421649,
+  "precio" : 10.0,
+  "vendedor" : "juanma",
+  "producto" : "TV Samsung",
+  "fecha" : "2023-06-22"
+}, {
+  "cantidad" : 10,
+  "categoriaFiscal" : "Responsable Inscripto",
+  "dni" : "43219876",
+  "id" : 43524124,
   "precio" : 10000.0,
   "vendedor" : "juanma",
-  "producto" : "Producto 18",
-  "fecha" : null
+  "producto" : "TV Samsung",
+  "fecha" : "2023-06-22"
 }, {
-  "cantidad" : 6,
-  "categoriaFiscal" : null,
-  "dni" : "123",
-  "id" : 64024892,
-  "precio" : 1000.0,
+  "cantidad" : 10,
+  "categoriaFiscal" : "Responsable Inscripto",
+  "dni" : "43219876",
+  "id" : 75301215,
+  "precio" : 10.0,
   "vendedor" : "juanma",
-  "producto" : "Producto 18",
+  "producto" : "TV Samsung",
   "fecha" : "2023-06-22"
 } ]
