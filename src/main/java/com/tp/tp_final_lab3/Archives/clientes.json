@@ -7,7 +7,8 @@
   "domicilio" : "chubut 123",
   "telefono" : "12345",
   "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 21 ]
+  "fechaCreacion" : [ 2023, 6, 21 ],
+  "categoria" : null
 }, {
   "nombre" : "josefin",
   "apellido" : "gonzalez",
@@ -17,7 +18,8 @@
   "domicilio" : "chubut 123",
   "telefono" : "1234",
   "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 21 ]
+  "fechaCreacion" : [ 2023, 6, 21 ],
+  "categoria" : null
 }, {
   "nombre" : "Juan",
   "apellido" : "Manuel",
@@ -27,7 +29,8 @@
   "domicilio" : "falkner 49",
   "telefono" : "22334",
   "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 21 ]
+  "fechaCreacion" : [ 2023, 6, 21 ],
+  "categoria" : null
 }, {
   "nombre" : "Juan",
   "apellido" : "Manuel",
@@ -37,5 +40,6 @@
   "domicilio" : "falkner 4951",
   "telefono" : "2223049085",
   "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 21 ]
+  "fechaCreacion" : [ 2023, 6, 21 ],
+  "categoria" : null
 } ]

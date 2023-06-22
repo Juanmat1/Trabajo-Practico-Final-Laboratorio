@@ -22,7 +22,7 @@
          <children>
             <Button fx:id="buttonAdd" layoutX="52.0" layoutY="8.0" mnemonicParsing="false" onAction="#agregar" prefHeight="25.0" prefWidth="66.0" text="Agregar" />
             <Button fx:id="buttonClear" layoutX="57.0" layoutY="45.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
-            <Button fx:id="buttonlogout" layoutX="-19.0" layoutY="65.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion">
+            <Button fx:id="buttonlogout" layoutX="-19.0" layoutY="65.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Volver">
                <font>
                   <Font size="10.0" />
                </font>
