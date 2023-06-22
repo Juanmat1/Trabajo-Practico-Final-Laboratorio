@@ -22,4 +22,16 @@
   "razonSocial" : "SAMSUNG",
   "cuit" : "88888",
   "estado" : "Activo"
+}, {
+  "id" : 5,
+  "nombre" : "asda",
+  "razonSocial" : "da",
+  "cuit" : "2342",
+  "estado" : "Activo"
+}, {
+  "id" : 6,
+  "nombre" : "asdafew",
+  "razonSocial" : "dafwe",
+  "cuit" : "23422342",
+  "estado" : "Activo"
 } ]

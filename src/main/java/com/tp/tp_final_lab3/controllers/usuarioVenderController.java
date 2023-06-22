@@ -30,11 +30,8 @@ public class usuarioVenderController implements Initializable {
     private final String pathJsonProveedores = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
     private ObservableList<Producto> observableListProducto = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProductos,Producto.class));
     private Producto producto = new Producto();
-
     @FXML
     private ComboBox<Integer> comboBoxCant;
-
-
     @FXML
     private ComboBox<String> comboBoxProv;
     @FXML
@@ -111,7 +108,7 @@ public class usuarioVenderController implements Initializable {
 
             ObservableList<Producto> observableListNueva = FXCollections.observableArrayList(Arrays.asList(producto));
             tableProductos.setItems(observableListNueva);
-            
+
             comboBoxProv.setValue(producto.getProveedor());
 
             ObservableList<Integer> cantidad = FXCollections.observableArrayList();

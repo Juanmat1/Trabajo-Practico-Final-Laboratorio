@@ -109,7 +109,7 @@ public class adminSelectionController {
     }
     public void proveedoresAction(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_SeleccionProveedores.fxml")); //
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/CRUD_Proveedores.fxml"));
             Stage stage = (Stage) productosButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
