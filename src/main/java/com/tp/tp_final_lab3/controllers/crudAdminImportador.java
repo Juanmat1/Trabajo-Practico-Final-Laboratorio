@@ -4,7 +4,6 @@ import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
-import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,7 +24,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
-public class crudAdminImportador implements Initializable {
+public class crudAdminImportador implements Initializable,ICrud {
 
     private final ArrayList<Pedido> listaPedidos =
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json", Pedido.class);
@@ -154,6 +153,7 @@ public class crudAdminImportador implements Initializable {
 
         setearColumnasStock();
 
+
         alinearTablas();
 
         cargarArrayPedidos();
@@ -161,14 +161,16 @@ public class crudAdminImportador implements Initializable {
     }
 
     //region METODOS PRINCIPALES
-    public void agregarPedido()
+
+    @Override
+    public void agregar()
     {
         if(checkCampos())
         {
             try{
                 Pedido pedido = new Pedido(obtenerIDProveedor(comboBoxProduc.getSelectionModel().getSelectedItem()),comboBoxCantidad.getSelectionModel().getSelectedItem(),
                         comboBoxProduc.getSelectionModel().getSelectedItem(),comboBoxCat.getSelectionModel().getSelectedItem(),
-                        Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada", SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+                        Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada", "ADMIN");
 
                 observablePedido.add(pedido);
 
@@ -188,12 +190,18 @@ public class crudAdminImportador implements Initializable {
             }
         }
 
-        limpiarTextBox();
+        limpiar();
         //al cerrar sesion se aplican los cambios al json, por eso quite el boton para cerrar
     }
-    public void borrarPedido()
+    @Override
+    public void borrar()
     {
         observablePedido.remove(tablePedidos.getSelectionModel().getSelectedItem());
+        actualizarListaPedidos();
+        Jackson.serializar(listaPedidos,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");
+        tablePedidos.getItems().clear();
+        cargarArrayPedidos();
+        Pedido.ultimoId--;
     }
     public void cerrarSesion()
     {
@@ -218,6 +226,7 @@ public class crudAdminImportador implements Initializable {
         }
     }
 
+    @Override
     public void actualizar()
     {
         Pedido pedido = tablePedidos.getSelectionModel().getSelectedItem();
@@ -247,7 +256,7 @@ public class crudAdminImportador implements Initializable {
             pedido.setFechaCompra(textFechac.getValue().toString());
 
             observablePedido.set(observablePedido.indexOf(pedido),pedido);
-            limpiarTextBox();
+            limpiar();
 
             buttonUpdate.setText("Actualizar");
             buttonUpdate.setOnAction(event -> {
@@ -260,7 +269,8 @@ public class crudAdminImportador implements Initializable {
 
     //region METODOS AUXILIARES
 
-    public void limpiarTextBox()
+    @Override
+    public void limpiar()
     {
         comboBoxCat.getSelectionModel().clearSelection();
         comboBoxProduc.getSelectionModel().clearSelection();
@@ -501,7 +511,6 @@ public class crudAdminImportador implements Initializable {
         ControllersMethods.alinearTabla(tableGCat);
         ControllersMethods.alinearTabla(tableGStock);
         ControllersMethods.alinearTabla(tableGProduct);
-
     }
 
 

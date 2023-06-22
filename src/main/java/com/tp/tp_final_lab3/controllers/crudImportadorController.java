@@ -23,7 +23,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
-public class crudImportadorController implements Initializable {
+public class crudImportadorController implements Initializable,ICrud {
     //region LISTAS
     private final ArrayList<Pedido> listaPedidos =
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json", Pedido.class);
@@ -157,7 +157,9 @@ public class crudImportadorController implements Initializable {
     }
 
     //region METODOS PRINCIPALES
-    public void agregarPedido()
+
+    @Override
+    public void agregar()
     {
         if(checkCampos())
         {
@@ -184,10 +186,11 @@ public class crudImportadorController implements Initializable {
             }
         }
 
-        limpiarTextBox();
+        limpiar();
         //al cerrar sesion se aplican los cambios al json, por eso quite el boton para cerrar
     }
-    public void borrarPedido()
+    @Override
+    public void borrar()
     {
         observablePedido.remove(tablePedidos.getSelectionModel().getSelectedItem());
     }
@@ -214,7 +217,7 @@ public class crudImportadorController implements Initializable {
             io.printStackTrace();
         }
     }
-
+    @Override
     public void actualizar()
     {
         Pedido pedido = tablePedidos.getSelectionModel().getSelectedItem();
@@ -244,7 +247,7 @@ public class crudImportadorController implements Initializable {
             pedido.setFechaCompra(textFechac.getValue().toString());
 
             observablePedido.set(observablePedido.indexOf(pedido),pedido);
-            limpiarTextBox();
+            limpiar();
 
             buttonUpdate.setText("Actualizar");
             buttonUpdate.setOnAction(event -> {
@@ -256,8 +259,8 @@ public class crudImportadorController implements Initializable {
     //endregion
 
     //region METODOS AUXILIARES
-
-    public void limpiarTextBox()
+    @Override
+    public void limpiar()
     {
         comboBoxCat.getSelectionModel().clearSelection();
         comboBoxProduc.getSelectionModel().clearSelection();
@@ -265,6 +268,7 @@ public class crudImportadorController implements Initializable {
         textPrecio.clear();
         textFechac.getEditor().clear();
     }
+    @Override
     public boolean checkCampos()
     {
         boolean status = false;

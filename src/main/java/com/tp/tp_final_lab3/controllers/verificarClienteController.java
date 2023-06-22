@@ -2,6 +2,7 @@ package com.tp.tp_final_lab3.controllers;
 
 import com.tp.tp_final_lab3.Models.Clientes;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.SingletonClasses.SingletonClienteClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -33,6 +34,12 @@ public class verificarClienteController {
             cliente.setDni(dniTextField.getText());
 
             if(clientes.contains(cliente)){
+
+                Clientes aux = clientes.get(clientes.indexOf(cliente));
+
+                SingletonClienteClass.getInstancia().SetInfo(aux);
+
+
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Vender.fxml"));
                     Stage stage = (Stage) verificarButton.getScene().getWindow();

@@ -11,25 +11,36 @@ public class Producto implements Comparable<Producto> {
         Activo,
         Inactivo
     }
-
     private int id;
     private String nombre;
     private String categoria;
     private String proveedor;
     private int stock;
     private Estado estado;
+    private double precio;
+    private static boolean flag = true;
+    private static int ultimoId;
 
     public Producto() {
     }
 
-    public Producto(String nombre, String categoria, String proveedor, int stock, Estado estado) {
+    public Producto(String nombre, String categoria, String proveedor, int stock, Estado estado,double precio)
+    {
         this.nombre = nombre;
         this.categoria = categoria;
         this.proveedor = proveedor;
         this.stock = stock;
         this.estado = estado;
-        int ultimoId = obtenerUltimoId();
-        this.id=ultimoId+1;
+        this.precio = precio;
+
+        if(flag)
+        {
+            Producto.ultimoId = Producto.obtenerUltimoId();
+            flag= false;
+        }
+        this.id= Producto.ultimoId + 1;
+
+        Producto.ultimoId++;
     }
 
 
@@ -87,6 +98,14 @@ public class Producto implements Comparable<Producto> {
         this.proveedor = proveedor;
     }
 
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
     //endregion
     private static int obtenerUltimoId()
     {
@@ -96,7 +115,9 @@ public class Producto implements Comparable<Producto> {
                 Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/productos.json", Producto.class);
 
         ultimoID = arrayList.get(arrayList.size()-1).id;
+        System.out.println(ultimoID);
         return ultimoID;
+
     }
 
     @Override
