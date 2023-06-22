@@ -11,26 +11,27 @@ public class Producto implements Comparable<Producto> {
         Activo,
         Inactivo
     }
-
     private int id;
     private String nombre;
     private String categoria;
     private String proveedor;
     private int stock;
     private Estado estado;
-
+    private double precio;
     private static boolean flag = true;
     private static int ultimoId;
 
     public Producto() {
     }
 
-    public Producto(String nombre, String categoria, String proveedor, int stock, Estado estado) {
+    public Producto(String nombre, String categoria, String proveedor, int stock, Estado estado,double precio)
+    {
         this.nombre = nombre;
         this.categoria = categoria;
         this.proveedor = proveedor;
         this.stock = stock;
         this.estado = estado;
+        this.precio = precio;
 
         if(flag)
         {
@@ -95,6 +96,14 @@ public class Producto implements Comparable<Producto> {
 
     public void setProveedor(String proveedor) {
         this.proveedor = proveedor;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     //endregion

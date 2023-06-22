@@ -1,12 +1,13 @@
 package com.tp.tp_final_lab3.controllers;
 
-import com.tp.tp_final_lab3.Models.Categorias;
-import com.tp.tp_final_lab3.Models.Producto;
-import com.tp.tp_final_lab3.Models.Proveedor;
-import com.tp.tp_final_lab3.Models.Usuario;
+import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ConsultaVenta;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
+import com.tp.tp_final_lab3.Services.Popup;
+import com.tp.tp_final_lab3.SingletonClasses.SIngletonTicketClass;
+import com.tp.tp_final_lab3.SingletonClasses.SingletonClienteClass;
+import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,14 +17,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class usuarioVenderController implements Initializable {
     private final String pathJsonProductos = "src/main/java/com/tp/tp_final_lab3/Archives/productos.json";
@@ -56,6 +55,9 @@ public class usuarioVenderController implements Initializable {
 
     @FXML
     private Button volverButton;
+
+    @FXML
+    private TextField textPrecio;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -129,6 +131,22 @@ public class usuarioVenderController implements Initializable {
     void vender() {
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
         if(producto != null && !comboBoxCant.getSelectionModel().isEmpty()){
+
+          Ticket ticket = new Ticket();
+
+          ticket.setCantidad(comboBoxCant.getSelectionModel().getSelectedItem());
+
+          ticket.setDni(SingletonClienteClass.getInstancia().getInfo().getDni());
+          ticket.setId(10);
+          ticket.setCategoriaFiscal("Responsable Inscripto");//Esperar que jose termine clientes
+          ticket.setProducto(producto.getNombre());
+          ticket.setVendedor(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+          ticket.setPrecio(Double.parseDouble(textPrecio.getText()));
+
+          SIngletonTicketClass.getInstancia().SetInfo(ticket);
+
+          Popup popup = new Popup();
+          popup.display();
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmación");

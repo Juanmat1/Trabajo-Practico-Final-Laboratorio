@@ -4,173 +4,198 @@
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor A",
   "stock" : 11,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 2,
   "nombre" : "Producto 2",
   "categoria" : "HOGAR",
   "proveedor" : "Proveedor R",
   "stock" : 5,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 3,
   "nombre" : "Producto 3",
   "categoria" : "ELECTRODOMESTICOS",
   "proveedor" : "Proveedor C",
   "stock" : 8,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 4,
   "nombre" : "Producto 4",
   "categoria" : "INDUMENTARIA",
   "proveedor" : "Proveedor D",
   "stock" : 2,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 5,
   "nombre" : "Producto 5",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor E",
   "stock" : 8,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 6,
   "nombre" : "Producto 6",
   "categoria" : "JUGUETERIA",
   "proveedor" : "Proveedor F",
   "stock" : 3,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 7,
   "nombre" : "Producto 7",
   "categoria" : "FERRETERIA",
   "proveedor" : "Proveedor G",
   "stock" : 20,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 8,
   "nombre" : "Producto 8",
   "categoria" : "ELECTRICIDAD",
   "proveedor" : "Proveedor H",
   "stock" : 6,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 9,
   "nombre" : "Producto 9",
   "categoria" : "ILUMINACION",
   "proveedor" : "Proveedor I",
   "stock" : 12,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 10,
   "nombre" : "Producto 10",
   "categoria" : "BELLEZA",
   "proveedor" : "Proveedor J",
   "stock" : 4,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 11,
   "nombre" : "Producto 11",
   "categoria" : "DEPORTES",
   "proveedor" : "Proveedor A",
   "stock" : 1,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 12,
   "nombre" : "Producto 12",
   "categoria" : "MASCOTAS",
   "proveedor" : "Proveedor L",
   "stock" : 9,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 13,
   "nombre" : "Producto 13",
   "categoria" : "LIBRERIA",
   "proveedor" : "Proveedor M",
   "stock" : 1,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 14,
   "nombre" : "Producto 14",
   "categoria" : "MUEBLES",
   "proveedor" : "Proveedor N",
   "stock" : 18,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 15,
   "nombre" : "Producto 15",
   "categoria" : "DECORACION",
   "proveedor" : "Proveedor O",
   "stock" : 11,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 16,
   "nombre" : "Producto 16",
   "categoria" : "AUTOMOTRIZ",
   "proveedor" : "Proveedor P",
   "stock" : 3,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 17,
   "nombre" : "Producto 17",
   "categoria" : "JOYERIA",
   "proveedor" : "Proveedor Q",
   "stock" : 6,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 18,
   "nombre" : "Producto 18",
   "categoria" : "CAMPING",
   "proveedor" : "Proveedor R",
   "stock" : 20,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 19,
   "nombre" : "Samsung",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor E",
   "stock" : 55,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 20,
   "nombre" : "S23 Ultra 1TB",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "SAMSUNG",
   "stock" : 112,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 1000.0
 }, {
   "id" : 21,
   "nombre" : "A A a A",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "SAMSUNG",
   "stock" : 13,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 22,
   "nombre" : "camion",
   "categoria" : "ELECTRODOMESTICOS",
   "proveedor" : "OSRAM",
   "stock" : 2,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 22,
   "nombre" : "camion",
   "categoria" : "ELECTRODOMESTICOS",
   "proveedor" : "OSRAM",
   "stock" : 2,
-  "estado" : "Inactivo"
+  "estado" : "Inactivo",
+  "precio" : 0.0
 }, {
   "id" : 23,
   "nombre" : "juanma",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "OSRAM",
   "stock" : 10,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 }, {
   "id" : 24,
   "nombre" : "123",
   "categoria" : "HOGAR",
   "proveedor" : "OSRAM",
   "stock" : 211,
-  "estado" : "Activo"
+  "estado" : "Activo",
+  "precio" : 0.0
 } ]
