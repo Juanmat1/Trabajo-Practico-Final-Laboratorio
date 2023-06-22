@@ -117,11 +117,17 @@ public class adminProductosCrudController implements Initializable,ICrud {
 
     }
     @Override
-    public void borrar()
-    {
+    public void borrar() {
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
-        producto.setEstado(Producto.Estado.Inactivo);
-        observableListProd.set(observableListProd.indexOf(producto),producto);
+        if(producto != null) {
+            producto.setEstado(Producto.Estado.Inactivo);
+            observableListProd.set(observableListProd.indexOf(producto), producto);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error para borrrar");
+            alert.setContentText("Ningun proveedor seleccionado");
+            alert.showAndWait();
+        }
     }
     @Override
     public void limpiar()

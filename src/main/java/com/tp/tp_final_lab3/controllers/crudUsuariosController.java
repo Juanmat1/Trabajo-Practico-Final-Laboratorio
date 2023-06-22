@@ -194,7 +194,16 @@ public class crudUsuariosController implements Initializable, ICrud {
     }
     @Override
     public void borrar(){
-        observableList.remove(tableUsuario.getSelectionModel().getSelectedItem());
+        Usuario usuario = tableUsuario.getSelectionModel().getSelectedItem();
+        if(usuario != null) {
+            usuario.setEstado(Usuario.Estado.Inactivo);
+            observableList.set(observableList.indexOf(usuario), usuario);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error para borrrar");
+            alert.setContentText("Ningun proveedor seleccionado");
+            alert.showAndWait();
+        }
     }
     @Override
     public void limpiar(){

@@ -190,7 +190,16 @@ public class crudProveedoresController implements Initializable,ICrud{
 
     @Override
     public void borrar() {
-        observableList.remove(tableProveedor.getSelectionModel().getSelectedItem());
+        Proveedor proveedor = tableProveedor.getSelectionModel().getSelectedItem();
+        if(proveedor != null) {
+            proveedor.setEstado((Proveedor.Estado.Inactivo));
+            observableList.set(observableList.indexOf(proveedor), proveedor);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error para borrrar");
+            alert.setContentText("Ningun proveedor seleccionado");
+            alert.showAndWait();
+        }
     }
 
     @Override
