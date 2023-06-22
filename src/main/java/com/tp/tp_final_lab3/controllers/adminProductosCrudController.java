@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class adminProductosCrudController implements Initializable {
+public class adminProductosCrudController implements Initializable,ICrud {
 
     //region LISTAS
     private final String pathJsonProv = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
@@ -86,6 +86,7 @@ public class adminProductosCrudController implements Initializable {
     }
 
     //region METODOS PRINCIPALES
+    @Override
     public void agregar()
     {
         if (checkCampos()) {
@@ -115,14 +116,14 @@ public class adminProductosCrudController implements Initializable {
         limpiar();
 
     }
-
+    @Override
     public void borrar()
     {
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
         producto.setEstado(Producto.Estado.Inactivo);
         observableListProd.set(observableListProd.indexOf(producto),producto);
     }
-
+    @Override
     public void limpiar()
     {
         nombreTextField.clear();
@@ -132,7 +133,7 @@ public class adminProductosCrudController implements Initializable {
         stockTextArea.clear();
         estadoCheckBox.setSelected(true);
     }
-
+    @Override
     public void actualizar()
     {
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
@@ -203,7 +204,9 @@ public class adminProductosCrudController implements Initializable {
         return producto.getEstado().equals(Producto.Estado.Activo);
     }
 
-    private boolean checkCampos()
+
+    @Override
+    public boolean checkCampos()
     {
         boolean status = false;
 

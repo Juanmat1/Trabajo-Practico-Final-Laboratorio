@@ -1,3 +1,17 @@
-[
-
-]
+[ {
+  "cantidad" : 5,
+  "categoriaFiscal" : "Responsable Inscripto",
+  "dni" : "123",
+  "id" : 10,
+  "precio" : 1000.0,
+  "vendedor" : "juanma",
+  "producto" : "Producto 3"
+}, {
+  "cantidad" : 4,
+  "categoriaFiscal" : "Responsable Inscripto",
+  "dni" : "123",
+  "id" : 92752966,
+  "precio" : 10000.0,
+  "vendedor" : "juanma",
+  "producto" : "Producto 18"
+} ]

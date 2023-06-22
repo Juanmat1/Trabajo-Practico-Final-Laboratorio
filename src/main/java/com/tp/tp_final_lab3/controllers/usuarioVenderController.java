@@ -28,6 +28,9 @@ public class usuarioVenderController implements Initializable {
     private final String pathJsonProductos = "src/main/java/com/tp/tp_final_lab3/Archives/productos.json";
     private final String pathJsonProveedores = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
     private ObservableList<Producto> observableListProducto = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProductos,Producto.class));
+
+    private ObservableList<Ticket> observableTicket =
+            FXCollections.observableArrayList(Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/tickets.json",Ticket.class));
     private Producto producto = new Producto();
     @FXML
     private ComboBox<Integer> comboBoxCant;
@@ -137,7 +140,11 @@ public class usuarioVenderController implements Initializable {
           ticket.setCantidad(comboBoxCant.getSelectionModel().getSelectedItem());
 
           ticket.setDni(SingletonClienteClass.getInstancia().getInfo().getDni());
-          ticket.setId(10);
+
+          Random random = new Random();
+
+          ticket.setId(random.nextInt(100000,100000000));
+
           ticket.setCategoriaFiscal("Responsable Inscripto");//Esperar que jose termine clientes
           ticket.setProducto(producto.getNombre());
           ticket.setVendedor(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
@@ -165,6 +172,9 @@ public class usuarioVenderController implements Initializable {
                 int index = observableListProducto.indexOf(producto);
                 observableListProducto.set(index,producto);
 
+                observableTicket.add(ticket);
+
+
                 alert.close();
                 Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                 alert2.setTitle("Venta");
@@ -174,6 +184,8 @@ public class usuarioVenderController implements Initializable {
                 tableProductos.setItems(observableListProducto);
                 comboBoxProv.setValue(null);
                 comboBoxCant.setValue(null);
+
+
 
             } else {
                 alert.close();
@@ -190,6 +202,7 @@ public class usuarioVenderController implements Initializable {
     @FXML
     public void volver() {
         Jackson.serializar(observableListProducto,pathJsonProductos);
+        Jackson.serializar(observableTicket,"src/main/java/com/tp/tp_final_lab3/Archives/tickets.json");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_VerificarCliente.fxml"));
             Stage stage = (Stage) volverButton.getScene().getWindow();

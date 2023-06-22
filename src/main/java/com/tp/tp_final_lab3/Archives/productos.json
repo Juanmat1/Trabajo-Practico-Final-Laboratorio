@@ -19,7 +19,7 @@
   "nombre" : "Producto 3",
   "categoria" : "ELECTRODOMESTICOS",
   "proveedor" : "Proveedor C",
-  "stock" : 8,
+  "stock" : 3,
   "estado" : "Activo",
   "precio" : 0.0
 }, {
@@ -139,7 +139,7 @@
   "nombre" : "Producto 18",
   "categoria" : "CAMPING",
   "proveedor" : "Proveedor R",
-  "stock" : 20,
+  "stock" : 16,
   "estado" : "Activo",
   "precio" : 0.0
 }, {
