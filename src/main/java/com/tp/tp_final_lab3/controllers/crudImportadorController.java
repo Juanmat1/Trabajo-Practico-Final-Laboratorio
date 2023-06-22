@@ -203,7 +203,7 @@ public class crudImportadorController implements Initializable,ICrud {
         Jackson.serializar(listaProductos,"src/main/java/com/tp/tp_final_lab3/Archives/productos.json");
         //se trabaja con cache
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/LOGIN_importadora.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/USUARIO_Seleccion.fxml"));
             Stage stage = (Stage) buttonlogout.getScene().getWindow();
 
 

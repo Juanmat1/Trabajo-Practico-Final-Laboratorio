@@ -4,16 +4,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.verificarClienteController">
+<AnchorPane prefHeight="400.0" prefWidth="314.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.verificarClienteController">
    <children>
       <Text layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <TextField fx:id="dniTextField" alignment="CENTER" layoutX="77.0" layoutY="164.0" promptText="Ingrese DNI" />
-      <Button fx:id="verificarButton" layoutX="125.0" layoutY="200.0" mnemonicParsing="false" onAction="#verificar" text="Verificar" />
+      <TextField fx:id="dniTextField" alignment="CENTER" layoutX="77.0" layoutY="179.0" promptText="Ingrese DNI" />
+      <Button fx:id="verificarButton" layoutX="122.0" layoutY="231.0" mnemonicParsing="false" onAction="#verificar" text="Verificar" />
       <Button fx:id="volverButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
-      <Text layoutX="102.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese DNI" textAlignment="CENTER" wrappingWidth="106.736328125" />
+      <Text layoutX="99.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingrese DNI" textAlignment="CENTER" wrappingWidth="106.736328125" />
    </children>
 </AnchorPane>

@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudClientesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1044.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.crudClientesController">
    <children>
-      <TableView fx:id="tableCliente" layoutX="261.0" layoutY="39.0" prefHeight="336.0" prefWidth="781.0">
+      <TableView fx:id="tableCliente" layoutX="249.0" layoutY="32.0" prefHeight="336.0" prefWidth="781.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="34.0" text="ID" />
           <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
@@ -42,17 +42,17 @@
       </AnchorPane>
       <AnchorPane layoutX="4.0" layoutY="30.0" prefHeight="242.0" prefWidth="260.0">
          <children>
-            <TextField fx:id="nombreTextField" layoutX="26.0" layoutY="14.0" promptText="Nombre" />
-            <TextField fx:id="apellidoTextField" layoutX="26.0" layoutY="46.0" promptText="Apellido" />
-            <TextField fx:id="cuitTextField" layoutX="26.0" layoutY="109.0" promptText="CUIT" />
-            <TextField fx:id="domicilioTextField" layoutX="26.0" layoutY="143.0" promptText="Domicilio" />
+            <TextField fx:id="nombreTextField" layoutX="55.0" layoutY="14.0" promptText="Nombre" />
+            <TextField fx:id="apellidoTextField" layoutX="55.0" layoutY="46.0" promptText="Apellido" />
+            <TextField fx:id="cuitTextField" layoutX="55.0" layoutY="109.0" promptText="CUIT" />
+            <TextField fx:id="domicilioTextField" layoutX="55.0" layoutY="143.0" promptText="Domicilio" />
             <CheckBox fx:id="estadoCheckBox" layoutY="220.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="246.0" text="Estado(click para habilitar cliente)" textAlignment="RIGHT" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></CheckBox>
-            <TextField fx:id="dniTextField" layoutX="26.0" layoutY="77.0" promptText="DNI" />
-            <TextField fx:id="telefonoTextField" layoutX="26.0" layoutY="174.0" promptText="Telefono" />
-            <ComboBox fx:id="comboBoxCategoria" layoutX="26.0" layoutY="200.0" onAction="#mostrarOpciones" prefWidth="150.0" promptText="Categoria Fiscal" />
+            <TextField fx:id="dniTextField" layoutX="55.0" layoutY="77.0" promptText="DNI" />
+            <TextField fx:id="telefonoTextField" layoutX="55.0" layoutY="174.0" promptText="Telefono" />
+            <ComboBox fx:id="comboBoxCategoria" layoutX="55.0" layoutY="200.0" onAction="#mostrarOpciones" prefWidth="150.0" promptText="Categoria Fiscal" />
          </children>
       </AnchorPane>
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
