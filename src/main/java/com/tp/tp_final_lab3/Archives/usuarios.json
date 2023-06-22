@@ -53,39 +53,93 @@
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 21 ]
 }, {
-  "nombre" : "asd",
-  "apellido" : "asd",
-  "dni" : "222",
-  "usuario" : "asd",
-  "contrasenia" : "ads",
+  "nombre" : "Gabriela",
+  "apellido" : "Rodríguez",
+  "dni" : "57892341",
+  "usuario" : "gabriela_r",
+  "contrasenia" : "p@ssw0rd",
   "id" : 7,
-  "estado" : "Inactivo",
+  "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 21 ]
 }, {
-  "nombre" : "asf",
-  "apellido" : "asf",
-  "dni" : "211",
-  "usuario" : "asf",
-  "contrasenia" : "asf",
+  "nombre" : "Martín",
+  "apellido" : "Gómez",
+  "dni" : "78541239",
+  "usuario" : "marting",
+  "contrasenia" : "securepass",
   "id" : 8,
   "estado" : "Inactivo",
   "fechaCreacion" : [ 2023, 6, 21 ]
 }, {
-  "nombre" : "asdasd",
-  "apellido" : "asda",
-  "dni" : "222",
-  "usuario" : "asdasd",
-  "contrasenia" : "adsda",
+  "nombre" : "Carolina",
+  "apellido" : "López",
+  "dni" : "62349872",
+  "usuario" : "carolinal",
+  "contrasenia" : "pass1234",
   "id" : 9,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Sebastián",
+  "apellido" : "Fernández",
+  "dni" : "41872635",
+  "usuario" : "sebastianf",
+  "contrasenia" : "securepwd",
+  "id" : 10,
   "estado" : "Inactivo",
   "fechaCreacion" : [ 2023, 6, 21 ]
 }, {
-  "nombre" : "sdgsd",
-  "apellido" : "sdgsd",
-  "dni" : "34543",
-  "usuario" : "dgsdg",
-  "contrasenia" : "gsdds",
+  "nombre" : "Valentina",
+  "apellido" : "Martínez",
+  "dni" : "85741236",
+  "usuario" : "valentinam",
+  "contrasenia" : "password123",
   "id" : 11,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Lucas",
+  "apellido" : "González",
+  "dni" : "34129857",
+  "usuario" : "lucasg",
+  "contrasenia" : "securepass",
+  "id" : 12,
+  "estado" : "Inactivo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "María",
+  "apellido" : "Pérez",
+  "dni" : "72816439",
+  "usuario" : "mariap",
+  "contrasenia" : "pass1234",
+  "id" : 13,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Santiago",
+  "apellido" : "Silva",
+  "dni" : "62487135",
+  "usuario" : "santiagos",
+  "contrasenia" : "p@ssw0rd",
+  "id" : 14,
+  "estado" : "Inactivo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Carla",
+  "apellido" : "Hernández",
+  "dni" : "54382176",
+  "usuario" : "carlah",
+  "contrasenia" : "securepwd",
+  "id" : 15,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Matías",
+  "apellido" : "López",
+  "dni" : "71836425",
+  "usuario" : "matiasl",
+  "contrasenia" : "password123",
+  "id" : 16,
   "estado" : "Inactivo",
   "fechaCreacion" : [ 2023, 6, 21 ]
 } ]

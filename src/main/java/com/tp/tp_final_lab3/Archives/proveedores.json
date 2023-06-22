@@ -1,37 +1,121 @@
 [ {
   "id" : 1,
-  "nombre" : "Juan Lopez",
+  "nombre" : "Juan López",
   "razonSocial" : "ADIDAS",
   "cuit" : "30218239439",
   "estado" : "Activo"
 }, {
   "id" : 2,
-  "nombre" : "Ana Tubio",
-  "razonSocial" : "OSRAM",
-  "cuit" : "302182394563",
-  "estado" : "Activo"
+  "nombre" : "María Rodríguez",
+  "razonSocial" : "NIKE",
+  "cuit" : "87654321098",
+  "estado" : "Inactivo"
 }, {
   "id" : 3,
-  "nombre" : "Lara Smith",
-  "razonSocial" : "NIKE",
-  "cuit" : "30218549439",
+  "nombre" : "Luis González",
+  "razonSocial" : "PUMA",
+  "cuit" : "65432109876",
   "estado" : "Activo"
 }, {
   "id" : 4,
-  "nombre" : "Juana Sanchez",
-  "razonSocial" : "SAMSUNG",
-  "cuit" : "88888",
-  "estado" : "Activo"
+  "nombre" : "Ana Martínez",
+  "razonSocial" : "REEBOK",
+  "cuit" : "12345678901",
+  "estado" : "Inactivo"
 }, {
   "id" : 5,
-  "nombre" : "asda",
-  "razonSocial" : "da",
-  "cuit" : "2342",
+  "nombre" : "Carlos García",
+  "razonSocial" : "UNDER ARMOUR",
+  "cuit" : "90817263541",
   "estado" : "Activo"
 }, {
   "id" : 6,
-  "nombre" : "asdafew",
-  "razonSocial" : "dafwe",
-  "cuit" : "23422342",
+  "nombre" : "Laura López",
+  "razonSocial" : "ASICS",
+  "cuit" : "41526374859",
+  "estado" : "Inactivo"
+}, {
+  "id" : 7,
+  "nombre" : "Pedro Fernández",
+  "razonSocial" : "NEW BALANCE",
+  "cuit" : "95847362514",
   "estado" : "Activo"
+}, {
+  "id" : 8,
+  "nombre" : "Mariana Hernández",
+  "razonSocial" : "CONVERSE",
+  "cuit" : "78945612305",
+  "estado" : "Inactivo"
+}, {
+  "id" : 9,
+  "nombre" : "Diego Ramírez",
+  "razonSocial" : "VANS",
+  "cuit" : "30452978123",
+  "estado" : "Activo"
+}, {
+  "id" : 10,
+  "nombre" : "Valeria Silva",
+  "razonSocial" : "DC SHOES",
+  "cuit" : "58741203698",
+  "estado" : "Inactivo"
+}, {
+  "id" : 11,
+  "nombre" : "Supermercado Eléctrico",
+  "razonSocial" : "ElectroTech",
+  "cuit" : "30918472635",
+  "estado" : "Activo"
+}, {
+  "id" : 12,
+  "nombre" : "Supermercado de Moda",
+  "razonSocial" : "FashionMart",
+  "cuit" : "50718293642",
+  "estado" : "Inactivo"
+}, {
+  "id" : 13,
+  "nombre" : "Supermercado ElectroHogar",
+  "razonSocial" : "ElectroCasa",
+  "cuit" : "40927461583",
+  "estado" : "Activo"
+}, {
+  "id" : 14,
+  "nombre" : "Supermercado Tecnológico",
+  "razonSocial" : "TechStore",
+  "cuit" : "61273849501",
+  "estado" : "Inactivo"
+}, {
+  "id" : 15,
+  "nombre" : "Supermercado de Ropa",
+  "razonSocial" : "FashionWorld",
+  "cuit" : "20374851629",
+  "estado" : "Activo"
+}, {
+  "id" : 16,
+  "nombre" : "Supermercado Electrónica Total",
+  "razonSocial" : "ElectroMax",
+  "cuit" : "40516273849",
+  "estado" : "Inactivo"
+}, {
+  "id" : 17,
+  "nombre" : "Supermercado de Electrodomésticos",
+  "razonSocial" : "HogarPlus",
+  "cuit" : "30958642170",
+  "estado" : "Activo"
+}, {
+  "id" : 18,
+  "nombre" : "Supermercado FashionLife",
+  "razonSocial" : "FashionLife",
+  "cuit" : "50719384652",
+  "estado" : "Inactivo"
+}, {
+  "id" : 19,
+  "nombre" : "Supermercado Tecnología Avanzada",
+  "razonSocial" : "TechMax",
+  "cuit" : "61239587462",
+  "estado" : "Activo"
+}, {
+  "id" : 20,
+  "nombre" : "Supermercado ElectroMuebles",
+  "razonSocial" : "ElectroMuebles",
+  "cuit" : "40516273849",
+  "estado" : "Inactivo"
 } ]
