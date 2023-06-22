@@ -2,7 +2,7 @@ package com.tp.tp_final_lab3.controllers;
 
 import com.tp.tp_final_lab3.Models.CategoriaFiscal;
 import com.tp.tp_final_lab3.Models.Clientes;
-import com.tp.tp_final_lab3.Models.EstadosPersona;
+import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.collections.FXCollections;
@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -106,18 +105,10 @@ import java.util.ResourceBundle;
 
             tableCliente.setItems(observableList);
         }
-        public Clientes.Estado obtenerEstado(){
-            if(estadoCheckBox.isSelected()){
-                return Clientes.Estado.Activo;
-            }else{
-                return Clientes.Estado.Inactivo;
-            }
-        }
         public void agregar() {
-            if (ControllersMethods.checkTxtField(nombreTextField,apellidoTextField, dniTextField)) {
+            if (checkCampos()) {
                 try {
-                    int lastId = obtenerIdMasGrande(observableList);
-                    Clientes clientes = new Clientes(lastId + 1,textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), obtenerEstado());
+                    Clientes clientes = new Clientes(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),cuitTextField.getText(),domicilioTextField.getText(),telefonoTextField.getText(), Clientes.Estado.Activo);
                     if (observableList.contains(clientes)){
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");
@@ -150,8 +141,8 @@ import java.util.ResourceBundle;
                 dniTextField.setText(clientes.getDni());
                 cuitTextField.setText(clientes.getCuit());
                 domicilioTextField.setText(clientes.getDomicilio());
-                //telefonoTextField.setText(clientes.getTelefono());
-                //estadoCheckBox.setSelected(obtenerBooleanEstado(clientes));
+                telefonoTextField.setText(clientes.getTelefono());
+                estadoCheckBox.setSelected(obtenerBooleanEstado(clientes));
 
                 actualizarButton.setText("Guardar");
 
@@ -165,9 +156,33 @@ import java.util.ResourceBundle;
                 alert.showAndWait();
             }
         }
+
+        public boolean checkCampos(){
+            if (ControllersMethods.checkTxtField(nombreTextField,apellidoTextField,dniTextField)){
+                ControllersMethods.alertaCampos();
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+        public Clientes.Estado obtenerEstado(){
+            if(estadoCheckBox.isSelected()){
+                return Clientes.Estado.Activo;
+            }else{
+                return Clientes.Estado.Inactivo;
+            }
+        }
+        public boolean obtenerBooleanEstado(Clientes clientes){
+            if(clientes.getEstado().equals(Clientes.Estado.Activo)){
+                return true;
+            }else{
+                return false;
+            }
+        }
         public void modificarDatos(Clientes clientes){
 
-            /*if(ControllersMethods.checkCampos(nombreTextField, apellidoTextField,dniTextField)) {
+            if(checkCampos()) {
                 clientes.setNombre(nombreTextField.getText());
                 clientes.setApellido(apellidoTextField.getText());
                 clientes.setDni(dniTextField.getText());
@@ -179,13 +194,13 @@ import java.util.ResourceBundle;
             }
             limpiar();
             actualizarButton.setText("Actualizar");
-            actualizarButton.setOnAction(event -> actualizar());*/
+            actualizarButton.setOnAction(event -> actualizar());
         }
         public void borrar(){
             observableList.remove(tableCliente.getSelectionModel().getSelectedItem());
         }
         public void limpiar(){
-            //ControllersMethods.limpiar(nombreTextField, apellidoTextField, dniTextField);
+            ControllersMethods.limpiarTxtField(nombreTextField, apellidoTextField, dniTextField);
             estadoCheckBox.setSelected(false);
         }
         public void volver(){
@@ -216,15 +231,7 @@ import java.util.ResourceBundle;
             comboBoxCategoria.show();
         }
 
-        public static int obtenerIdMasGrande(ArrayList<Clientes> cliente) {
-            int maxId = 0;
-            for (Clientes clientes2 : cliente) {
-                if (clientes2.getIdCliente() > maxId) {
-                    maxId = clientes2.getIdCliente();
-                }
-            }
-            return maxId;
-        }
+
     }
 
 

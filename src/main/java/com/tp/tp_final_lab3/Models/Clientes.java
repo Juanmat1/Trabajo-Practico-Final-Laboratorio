@@ -20,14 +20,21 @@ public class Clientes extends Persona implements Serializable {
     private Estado estado;
     private LocalDate fechaCreacion;
     private CategoriaFiscal categoria;
+    private static int ultimoId;
+    private static boolean primeraCarga = true;
 
 
     public Clientes() {
     }
 
-    public Clientes(int idCliente,String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, Estado estado) {
+    public Clientes(String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, Estado estado) {
         super(nombre, apellido, dni);
-        this.idCliente= idCliente;
+        if(primeraCarga){
+            Clientes.ultimoId = getUltimoClientessID();
+            primeraCarga = false;
+        }
+        this.idCliente = ultimoId + 1;
+        Clientes.ultimoId ++;
         this.cuit = cuit;
         this.domicilio = domicilio;
         this.telefono = telefono;
@@ -39,7 +46,10 @@ public class Clientes extends Persona implements Serializable {
 
 //region getters y setters
 
-
+    private static int getUltimoClientessID(){
+        ArrayList<Clientes> clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
+        return clientes.get(clientes.size()-1).getIdCliente();
+    }
     public int getIdCliente() {
         return idCliente;
     }
