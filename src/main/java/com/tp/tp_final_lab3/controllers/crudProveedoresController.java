@@ -81,7 +81,7 @@ public class crudProveedoresController implements Initializable,ICrud{
 
         ControllersMethods.alinearTabla(idColumn);
         ControllersMethods.alinearTabla(nombreColumn);
-        ControllersMethods.alinearTabla(nombreColumn);
+        ControllersMethods.alinearTabla(razonSocialColumn);
         ControllersMethods.alinearTabla(cuitColumn);
         ControllersMethods.alinearTabla(estadoColumn);
 
@@ -90,25 +90,33 @@ public class crudProveedoresController implements Initializable,ICrud{
     @Override
     public void agregar() {
         if(checkCampos()){
-            try {
-                ArrayList<Proveedor>provs = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
-                Proveedor proveedor = new Proveedor(nombreTextField.getText(),razonSocialTextField.getText(),cuitTextField.getText(),obtenerEstado());
+            if (ControllersMethods.contieneNumeros(nombreTextField.getText()) || ControllersMethods.contieneLetras(cuitTextField.getText())) {
 
-                if (observableList.contains(proveedor)){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText("No se puede agregar un usuario ya existente");
-                    alert.showAndWait();
-                }else {
-                    observableList.add(proveedor);
-                }
-            } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error en los campos,reviselos");
-                alert.setContentText("Algunos de los campos es " +
-                        "incorrecto revise de no poner letras en los campos con numeros");
+                alert.setTitle("Error para agregar");
+                alert.setContentText("Verifique de no poner caracteres invalidos");
                 alert.showAndWait();
-                e.printStackTrace();
+            }else {
+                try {
+                    ArrayList<Proveedor> provs = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json", Proveedor.class);
+                    Proveedor proveedor = new Proveedor(nombreTextField.getText(), razonSocialTextField.getText(), cuitTextField.getText(), obtenerEstado());
+
+                    if (observableList.contains(proveedor)) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setContentText("No se puede agregar un usuario ya existente");
+                        alert.showAndWait();
+                    } else {
+                        observableList.add(proveedor);
+                    }
+                } catch (Exception e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error en los campos,reviselos");
+                    alert.setContentText("Algunos de los campos es " +
+                            "incorrecto revise de no poner letras en los campos con numeros");
+                    alert.showAndWait();
+                    e.printStackTrace();
+                }
             }
         }
         actualizarButton.setText("Actualizar");
@@ -163,12 +171,20 @@ public class crudProveedoresController implements Initializable,ICrud{
         System.out.println(proveedor);
 
         if(checkCampos()) {
-            System.out.println(proveedor);
-            proveedor.setNombre(nombreTextField.getText());
-            proveedor.setRazonSocial(razonSocialTextField.getText());
-            proveedor.setCuit(cuitTextField.getText());
-            proveedor.setEstado(obtenerEstado());
-            observableList.set(observableList.indexOf(proveedor),proveedor);
+            if (ControllersMethods.contieneNumeros(nombreTextField.getText()) || ControllersMethods.contieneLetras(cuitTextField.getText())) {
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error para agregar");
+                alert.setContentText("Verifique de no poner caracteres invalidos");
+                alert.showAndWait();
+            }else {
+                System.out.println(proveedor);
+                proveedor.setNombre(nombreTextField.getText());
+                proveedor.setRazonSocial(razonSocialTextField.getText());
+                proveedor.setCuit(cuitTextField.getText());
+                proveedor.setEstado(obtenerEstado());
+                observableList.set(observableList.indexOf(proveedor), proveedor);
+            }
         }
         limpiar();
         actualizarButton.setText("Actualizar");
@@ -192,7 +208,16 @@ public class crudProveedoresController implements Initializable,ICrud{
 
     @Override
     public void borrar() {
-        observableList.remove(tableProveedor.getSelectionModel().getSelectedItem());
+        Proveedor proveedor = tableProveedor.getSelectionModel().getSelectedItem();
+        if(proveedor != null) {
+            proveedor.setEstado((Proveedor.Estado.Inactivo));
+            observableList.set(observableList.indexOf(proveedor), proveedor);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error para borrrar");
+            alert.setContentText("Ningun proveedor seleccionado");
+            alert.showAndWait();
+        }
     }
 
     @Override

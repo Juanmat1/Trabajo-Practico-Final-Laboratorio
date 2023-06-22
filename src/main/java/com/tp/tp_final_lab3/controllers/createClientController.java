@@ -1,6 +1,7 @@
 package com.tp.tp_final_lab3.controllers;
 import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -79,28 +80,32 @@ public class createClientController implements Initializable {
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
         Clientes clientes1 = new Clientes(textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), Clientes.Estado.Activo,comboBoxCategoria.getSelectionModel().getSelectedItem());
 
-        if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
-                || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty())
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error en la creacion");
-            alert.setHeaderText("Complete todos los campos");
-            alert.showAndWait();
-        }
+        if (ControllersMethods.contieneNumeros(textNombre.getText(), textApellido.getText()) || ControllersMethods.contieneLetras(textDNI.getText(), textCUIT.getText(),textTelefono.getText())) {
 
-        else if (clientes.contains(clientes1)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Login");
-            alert.setHeaderText("El cliente ya existe");
+            alert.setTitle("Error para agregar");
+            alert.setContentText("Verifique de no poner caracteres invalidos");
             alert.showAndWait();
-        }
-        else{
-            clientes.add(clientes1);
-            Jackson.serializar(clientes,"src/main/java/com/tp/tp_final_lab3/Archives/clientes.json");
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Cliente creado");
-            alert.setHeaderText("El cliente ha sido creado con exito");
-            alert.showAndWait();
+        }else {
+            if (textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
+                    || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error en la creacion");
+                alert.setHeaderText("Complete todos los campos");
+                alert.showAndWait();
+            } else if (clientes.contains(clientes1)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Login");
+                alert.setHeaderText("El cliente ya existe");
+                alert.showAndWait();
+            } else {
+                clientes.add(clientes1);
+                Jackson.serializar(clientes, "src/main/java/com/tp/tp_final_lab3/Archives/clientes.json");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cliente creado");
+                alert.setHeaderText("El cliente ha sido creado con exito");
+                alert.showAndWait();
+            }
         }
 
     }

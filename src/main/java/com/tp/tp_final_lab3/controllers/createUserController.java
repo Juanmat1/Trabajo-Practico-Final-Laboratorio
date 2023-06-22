@@ -3,6 +3,7 @@ package com.tp.tp_final_lab3.controllers;
 import com.tp.tp_final_lab3.Models.Delta;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
+import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -53,35 +54,38 @@ public class createUserController implements Initializable {
         users = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json", Usuario.class);
         Usuario user = new Usuario(textNombre.getText(),textApellido.getText(),textDNI.getText(),textUser.getText(),textPassword.getText(), Usuario.Estado.Activo);
 
-        if(textPassword.getText().isEmpty() || textValidatePass.getText().isEmpty() || textUser.getText().isEmpty()
-                || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty())
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Login");
-            alert.setHeaderText("Complete todos los campos");
-            alert.showAndWait();
-        }
+        if (ControllersMethods.contieneNumeros(textNombre.getText(), textApellido.getText()) || ControllersMethods.contieneLetras(textDNI.getText())) {
 
-        else if(!textPassword.getText().equals(textValidatePass.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Login");
-            alert.setHeaderText("Las contraseñas no coinciden");
+            alert.setTitle("Error para agregar");
+            alert.setContentText("Verifique de no poner caracteres invalidos");
             alert.showAndWait();
-        }
-        else if(users.contains(user)){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Login");
-            alert.setHeaderText("El usuario ya existe");
-            alert.showAndWait();
-        }
-        else{
-            users.add(user);
+        }else {
+            if (textPassword.getText().isEmpty() || textValidatePass.getText().isEmpty() || textUser.getText().isEmpty()
+                    || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Login");
+                alert.setHeaderText("Complete todos los campos");
+                alert.showAndWait();
+            } else if (!textPassword.getText().equals(textValidatePass.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Login");
+                alert.setHeaderText("Las contraseñas no coinciden");
+                alert.showAndWait();
+            } else if (users.contains(user)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Login");
+                alert.setHeaderText("El usuario ya existe");
+                alert.showAndWait();
+            } else {
+                users.add(user);
 
-            Jackson.serializar(users,"src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json");
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Cuenta creada");
-            alert.setHeaderText("Su cuenta ha sido creada con exito");
-            alert.showAndWait();
+                Jackson.serializar(users, "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cuenta creada");
+                alert.setHeaderText("Su cuenta ha sido creada con exito");
+                alert.showAndWait();
+            }
         }
 
     }
