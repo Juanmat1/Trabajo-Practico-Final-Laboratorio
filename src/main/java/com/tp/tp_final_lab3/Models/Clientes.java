@@ -19,7 +19,7 @@ public class Clientes extends Persona implements Serializable {
     }
     private Estado estado;
     private LocalDate fechaCreacion;
-    private CategoriaFiscal categoria;
+    private String categoria;
     private static int ultimoId;
     private static boolean primeraCarga = true;
 
@@ -27,7 +27,7 @@ public class Clientes extends Persona implements Serializable {
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, Estado estado) {
+    public Clientes(String nombre, String apellido, String dni, String cuit, String domicilio, String telefono, Estado estado,String categoria) {
         super(nombre, apellido, dni);
         if(primeraCarga){
             Clientes.ultimoId = getUltimoClientessID();
@@ -40,8 +40,7 @@ public class Clientes extends Persona implements Serializable {
         this.telefono = telefono;
         this.estado = estado;
         this.fechaCreacion = LocalDate.now();
-
-
+        this.categoria = categoria;
     }
 
 
@@ -102,11 +101,11 @@ public class Clientes extends Persona implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public CategoriaFiscal getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaFiscal categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 

@@ -49,7 +49,7 @@ import java.util.ResourceBundle;
         @FXML
         private TableColumn<Clientes, Clientes.Estado> estadoColumn;
         @FXML
-        private TableColumn<Clientes, String> categoriaColumn;
+        private TableColumn<Clientes, CategoriaFiscal> categoriaColumn;
         @FXML
         private Button agregarButton;
         @FXML
@@ -89,7 +89,7 @@ import java.util.ResourceBundle;
             cuitColumn.setCellValueFactory(new PropertyValueFactory<>("cuit"));
             telefonoColumn.setCellValueFactory(new PropertyValueFactory<>("telefono"));
             domicilioColumn.setCellValueFactory(new PropertyValueFactory<>("domicilio"));
-            categoriaColumn.setCellValueFactory(new PropertyValueFactory<>("categoriaFiscal"));
+            categoriaColumn.setCellValueFactory(new PropertyValueFactory<>("categoria"));
             fechaCreacionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
             estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
@@ -109,7 +109,11 @@ import java.util.ResourceBundle;
         public void agregar() {
             if (checkCampos()) {
                 try {
-                    Clientes clientes = new Clientes(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),cuitTextField.getText(),domicilioTextField.getText(),telefonoTextField.getText(), Clientes.Estado.Activo);
+
+                    Clientes clientes = new Clientes(nombreTextField.getText(),apellidoTextField.getText(),
+                            dniTextField.getText(),cuitTextField.getText(),domicilioTextField.getText(),telefonoTextField.getText(),
+                            Clientes.Estado.Activo,comboBoxCategoria.getSelectionModel().getSelectedItem());
+
                     if (observableList.contains(clientes)){
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");
@@ -169,7 +173,9 @@ import java.util.ResourceBundle;
         }
 
         public boolean checkCampos(){
-            if (ControllersMethods.checkTxtField(nombreTextField,apellidoTextField,dniTextField)){
+            if (ControllersMethods.checkTxtField(nombreTextField,apellidoTextField,dniTextField,cuitTextField,telefonoTextField,domicilioTextField)
+                    || comboBoxCategoria.getSelectionModel().isEmpty()){
+
                 ControllersMethods.alertaCampos();
                 return false;
             }else{
@@ -194,6 +200,7 @@ import java.util.ResourceBundle;
         public void modificarDatos(Clientes clientes){
 
             if(checkCampos()) {
+
                 clientes.setNombre(nombreTextField.getText());
                 clientes.setApellido(apellidoTextField.getText());
                 clientes.setDni(dniTextField.getText());
@@ -201,6 +208,7 @@ import java.util.ResourceBundle;
                 clientes.setDomicilio(domicilioTextField.getText());
                 clientes.setTelefono(telefonoTextField.getText());
                 clientes.setEstado(obtenerEstado());
+                clientes.setCategoria(comboBoxCategoria.getSelectionModel().getSelectedItem());
                 observableList.set(observableList.indexOf(clientes),clientes);
             }
             limpiar();
@@ -211,8 +219,9 @@ import java.util.ResourceBundle;
             observableList.remove(tableCliente.getSelectionModel().getSelectedItem());
         }
         public void limpiar(){
-            ControllersMethods.limpiarTxtField(nombreTextField, apellidoTextField, dniTextField);
+            ControllersMethods.limpiarTxtField(nombreTextField,apellidoTextField,dniTextField,cuitTextField,telefonoTextField,domicilioTextField);
             estadoCheckBox.setSelected(false);
+            comboBoxCategoria.getSelectionModel().clearSelection();
         }
         public void volver(){
             Jackson.serializar(observableList,pathJson);//se trabaja con cache

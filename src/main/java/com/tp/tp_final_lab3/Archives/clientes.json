@@ -1,5 +1,5 @@
 [ {
-  "nombre" : "josefina",
+  "nombre" : "josefinaa",
   "apellido" : "fructuoso",
   "dni" : "41131944",
   "idCliente" : 1,
@@ -9,4 +9,15 @@
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 22 ],
   "categoria" : null
+}, {
+  "nombre" : "Juan Manuel",
+  "apellido" : "Tretta",
+  "dni" : "12121",
+  "idCliente" : 2,
+  "cuit" : "1212133",
+  "domicilio" : "falkner",
+  "telefono" : "111",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 22 ],
+  "categoria" : "Responsable Inscripto"
 } ]

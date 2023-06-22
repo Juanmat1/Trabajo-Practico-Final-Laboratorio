@@ -76,7 +76,7 @@ public class createClientController implements Initializable {
     public void crearCliente() {
 
         clientes = Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/clientes.json", Clientes.class);
-        Clientes clientes1 = new Clientes(textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), Clientes.Estado.Activo);
+        Clientes clientes1 = new Clientes(textNombre.getText(),textApellido.getText(),textDNI.getText(),textCUIT.getText(),textDomicilio.getText(),textTelefono.getText(), Clientes.Estado.Activo,comboBoxCategoria.getSelectionModel().getSelectedItem());
 
         if(textCUIT.getText().isEmpty() || textDomicilio.getText().isEmpty() || textTelefono.getText().isEmpty()
                 || textNombre.getText().isEmpty() || textApellido.getText().isEmpty() || textDNI.getText().isEmpty() || comboBoxCategoria.getSelectionModel().isEmpty())
