@@ -5,7 +5,8 @@
   "id" : 10,
   "precio" : 1000.0,
   "vendedor" : "juanma",
-  "producto" : "Producto 3"
+  "producto" : "Producto 3",
+  "fecha" : null
 }, {
   "cantidad" : 4,
   "categoriaFiscal" : "Responsable Inscripto",
@@ -13,5 +14,6 @@
   "id" : 92752966,
   "precio" : 10000.0,
   "vendedor" : "juanma",
-  "producto" : "Producto 18"
+  "producto" : "Producto 18",
+  "fecha" : null
 } ]

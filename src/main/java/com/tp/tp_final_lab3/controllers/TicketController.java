@@ -38,7 +38,7 @@ public class TicketController implements Initializable {
 
         Ticket ticket = SIngletonTicketClass.getInstancia().getInfo();
 
-        textFecha.setText(localDate.toString());
+        textFecha.setText(ticket.getFecha());
         textCategoria.setText("Cat.Fiscal: "+ticket.getCategoriaFiscal());
         textCantidad.setText(Integer.toString(ticket.getCantidad()));
         textDni.setText("CUIT " + ticket.getDni());

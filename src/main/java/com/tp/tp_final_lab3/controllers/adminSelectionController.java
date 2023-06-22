@@ -25,6 +25,8 @@ public class adminSelectionController {
     private Button closeButton;
     @FXML
     private Button clientesButton;
+    @FXML
+    private Button ticketsButton;
 
     @FXML
     public void buyAction()
@@ -110,6 +112,16 @@ public class adminSelectionController {
     public void proveedoresAction(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/CRUD_Proveedores.fxml"));
+            Stage stage = (Stage) productosButton.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+        }catch (IOException io) {
+            io.printStackTrace();
+        }
+    }
+    public void ticketsAction(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/tp/tp_final_lab3/Views/ADMIN_Tickets.fxml"));
             Stage stage = (Stage) productosButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);

@@ -8,10 +8,12 @@ public class Ticket {
     private int id;
     private double precio;
     private String vendedor;
-
     private String producto;
 
-    public Ticket(int cantidad, String categoriaFiscal, String dni, int id, double precio, String vendedor, String producto) {
+    private String fecha;
+
+    public Ticket(int cantidad, String categoriaFiscal, String dni, int id,
+                  double precio, String vendedor, String producto,String fecha) {
         this.cantidad = cantidad;
         this.categoriaFiscal = categoriaFiscal;
         this.dni = dni;
@@ -19,6 +21,7 @@ public class Ticket {
         this.precio = precio;
         this.vendedor = vendedor;
         this.producto = producto;
+        this.fecha = fecha;
     }
 
     public Ticket() {
@@ -79,6 +82,14 @@ public class Ticket {
 
     public void setProducto(String producto) {
         this.producto = producto;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     //endregion
