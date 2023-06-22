@@ -100,6 +100,7 @@ public class Clientes extends Persona implements Serializable {
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
+
     //endregion
 
 

@@ -5,6 +5,8 @@ import com.tp.tp_final_lab3.Models.Clientes;
 import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,8 +72,7 @@ import java.util.ResourceBundle;
         private TextField apellidoTextField;
         @FXML
         private TextField domicilioTextField;
-        //@FXML
-        //private TextField categoriaTextField;
+
         @FXML
         private ComboBox<String> comboBoxCategoria;
         @FXML
@@ -133,6 +134,16 @@ import java.util.ResourceBundle;
 
 
         }
+        private String opcionElegida;
+
+        private ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (newValue != null) {
+                    opcionElegida = newValue;
+                }
+            }
+        };
         public void actualizar(){
             Clientes clientes = tableCliente.getSelectionModel().getSelectedItem();
             if(clientes != null) {
@@ -229,6 +240,13 @@ import java.util.ResourceBundle;
         private void mostrarOpciones(ActionEvent event) {
 
             comboBoxCategoria.show();
+        }
+        @FXML
+        public void cargarCategorias() {
+
+            setCategorias();
+
+            comboBoxCategoria.getSelectionModel().selectedItemProperty().addListener(opcionSeleccionadaListener);
         }
 
 
