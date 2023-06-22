@@ -32,7 +32,7 @@ public class createClientController implements Initializable {
 
     private String opcionElegida;
 
-    private ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
+    private final ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
         @Override
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
             if (newValue != null) {

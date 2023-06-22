@@ -10,7 +10,6 @@ import com.tp.tp_final_lab3.SingletonClasses.SingletonClienteClass;
 import com.tp.tp_final_lab3.SingletonClasses.SingletonUsuarioClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,11 +27,11 @@ import java.util.*;
 public class usuarioVenderController implements Initializable {
     private final String pathJsonProductos = "src/main/java/com/tp/tp_final_lab3/Archives/productos.json";
     private final String pathJsonProveedores = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
-    private ObservableList<Producto> observableListProducto = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProductos, Producto.class));
+    private final ObservableList<Producto> observableListProducto = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonProductos, Producto.class));
 
-    private ObservableList<Ticket> observableTicket =
+    private final ObservableList<Ticket> observableTicket =
             FXCollections.observableArrayList(Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/tickets.json", Ticket.class));
-    private Producto producto = new Producto();
+    private final Producto producto = new Producto();
     @FXML
     private ComboBox<Integer> comboBoxCant;
     @FXML

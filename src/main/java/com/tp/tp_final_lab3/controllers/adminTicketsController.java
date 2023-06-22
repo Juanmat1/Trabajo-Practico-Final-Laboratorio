@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 public class adminTicketsController implements Initializable {
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/tickets.json";
-    private ObservableList<Ticket> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Ticket.class));
+    private final ObservableList<Ticket> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Ticket.class));
 
     @FXML
     private TableColumn<Ticket, Integer> columnCantidad;

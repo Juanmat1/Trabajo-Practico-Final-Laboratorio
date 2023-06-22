@@ -1,14 +1,11 @@
 package com.tp.tp_final_lab3.controllers;
 
-import com.tp.tp_final_lab3.Models.Categorias;
 import com.tp.tp_final_lab3.Models.Delta;
 import com.tp.tp_final_lab3.Models.Proveedor;
-import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,7 +23,7 @@ import java.util.ResourceBundle;
 public class crudProveedoresController implements Initializable,ICrud{
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
-    private ObservableList<Proveedor> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Proveedor.class));
+    private final ObservableList<Proveedor> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Proveedor.class));
     @FXML
     private Button actualizarButton;
 
@@ -190,21 +187,6 @@ public class crudProveedoresController implements Initializable,ICrud{
         actualizarButton.setText("Actualizar");
         actualizarButton.setOnAction(event -> actualizar());
     }
-    /*public void modificar(Usuario usuario){
-
-        if(checkCampos()) {
-            usuario.setNombre(nombreTextField.getText());
-            usuario.setApellido(apellidoTextField.getText());
-            usuario.setDni(dniTextField.getText());
-            usuario.setUsuario(usuarioTextField.getText());
-            usuario.setContrasenia(contraseniaTextField.getText());
-            usuario.setEstado(obtenerEstado());
-            observableList.set(observableList.indexOf(usuario),usuario);
-        }
-        limpiar();
-        actualizarButton.setText("Actualizar");
-        actualizarButton.setOnAction(event -> actualizar());
-    }*/
 
     @Override
     public void borrar() {

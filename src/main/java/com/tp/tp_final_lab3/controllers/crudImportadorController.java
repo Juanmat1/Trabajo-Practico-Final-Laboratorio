@@ -33,7 +33,7 @@ public class crudImportadorController implements Initializable,ICrud {
             Jackson.deserializarArrayList("src/main/java/com/tp/tp_final_lab3/Archives/productos.json", Producto.class);
     private final ObservableList<Pedido> observablePedido = FXCollections.observableArrayList();
     private final ObservableList<Producto> observableProducto = FXCollections.observableArrayList();
-        private final ObservableList<Proveedor> observableProveedor = FXCollections.observableArrayList(listaProveedores);
+
     //endregion
 
     //region FXML

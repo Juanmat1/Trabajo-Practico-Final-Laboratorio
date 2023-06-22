@@ -31,7 +31,7 @@ public class TicketController implements Initializable {
     @FXML
     private Text textFecha;
 
-    private final LocalDate localDate = LocalDate.now();
+
     //endregion
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

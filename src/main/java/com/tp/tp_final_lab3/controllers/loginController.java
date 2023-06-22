@@ -17,7 +17,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,7 +44,7 @@ public class loginController implements Initializable {
     private Button buttonClose;
 
     @FXML
-    public void loginAction(ActionEvent actionEvent) {
+    public void loginAction() {
 
 
         String pathJsonUsers = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";

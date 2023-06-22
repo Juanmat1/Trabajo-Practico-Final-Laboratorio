@@ -4,7 +4,6 @@ package com.tp.tp_final_lab3.Repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.tp.tp_final_lab3.Models.*;
 import com.tp.tp_final_lab3.Models.ApiCotizaciones.ExchangeRates;
 
 import java.io.File;

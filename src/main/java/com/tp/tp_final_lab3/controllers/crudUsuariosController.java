@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class crudUsuariosController implements Initializable, ICrud {
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
-    private ObservableList<Usuario> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Usuario.class));
+    private final ObservableList<Usuario> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Usuario.class));
 
 
     @FXML

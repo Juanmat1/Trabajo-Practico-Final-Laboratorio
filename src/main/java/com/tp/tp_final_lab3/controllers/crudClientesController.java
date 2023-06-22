@@ -2,7 +2,6 @@ package com.tp.tp_final_lab3.controllers;
 
 import com.tp.tp_final_lab3.Models.CategoriaFiscal;
 import com.tp.tp_final_lab3.Models.Clientes;
-import com.tp.tp_final_lab3.Models.Usuario;
 import com.tp.tp_final_lab3.Repository.Jackson;
 import com.tp.tp_final_lab3.Services.ControllersMethods;
 import javafx.beans.value.ChangeListener;
@@ -27,7 +26,7 @@ import java.util.ResourceBundle;
 public class crudClientesController implements Initializable {
 
     private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/clientes.json";
-    private ObservableList<Clientes> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson, Clientes.class));
+    private  final ObservableList<Clientes> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson, Clientes.class));
     @FXML
     private TableView<Clientes> tableCliente;
     @FXML
@@ -145,7 +144,7 @@ public class crudClientesController implements Initializable {
 
     private String opcionElegida;
 
-    private ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
+    private final ChangeListener<String> opcionSeleccionadaListener = new ChangeListener<String>() {
         @Override
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
             if (newValue != null) {

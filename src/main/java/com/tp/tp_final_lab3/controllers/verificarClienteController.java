@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class verificarClienteController {
     private final String pathJsonClientes = "src/main/java/com/tp/tp_final_lab3/Archives/clientes.json";
-    private ObservableList<Clientes> clientes = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonClientes, Clientes.class));
+    private final ObservableList<Clientes> clientes = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJsonClientes, Clientes.class));
     @FXML
     private TextField dniTextField;
 
