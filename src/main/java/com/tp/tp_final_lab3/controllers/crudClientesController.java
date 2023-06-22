@@ -24,7 +24,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
-    public class crudClientesController implements Initializable {
+    public class crudClientesController implements Initializable, ICrud {
 
         private final String pathJson = "src/main/java/com/tp/tp_final_lab3/Archives/clientes.json";
         private ObservableList<Clientes> observableList = FXCollections.observableArrayList(Jackson.deserializarArrayList(pathJson,Clientes.class));
