@@ -139,7 +139,7 @@
   "nombre" : "Producto 18",
   "categoria" : "CAMPING",
   "proveedor" : "Proveedor R",
-  "stock" : 16,
+  "stock" : 10,
   "estado" : "Activo",
   "precio" : 0.0
 }, {

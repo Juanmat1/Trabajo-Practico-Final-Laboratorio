@@ -16,4 +16,13 @@
   "vendedor" : "juanma",
   "producto" : "Producto 18",
   "fecha" : null
+}, {
+  "cantidad" : 6,
+  "categoriaFiscal" : null,
+  "dni" : "123",
+  "id" : 64024892,
+  "precio" : 1000.0,
+  "vendedor" : "juanma",
+  "producto" : "Producto 18",
+  "fecha" : "2023-06-22"
 } ]

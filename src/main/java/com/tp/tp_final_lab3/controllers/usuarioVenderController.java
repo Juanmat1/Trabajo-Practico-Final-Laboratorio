@@ -157,7 +157,7 @@ public class usuarioVenderController implements Initializable {
 
                 ticket.setId(random.nextInt(100000, 100000000));
 
-                ticket.setCategoriaFiscal("Responsable Inscripto");//Esperar que jose termine clientes
+                ticket.setCategoriaFiscal(SingletonClienteClass.getInstancia().getInfo().getCategoria());//Esperar que jose termine clientes
                 ticket.setProducto(producto.getNombre());
                 ticket.setVendedor(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
                 ticket.setPrecio(Double.parseDouble(textPrecio.getText()));

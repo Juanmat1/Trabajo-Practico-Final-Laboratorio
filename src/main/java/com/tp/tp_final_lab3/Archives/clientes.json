@@ -42,4 +42,15 @@
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 21 ],
   "categoria" : null
+}, {
+  "nombre" : "Juana",
+  "apellido" : "sdd",
+  "dni" : "2323",
+  "idCliente" : 6,
+  "cuit" : "233",
+  "domicilio" : "fdw",
+  "telefono" : "32332",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 22 ],
+  "categoria" : "Responsable Inscripto"
 } ]
