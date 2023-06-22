@@ -154,6 +154,7 @@ public class crudAdminImportador implements Initializable {
 
         setearColumnasStock();
 
+
         alinearTablas();
 
         cargarArrayPedidos();
@@ -168,7 +169,7 @@ public class crudAdminImportador implements Initializable {
             try{
                 Pedido pedido = new Pedido(obtenerIDProveedor(comboBoxProduc.getSelectionModel().getSelectedItem()),comboBoxCantidad.getSelectionModel().getSelectedItem(),
                         comboBoxProduc.getSelectionModel().getSelectedItem(),comboBoxCat.getSelectionModel().getSelectedItem(),
-                        Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada", SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
+                        Integer.parseInt(textPrecio.getText()),textFechac.getValue().toString(),"nada", "ADMIN");
 
                 observablePedido.add(pedido);
 
@@ -194,6 +195,11 @@ public class crudAdminImportador implements Initializable {
     public void borrarPedido()
     {
         observablePedido.remove(tablePedidos.getSelectionModel().getSelectedItem());
+        actualizarListaPedidos();
+        Jackson.serializar(listaPedidos,"src/main/java/com/tp/tp_final_lab3/Archives/pedidos.json");
+        tablePedidos.getItems().clear();
+        cargarArrayPedidos();
+        Pedido.ultimoId--;
     }
     public void cerrarSesion()
     {
@@ -501,7 +507,6 @@ public class crudAdminImportador implements Initializable {
         ControllersMethods.alinearTabla(tableGCat);
         ControllersMethods.alinearTabla(tableGStock);
         ControllersMethods.alinearTabla(tableGProduct);
-
     }
 
 

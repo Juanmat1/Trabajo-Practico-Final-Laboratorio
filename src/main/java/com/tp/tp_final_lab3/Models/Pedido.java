@@ -15,14 +15,23 @@ public class Pedido implements Comparable<Pedido> {
     private String fechaCompra;
     private String descripcion;
     private String username;
+    private static boolean flag = true;
+    public static int ultimoId;
 
 
     public Pedido( int idProveedor, int cantidad,
                   String nombre, String categoria, int precioCompra, String fechaCompra,
                   String descripcion, String username)
     {
-        int ultimoID = ultimoID();
-        this.idOrdenDcompra = ultimoID + 1;
+
+        if(flag)
+        {
+            Pedido.ultimoId = Pedido.ultimoID();
+            flag= false;
+        }
+        this.idOrdenDcompra = ultimoId + 1;
+        Pedido.ultimoId++;
+
         this.idProveedor = idProveedor;
         this.cantidad = cantidad;
         this.nombre = nombre;
@@ -135,7 +144,7 @@ public class Pedido implements Comparable<Pedido> {
 
 
 
-    private int ultimoID()
+    private static int ultimoID()
     {
         int ultimoId;
 

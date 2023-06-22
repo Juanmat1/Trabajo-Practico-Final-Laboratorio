@@ -3,7 +3,7 @@
   "nombre" : "Producto 1",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor A",
-  "stock" : 7,
+  "stock" : 11,
   "estado" : "Activo"
 }, {
   "id" : 2,
@@ -129,14 +129,14 @@
   "nombre" : "Samsung",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "Proveedor E",
-  "stock" : 45,
+  "stock" : 55,
   "estado" : "Activo"
 }, {
   "id" : 20,
   "nombre" : "S23 Ultra 1TB",
   "categoria" : "TECNOLOGIA",
   "proveedor" : "SAMSUNG",
-  "stock" : 105,
+  "stock" : 112,
   "estado" : "Activo"
 }, {
   "id" : 21,
@@ -144,5 +144,33 @@
   "categoria" : "TECNOLOGIA",
   "proveedor" : "SAMSUNG",
   "stock" : 13,
+  "estado" : "Activo"
+}, {
+  "id" : 22,
+  "nombre" : "camion",
+  "categoria" : "ELECTRODOMESTICOS",
+  "proveedor" : "OSRAM",
+  "stock" : 2,
+  "estado" : "Inactivo"
+}, {
+  "id" : 22,
+  "nombre" : "camion",
+  "categoria" : "ELECTRODOMESTICOS",
+  "proveedor" : "OSRAM",
+  "stock" : 2,
+  "estado" : "Inactivo"
+}, {
+  "id" : 23,
+  "nombre" : "juanma",
+  "categoria" : "TECNOLOGIA",
+  "proveedor" : "OSRAM",
+  "stock" : 10,
+  "estado" : "Activo"
+}, {
+  "id" : 24,
+  "nombre" : "123",
+  "categoria" : "HOGAR",
+  "proveedor" : "OSRAM",
+  "stock" : 211,
   "estado" : "Activo"
 } ]

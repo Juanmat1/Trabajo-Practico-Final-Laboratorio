@@ -52,4 +52,22 @@
   "id" : 6,
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "adada",
+  "apellido" : "dada",
+  "dni" : "ddsd",
+  "usuario" : "adada",
+  "contrasenia" : "2222",
+  "id" : 7,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "sdsds",
+  "apellido" : "dsdsd",
+  "dni" : "dsdds",
+  "usuario" : "dssdd",
+  "contrasenia" : "dsds",
+  "id" : 7,
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 } ]

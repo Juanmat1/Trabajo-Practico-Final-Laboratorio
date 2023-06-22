@@ -18,4 +18,24 @@
   "telefono" : "1234",
   "estado" : "Activo",
   "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Juan",
+  "apellido" : "Manuel",
+  "dni" : "1234",
+  "idCliente" : 3,
+  "cuit" : "212122",
+  "domicilio" : "falkner 49",
+  "telefono" : "22334",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Juan",
+  "apellido" : "Manuel",
+  "dni" : "121212",
+  "idCliente" : 4,
+  "cuit" : "3133",
+  "domicilio" : "falkner 4951",
+  "telefono" : "2223049085",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 } ]

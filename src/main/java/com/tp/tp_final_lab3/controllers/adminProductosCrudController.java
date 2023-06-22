@@ -16,9 +16,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
+
 import java.util.ResourceBundle;
-import java.util.stream.Stream;
+
 
 public class adminProductosCrudController implements Initializable {
 
@@ -114,7 +114,9 @@ public class adminProductosCrudController implements Initializable {
 
     public void borrar()
     {
-        observableListProd.remove(tableProductos.getSelectionModel().getSelectedItem());
+        Producto producto = tableProductos.getSelectionModel().getSelectedItem();
+        producto.setEstado(Producto.Estado.Inactivo);
+        observableListProd.set(observableListProd.indexOf(producto),producto);
     }
 
     public void limpiar()
