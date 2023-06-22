@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.adminProductosCrudController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../../../../CSS/Style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tp.tp_final_lab3.controllers.adminProductosCrudController">
    <children>
-      <TableView fx:id="tableProductos" layoutX="286.0" layoutY="32.0" prefHeight="336.0" prefWidth="478.0">
+      <TableView fx:id="tableProductos" layoutX="255.0" layoutY="32.0" prefHeight="336.0" prefWidth="534.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="34.0" text="ID" />
           <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
             <TableColumn fx:id="categoriaCollum" prefWidth="111.0" text="Categoria" />
             <TableColumn fx:id="proveedorCollum" prefWidth="111.0" text="Proveedor" />
             <TableColumn fx:id="stockCollum" prefWidth="64.0" text="Stock" />
+            <TableColumn fx:id="precioColumn" prefWidth="64.0" text="Precio" />
             <TableColumn fx:id="estadoColumn" prefWidth="78.0" text="Estado" />
         </columns>
       </TableView>
       <AnchorPane layoutX="26.0" layoutY="55.0" prefHeight="242.0" prefWidth="205.0">
          <children>
-            <TextField fx:id="nombreTextField" layoutX="32.0" layoutY="32.0" promptText="Nombre" />
+            <TextField fx:id="nombreTextField" layoutX="32.0" layoutY="14.0" promptText="Nombre" />
             <CheckBox fx:id="estadoCheckBox" layoutY="187.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="213.0" text="Estado(click para habilitar producto)" textAlignment="RIGHT" wrapText="true" />
-            <ComboBox fx:id="categoriaComboBox" layoutX="32.0" layoutY="67.0" prefWidth="150.0" promptText="Categoria" />
-            <ComboBox fx:id="proveedorComboBox" layoutX="31.0" layoutY="96.0" prefWidth="150.0" promptText="Proveedor" />
-            <TextField fx:id="stockTextArea" layoutX="31.0" layoutY="131.0" />
+            <ComboBox fx:id="categoriaComboBox" layoutX="31.0" layoutY="46.0" prefWidth="150.0" promptText="Categoria" />
+            <ComboBox fx:id="proveedorComboBox" layoutX="31.0" layoutY="76.0" prefWidth="150.0" promptText="Proveedor" />
+            <TextField fx:id="stockTextArea" layoutX="31.0" layoutY="110.0" promptText="Stock" />
+            <TextField fx:id="precioTextArea" layoutX="32.0" layoutY="142.0" promptText="Valor" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="12.0" layoutY="270.0" prefHeight="70.0" prefWidth="231.0">

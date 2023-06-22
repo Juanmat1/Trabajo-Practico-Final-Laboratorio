@@ -16,11 +16,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
-import java.util.ResourceBundle;
-import java.util.stream.Stream;
 
-public class adminProductosCrudController implements Initializable {
+import java.util.ResourceBundle;
+
+
+public class adminProductosCrudController implements Initializable,ICrud {
 
     //region LISTAS
     private final String pathJsonProv = "src/main/java/com/tp/tp_final_lab3/Archives/proveedores.json";
@@ -61,11 +61,15 @@ public class adminProductosCrudController implements Initializable {
     @FXML
     private TableColumn<Producto,String> proveedorCollum;
     @FXML
+    private TableColumn<Producto,String> precioColumn;
+    @FXML
     private TableView<Producto> tableProductos;
     @FXML
     private TextField nombreTextField;
     @FXML
     private TextField stockTextArea;
+    @FXML
+    private TextField precioTextArea;
 
     //endregion
     @Override
@@ -82,6 +86,7 @@ public class adminProductosCrudController implements Initializable {
     }
 
     //region METODOS PRINCIPALES
+    @Override
     public void agregar()
     {
         if (checkCampos()) {
@@ -89,7 +94,7 @@ public class adminProductosCrudController implements Initializable {
                 Producto producto = new Producto(nombreTextField.getText(),
                         categoriaComboBox.getSelectionModel().getSelectedItem(),
                         proveedorComboBox.getSelectionModel().getSelectedItem(),
-                        Integer.parseInt(stockTextArea.getText()),obtenerEstado());
+                        Integer.parseInt(stockTextArea.getText()),obtenerEstado(),Double.parseDouble(precioTextArea.getText()));
                 if (busquedaProducto(producto.getNombre(),producto.getCategoria()))
                 {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -111,21 +116,24 @@ public class adminProductosCrudController implements Initializable {
         limpiar();
 
     }
-
+    @Override
     public void borrar()
     {
-        observableListProd.remove(tableProductos.getSelectionModel().getSelectedItem());
+        Producto producto = tableProductos.getSelectionModel().getSelectedItem();
+        producto.setEstado(Producto.Estado.Inactivo);
+        observableListProd.set(observableListProd.indexOf(producto),producto);
     }
-
+    @Override
     public void limpiar()
     {
         nombreTextField.clear();
+        precioTextArea.clear();
         proveedorComboBox.getSelectionModel().clearSelection();
         categoriaComboBox.getSelectionModel().clearSelection();
         stockTextArea.clear();
         estadoCheckBox.setSelected(true);
     }
-
+    @Override
     public void actualizar()
     {
         Producto producto = tableProductos.getSelectionModel().getSelectedItem();
@@ -134,6 +142,7 @@ public class adminProductosCrudController implements Initializable {
         stockTextArea.setText(Integer.toString(producto.getStock()));
         proveedorComboBox.getSelectionModel().select(obtenerIndexProveedor(producto.getProveedor()));
         categoriaComboBox.getSelectionModel().select(obtenerIndexCategoria(producto.getCategoria()));
+        precioTextArea.setText(Double.toString(producto.getPrecio()));
 
         actualizarButton.setText("Guardar");
         actualizarButton.setOnAction(event->{
@@ -150,6 +159,7 @@ public class adminProductosCrudController implements Initializable {
             producto.setProveedor(proveedorComboBox.getSelectionModel().getSelectedItem());
             producto.setEstado(obtenerEstado());
             producto.setStock(Integer.parseInt(stockTextArea.getText()));
+            producto.setPrecio(Double.parseDouble(precioTextArea.getText()));
 
             observableListProd.set(observableListProd.indexOf(producto),producto);
             limpiar();
@@ -194,12 +204,14 @@ public class adminProductosCrudController implements Initializable {
         return producto.getEstado().equals(Producto.Estado.Activo);
     }
 
-    private boolean checkCampos()
+
+    @Override
+    public boolean checkCampos()
     {
         boolean status = false;
 
         if(nombreTextField.getText().isEmpty() || categoriaComboBox.getSelectionModel().isEmpty()
-                || proveedorComboBox.getSelectionModel().isEmpty()||stockTextArea.getText().isEmpty() )
+                || proveedorComboBox.getSelectionModel().isEmpty()||stockTextArea.getText().isEmpty()||precioTextArea.getText().isEmpty() )
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error en los campos,reviselos");
@@ -243,6 +255,7 @@ public class adminProductosCrudController implements Initializable {
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
         stockCollum.setCellValueFactory(new PropertyValueFactory<>("stock"));
         proveedorCollum.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
+        precioColumn.setCellValueFactory(new PropertyValueFactory<>("precio"));
     }
 
     public void alinearTabla()
@@ -253,6 +266,7 @@ public class adminProductosCrudController implements Initializable {
         ControllersMethods.alinearTabla(estadoColumn);
         ControllersMethods.alinearTabla(stockCollum);
         ControllersMethods.alinearTabla(proveedorCollum);
+        ControllersMethods.alinearTabla(precioColumn);
     }
 
     public boolean busquedaProducto(String nombre, String categoria) {

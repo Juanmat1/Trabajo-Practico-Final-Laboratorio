@@ -40,12 +40,22 @@
   "username" : "juanma"
 }, {
   "idOrdenDcompra" : 5,
-  "idProveedor" : 4,
+  "idProveedor" : 0,
   "cantidad" : 5,
-  "nombre" : "S23 Ultra 1TB",
+  "nombre" : "Samsung",
   "categoria" : "TECNOLOGIA",
-  "precioCompra" : 1,
-  "fechaCompra" : "2023-06-30",
+  "precioCompra" : 1000,
+  "fechaCompra" : "2023-06-22",
   "descripcion" : "nada",
-  "username" : "fede"
+  "username" : "ADMIN"
+}, {
+  "idOrdenDcompra" : 6,
+  "idProveedor" : 0,
+  "cantidad" : 4,
+  "nombre" : "Producto 1",
+  "categoria" : "TECNOLOGIA",
+  "precioCompra" : 11,
+  "fechaCompra" : "2023-06-07",
+  "descripcion" : "nada",
+  "username" : "ADMIN"
 } ]

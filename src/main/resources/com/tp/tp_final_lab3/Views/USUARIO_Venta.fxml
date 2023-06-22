@@ -12,7 +12,7 @@
             </font>
         </Text>
         <Button fx:id="verificarButton" layoutX="104.0" layoutY="167.0" mnemonicParsing="false" onAction="#verificar" text="Verificar cliente" />
-        <Button fx:id="crearButton" layoutX="104.0" layoutY="200.0" mnemonicParsing="false" onAction="#crear" prefHeight="26.0" prefWidth="101.0" text="Crear cliente" />
+        <Button fx:id="crearButton" layoutX="104.0" layoutY="200.0" mnemonicParsing="false" onAction="#crear" prefHeight="26.0" prefWidth="98.0" text="Crear cliente" />
         <Button fx:id="volverButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#volver" text="Volver" />
     </children>
 </AnchorPane>

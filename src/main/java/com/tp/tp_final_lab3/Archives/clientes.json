@@ -1,23 +1,41 @@
 [ {
-  "nombre" : "josefinaa",
+  "nombre" : "josefin",
   "apellido" : "fructuoso",
-  "dni" : "41131944",
+  "dni" : "12345",
   "idCliente" : 1,
-  "cuit" : "27411319447",
+  "cuit" : "123456",
   "domicilio" : "chubut 123",
-  "telefono" : "155702569",
+  "telefono" : "12345",
   "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 22 ],
-  "categoria" : null
+  "fechaCreacion" : [ 2023, 6, 21 ]
 }, {
-  "nombre" : "Juan Manuel",
-  "apellido" : "Tretta",
-  "dni" : "12121",
+  "nombre" : "josefin",
+  "apellido" : "gonzalez",
+  "dni" : "123",
   "idCliente" : 2,
-  "cuit" : "1212133",
-  "domicilio" : "falkner",
-  "telefono" : "111",
+  "cuit" : "1234",
+  "domicilio" : "chubut 123",
+  "telefono" : "1234",
   "estado" : "Activo",
-  "fechaCreacion" : [ 2023, 6, 22 ],
-  "categoria" : "Responsable Inscripto"
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Juan",
+  "apellido" : "Manuel",
+  "dni" : "1234",
+  "idCliente" : 3,
+  "cuit" : "212122",
+  "domicilio" : "falkner 49",
+  "telefono" : "22334",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
+}, {
+  "nombre" : "Juan",
+  "apellido" : "Manuel",
+  "dni" : "121212",
+  "idCliente" : 4,
+  "cuit" : "3133",
+  "domicilio" : "falkner 4951",
+  "telefono" : "2223049085",
+  "estado" : "Activo",
+  "fechaCreacion" : [ 2023, 6, 21 ]
 } ]
