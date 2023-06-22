@@ -58,4 +58,14 @@ public class ControllersMethods {
         }
         return false;
     }
+    public static boolean contieneLetras(String... texto){
+        for (String text : texto) {
+            Pattern patron = Pattern.compile("[a-zA-Z]");
+            Matcher matcher = patron.matcher(text);
+            if (matcher.find()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

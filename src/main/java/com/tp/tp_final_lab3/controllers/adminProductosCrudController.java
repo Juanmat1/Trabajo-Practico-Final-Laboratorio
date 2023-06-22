@@ -90,27 +90,33 @@ public class adminProductosCrudController implements Initializable,ICrud {
     public void agregar()
     {
         if (checkCampos()) {
-            try {
-                Producto producto = new Producto(nombreTextField.getText(),
-                        categoriaComboBox.getSelectionModel().getSelectedItem(),
-                        proveedorComboBox.getSelectionModel().getSelectedItem(),
-                        Integer.parseInt(stockTextArea.getText()),obtenerEstado(),Double.parseDouble(precioTextArea.getText()));
-                if (busquedaProducto(producto.getNombre(),producto.getCategoria()))
-                {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText("No se puede agregar un producto ya existente");
-                    alert.showAndWait();
-                }else {
-                    observableListProd.add(producto);
-                }
-            } catch (Exception e) {
+            if (ControllersMethods.contieneLetras(stockTextArea.getText(), precioTextArea.getText())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error en los campos,reviselos");
-                alert.setContentText("Algunos de los campos es " +
-                        "incorrecto revise de no poner letras en los campos con numeros");
+                alert.setTitle("Error para agregar");
+                alert.setContentText("Verifique de no poner caracteres invalidos");
                 alert.showAndWait();
-                e.printStackTrace();
+            } else {
+                try {
+                    Producto producto = new Producto(nombreTextField.getText(),
+                            categoriaComboBox.getSelectionModel().getSelectedItem(),
+                            proveedorComboBox.getSelectionModel().getSelectedItem(),
+                            Integer.parseInt(stockTextArea.getText()), obtenerEstado(), Double.parseDouble(precioTextArea.getText()));
+                    if (busquedaProducto(producto.getNombre(), producto.getCategoria())) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setContentText("No se puede agregar un producto ya existente");
+                        alert.showAndWait();
+                    } else {
+                        observableListProd.add(producto);
+                    }
+                } catch (Exception e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error en los campos,reviselos");
+                    alert.setContentText("Algunos de los campos es " +
+                            "incorrecto revise de no poner letras en los campos con numeros");
+                    alert.showAndWait();
+                    e.printStackTrace();
+                }
             }
         }
         limpiar();

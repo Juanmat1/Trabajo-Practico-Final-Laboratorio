@@ -106,24 +106,32 @@ public class crudUsuariosController implements Initializable, ICrud {
     @Override
     public void agregar() {
         if (checkCampos()) {
-            try {
-                Usuario usuario = new Usuario(nombreTextField.getText(),apellidoTextField.getText(),dniTextField.getText(),
-                        usuarioTextField.getText(),contraseniaTextField.getText(),obtenerEstado());
-                if (observableList.contains(usuario)){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText("No se puede agregar un usuario ya existente");
-                    alert.showAndWait();
-                }else {
-                    observableList.add(usuario);
-                }
-            } catch (Exception e) {
+            if (ControllersMethods.contieneNumeros(nombreTextField.getText(), apellidoTextField.getText()) || ControllersMethods.contieneLetras(dniTextField.getText())) {
+
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error en los campos,reviselos");
-                alert.setContentText("Algunos de los campos es " +
-                        "incorrecto revise de no poner letras en los campos con numeros");
+                alert.setTitle("Error para agregar");
+                alert.setContentText("Verifique de no poner caracteres invalidos");
                 alert.showAndWait();
-                e.printStackTrace();
+            } else {
+                try {
+                    Usuario usuario = new Usuario(nombreTextField.getText(), apellidoTextField.getText(), dniTextField.getText(),
+                            usuarioTextField.getText(), contraseniaTextField.getText(), obtenerEstado());
+                    if (observableList.contains(usuario)) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setContentText("No se puede agregar un usuario ya existente");
+                        alert.showAndWait();
+                    } else {
+                        observableList.add(usuario);
+                    }
+                } catch (Exception e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error en los campos,reviselos");
+                    alert.setContentText("Algunos de los campos es " +
+                            "incorrecto revise de no poner letras en los campos con numeros");
+                    alert.showAndWait();
+                    e.printStackTrace();
+                }
             }
         }
         actualizarButton.setText("Actualizar");
@@ -180,13 +188,21 @@ public class crudUsuariosController implements Initializable, ICrud {
     public void modificar(Usuario usuario){
 
         if(checkCampos()) {
-            usuario.setNombre(nombreTextField.getText());
-            usuario.setApellido(apellidoTextField.getText());
-            usuario.setDni(dniTextField.getText());
-            usuario.setUsuario(usuarioTextField.getText());
-            usuario.setContrasenia(contraseniaTextField.getText());
-            usuario.setEstado(obtenerEstado());
-            observableList.set(observableList.indexOf(usuario),usuario);
+            if (ControllersMethods.contieneNumeros(nombreTextField.getText(), apellidoTextField.getText()) || ControllersMethods.contieneLetras(dniTextField.getText())) {
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error para agregar");
+                alert.setContentText("Verifique de no poner caracteres invalidos");
+                alert.showAndWait();
+            }else {
+                usuario.setNombre(nombreTextField.getText());
+                usuario.setApellido(apellidoTextField.getText());
+                usuario.setDni(dniTextField.getText());
+                usuario.setUsuario(usuarioTextField.getText());
+                usuario.setContrasenia(contraseniaTextField.getText());
+                usuario.setEstado(obtenerEstado());
+                observableList.set(observableList.indexOf(usuario), usuario);
+            }
         }
         limpiar();
         actualizarButton.setText("Actualizar");
