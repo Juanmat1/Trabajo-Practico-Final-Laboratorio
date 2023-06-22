@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.*;
 
 public class usuarioVenderController implements Initializable {
@@ -142,6 +143,7 @@ public class usuarioVenderController implements Initializable {
           ticket.setDni(SingletonClienteClass.getInstancia().getInfo().getDni());
 
           Random random = new Random();
+          LocalDate localDate = LocalDate.now();
 
           ticket.setId(random.nextInt(100000,100000000));
 
@@ -149,6 +151,7 @@ public class usuarioVenderController implements Initializable {
           ticket.setProducto(producto.getNombre());
           ticket.setVendedor(SingletonUsuarioClass.getInstancia().getInfo().getUsuario());
           ticket.setPrecio(Double.parseDouble(textPrecio.getText()));
+          ticket.setFecha(localDate.toString());
 
           SIngletonTicketClass.getInstancia().SetInfo(ticket);
 
