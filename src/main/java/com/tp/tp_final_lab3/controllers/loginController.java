@@ -15,10 +15,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -45,6 +52,15 @@ public class loginController implements Initializable {
 
     @FXML
     public void loginAction() {
+
+
+
+            File file1 = new File("src/main/resources/Sound/miguel-oharris-spider-man-2099.mp3");
+
+
+            Media media = new Media(file1.toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
 
 
         String pathJsonUsers = "src/main/java/com/tp/tp_final_lab3/Archives/usuarios.json";
