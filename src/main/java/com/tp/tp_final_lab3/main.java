@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 
 import javafx.stage.Stage;
@@ -34,6 +36,7 @@ public class main extends Application {
         stage.getIcons().add(image);
         stage.setTitle("TP Final 3");
         stage.setScene(scene);
+
 
         scene.setFill(Color.TRANSPARENT);
         Delta.dragScene(stage,scene);
