@@ -29,24 +29,26 @@ public class ControllersMethods {
             textField.clear();
         }
     }
-    public static <S,T> void alinearTabla(TableColumn<S, T> column) { //centra los datos de la tableView
-        column.setCellFactory(new Callback<>() {
-            @Override
-            public TableCell<S, T> call(TableColumn<S, T> param) {
-                return new TableCell<>() {
-                    @Override
-                    protected void updateItem(T item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (item != null && !empty) {
-                            setText(item.toString());
-                            setAlignment(javafx.geometry.Pos.CENTER);
-                        } else {
-                            setText(null);
+    public static <S,T> void alinearTabla(TableColumn<S, T>... columns) { //centra los datos de la tableView
+        for(TableColumn<S, T> column : columns) {
+            column.setCellFactory(new Callback<>() {
+                @Override
+                public TableCell<S, T> call(TableColumn<S, T> param) {
+                    return new TableCell<>() {
+                        @Override
+                        protected void updateItem(T item, boolean empty) {
+                            super.updateItem(item, empty);
+                            if (item != null && !empty) {
+                                setText(item.toString());
+                                setAlignment(javafx.geometry.Pos.CENTER);
+                            } else {
+                                setText(null);
+                            }
                         }
-                    }
-                };
-            }
-        });
+                    };
+                }
+            });
+        }
     }
     public static boolean contieneNumeros(String... texto) {
         for (String text : texto) {

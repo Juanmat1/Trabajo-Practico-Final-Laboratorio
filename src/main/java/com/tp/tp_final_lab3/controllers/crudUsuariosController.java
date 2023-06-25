@@ -93,11 +93,8 @@ public class crudUsuariosController implements Initializable, ICrud {
         fechaCreacionColumn.setCellValueFactory(new PropertyValueFactory<>("fechaCreacion"));
         estadoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
+        ControllersMethods.alinearTabla(nombreColumn,apellidoColumn,dniColumn,usuarioColumn);
         ControllersMethods.alinearTabla(idColumn);
-        ControllersMethods.alinearTabla(nombreColumn);
-        ControllersMethods.alinearTabla(apellidoColumn);
-        ControllersMethods.alinearTabla(dniColumn);
-        ControllersMethods.alinearTabla(usuarioColumn);
         ControllersMethods.alinearTabla(fechaCreacionColumn);
         ControllersMethods.alinearTabla(estadoColumn);
 

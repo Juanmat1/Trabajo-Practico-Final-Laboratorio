@@ -6,13 +6,15 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ConsultaVenta {
 
-    public static void filtrarComboBox(){
+    public static void filtrarComboBox() {
 
     }
-    public static void filtrarProducto(Producto producto, TableView tableProductos, ObservableList<Producto> productos) {
+
+    /*public static void filtrarProducto(Producto producto, TableView tableProductos, ObservableList<Producto> productos) {
 
         String proveedor = producto.getProveedor();
 
@@ -26,5 +28,16 @@ public class ConsultaVenta {
             }
         }
         tableProductos.setItems(FXCollections.observableArrayList(productosFiltrados));
+    }*/
+    public static void filtrarProducto(Producto producto, TableView tableProductos, ObservableList<Producto> productos) {
+        String proveedor = producto.getProveedor();
+
+        ArrayList<Producto> productosFiltrados = productos.stream()
+                .filter(prov -> proveedor == null || proveedor.equals(prov.getProveedor()))
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        ObservableList<Producto> productosFiltradosObservable = FXCollections.observableList(productosFiltrados);
+
+        tableProductos.setItems(FXCollections.observableArrayList(productosFiltradosObservable));
     }
 }
